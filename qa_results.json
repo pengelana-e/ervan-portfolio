@@ -1,0 +1,61 @@
+{
+  "viewportsTested": [
+    "desktop-1440",
+    "tablet-768",
+    "mobile-390",
+    "small-mobile-320"
+  ],
+  "overflowCheck": {
+    "desktop-1440": true,
+    "tablet-768": true,
+    "mobile-390": true,
+    "small-mobile-320": true
+  },
+  "consoleErrors": [],
+  "interactions": {
+    "motionToggle": {
+      "pass": true,
+      "initial": "on",
+      "toggled": "off"
+    },
+    "scrollProgress": {
+      "pass": true
+    },
+    "categoryFilter": {
+      "pass": true,
+      "vfx": 6,
+      "film": 9,
+      "all": 9
+    },
+    "search": {
+      "pass": true,
+      "resultCount": 1
+    },
+    "loadMore": {
+      "pass": true,
+      "before": 9,
+      "after": 18
+    },
+    "projectDialog": {
+      "pass": true
+    },
+    "breakdownSlider": {
+      "pass": true,
+      "style": "--cut: 30%;"
+    },
+    "experienceAccordion": {
+      "pass": true,
+      "openCount": 1
+    },
+    "awardsExpand": {
+      "pass": true,
+      "note": "Awards hidden"
+    },
+    "certificateModal": {
+      "pass": true
+    },
+    "mobileNav": {
+      "pass": true
+    }
+  }
+}
