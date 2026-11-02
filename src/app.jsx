@@ -130,7 +130,7 @@ function Hero({ onProject }) {
             <p><strong>{pillar.code}</strong><br/>{pillar.tag}<br/><span style={{ fontSize: '8px', color: '#888' }}>{pillar.label}</span></p>
           </div>
         ))}
-        <a href="#journey" style={{ display: 'flex', alignItems: 'center', gap: '8px', minHeight: '44px', fontSize: '9px', color: '#e32b3c' }}>
+        <a href="#journey" className="hero-timeline-link">
           <ArrowDown size={14}/><span>{profile.timelineLabel} · PROYEK &amp; PRAKTIK</span>
         </a>
       </div>

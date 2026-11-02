@@ -33,7 +33,7 @@ body{min-width:0}
 .media-image.loading>img{opacity:1}
 .hero-stats{background:linear-gradient(90deg,#090909b8,#090909e8);padding-inline:12px;margin-left:-12px;margin-right:-12px}
 @media(max-width:600px){.hero-title{font-size:23.8vw}.hero-side{bottom:285px}}
-@media(max-width:370px){.hero-side{bottom:280px}}
+@media(max-width:370px){.hero-side{bottom:340px}}
 .wordmark{min-height:44px;align-items:center}.wordmark>span{align-self:flex-start;margin-top:9px}.filters button{min-width:44px;padding-inline:3px}
 @media(max-width:600px){.menu-toggle{width:44px;min-width:44px}.footer>div>a{width:44px}.project-brief input,.project-brief textarea,.project-brief select{scroll-margin-top:90px}}
 @media(max-width:600px){.brand-heading .icon-button{width:44px;min-width:44px}.brand-pause{display:inline-flex}}
@@ -48,7 +48,7 @@ body{min-width:0}
 html[data-motion=off]{scroll-behavior:auto}html[data-motion=off] *,html[data-motion=off] *::before,html[data-motion=off] *::after{animation:none!important;transition-duration:.01ms!important}.loading-ring.paused{animation:none}
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
 @media(max-width:600px){.hero-title{font-size:23.8vw}.hero-side{bottom:285px}}
-@media(max-width:370px){.hero-side{bottom:280px}}
+@media(max-width:370px){.hero-side{bottom:340px}}
 
 /* ==========================================================================
    PRINT / PDF EXPORT RECOVERY & OPTIMIZATION
@@ -230,6 +230,27 @@ html, body {
 
 .mobile-menu a:hover {
   color: var(--red);
+}
+
+.hero-timeline-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 9px;
+  color: var(--red);
+}
+
+@media (max-width: 600px) {
+  .hero-intro h1 {
+    font-size: clamp(36px, 10.5vw, 48px);
+    white-space: normal;
+    line-height: 0.96;
+    margin-bottom: 10px;
+  }
+  .hero-timeline-link {
+    display: none !important;
+  }
 }
 
 .mobile-menu-footer {
