@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext, createContext } from 'react';
 import { createRoot } from 'react-dom/client';
 import { motion, AnimatePresence, MotionConfig, useScroll, useTransform, useSpring, useReducedMotion, useMotionValueEvent, useAnimationFrame, useInView } from 'framer-motion';
-import { ArrowUpRight, ArrowDown, ArrowRight, Play, X, Menu, Linkedin, Globe, MapPin, Download, Pause, Search, Plus, Minus, ChevronLeft, ChevronRight, ExternalLink, ShieldCheck, Compass, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowRight, Play, X, Menu, Linkedin, Globe, MapPin, Pause, Search, Plus, Minus, ChevronLeft, ChevronRight, ExternalLink, Compass, BookOpen, Layers, CheckCircle2 } from 'lucide-react';
 import initiatives from './data/initiatives.js';
 import brands from './data/brands.json';
 import { profile } from './data/profile.js';
@@ -11,6 +11,15 @@ const MotionContext = createContext(true);
 const EASE = [0.22, 1, 0.36, 1];
 const categories = profile.categories;
 const featured = initiatives.filter(i => i.featured);
+
+const NAV_LINKS = [
+  { href: '#home', label: 'HOME' },
+  { href: '#work', label: 'WORK & VENTURES' },
+  { href: '#writing', label: 'WRITING' },
+  { href: '#about', label: 'ABOUT' },
+  { href: '#journey', label: 'JOURNEY' },
+  { href: '#contact', label: 'CONTACT' }
+];
 
 function Reveal({ children, className = '', delay = 0, as = 'div' }) {
   const enabled = useContext(MotionContext);
@@ -26,7 +35,7 @@ function MediaImage({ src, alt, className = '', priority = false, ...props }) {
     setState(img?.complete ? (img.naturalWidth ? 'loaded' : 'error') : 'loading');
   }, [src]);
   return <span className={`media-image ${state} ${className}`}>
-    {state === 'error' && <span className="image-fallback"><span className="display">E.</span><span>Visual Karya</span></span>}
+    {state === 'error' && <span className="image-fallback"><span className="display">E.</span><span>Visual Inisiatif</span></span>}
     <img ref={imgRef} src={src} alt={alt} loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'} width="960" height="600" onLoad={() => setState('loaded')} onError={() => setState('error')} {...props} />
   </span>;
 }
@@ -55,28 +64,26 @@ function Header({ enabled, onToggle }) {
         {profile.wordmark}<span>®</span>
       </a>
       <nav className="desktop-nav">
-        <a href="#portfolio">KARYA</a>
-        <a href="#about">TENTANG</a>
-        <a href="#principles">PENDEKATAN</a>
-        <a href="#journey">PERJALANAN</a>
-        <a href="#contact">KONTAK</a>
+        {NAV_LINKS.map(link => (
+          <a key={link.href} href={link.href}>{link.label}</a>
+        ))}
       </nav>
       <div className="header-actions">
         <button onClick={onToggle} className="motion-toggle" aria-pressed={enabled} aria-label="Toggle animasi"><span className="motion-dot"/>MOTION {enabled ? 'ON' : 'OFF'}</button>
-        <Magnetic href="#journey" className="cv-pill" aria-label="Lihat perjalanan Ervan Erianto"><span>PERJALANAN</span></Magnetic>
+        <Magnetic href="#contact" className="cv-pill" aria-label="Hubungi Ervan Erianto"><span>CONTACT</span></Magnetic>
         <button className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? 'Tutup navigasi' : 'Buka navigasi'}>{open ? <X/> : <Menu/>}</button>
       </div>
     </div>
     <AnimatePresence>
       {open && <motion.nav className="mobile-menu" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ ease: EASE, duration: 0.35 }}>
-        <a href="#portfolio" onClick={() => setOpen(false)}>KARYA <ArrowUpRight size={18}/></a>
-        <a href="#about" onClick={() => setOpen(false)}>TENTANG <ArrowUpRight size={18}/></a>
-        <a href="#principles" onClick={() => setOpen(false)}>PENDEKATAN <ArrowUpRight size={18}/></a>
-        <a href="#journey" onClick={() => setOpen(false)}>PERJALANAN <ArrowUpRight size={18}/></a>
-        <a href="#contact" onClick={() => setOpen(false)}>KONTAK <ArrowUpRight size={18}/></a>
+        {NAV_LINKS.map(link => (
+          <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+            {link.label} <ArrowUpRight size={18}/>
+          </a>
+        ))}
         <div className="mobile-menu-footer">
           <button onClick={onToggle} className="motion-toggle" aria-pressed={enabled}><span className="motion-dot"/>MOTION {enabled ? 'ON' : 'OFF'}</button>
-          <a href="#journey" onClick={() => setOpen(false)} className="cv-pill"><span>LIHAT PERJALANAN</span></a>
+          <a href="#contact" onClick={() => setOpen(false)} className="cv-pill"><span>HUBUNGI VIA LINKEDIN</span></a>
         </div>
       </motion.nav>}
     </AnimatePresence>
@@ -87,10 +94,9 @@ function Hero({ onProject }) {
   const ref = useRef(null);
   const enabled = useContext(MotionContext);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, 180]);
-  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 85]);
-  const portraitScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const copyY = useTransform(scrollYProgress, [0, 1], [0, -55]);
+  const visualY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return <section id="home" className="hero" ref={ref}>
     <div className="hero-top">
@@ -98,52 +104,76 @@ function Hero({ onProject }) {
       <span className="availability"><i />BASED IN {profile.location.toUpperCase()}</span>
     </div>
 
+    {/* Display condensed lettering in background */}
     <motion.div className="hero-title display" aria-hidden="true" style={enabled ? { y: titleY } : {}} initial={enabled ? { clipPath: 'inset(0 0 100% 0)' } : false} animate={{ clipPath: 'inset(0 0 0% 0)' }} transition={{ duration: 1.4, ease: EASE }}>
       {profile.heroDisplayWord}
     </motion.div>
 
-    <motion.div className="hero-portrait" style={enabled ? { y: portraitY, scale: portraitScale } : {}} initial={enabled ? { opacity: 0 } : false} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.2 }}>
-      <img src={profile.portrait} alt={profile.portraitAlt} width="1024" height="1536" fetchPriority="high" />
+    {/* Authentic Portrait Visual (ervan-hero.png): Ervan on right, dark open space on left */}
+    <motion.div className="hero-visual-frame" style={enabled ? { y: visualY } : {}} initial={enabled ? { opacity: 0 } : false} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.15 }}>
+      <img src={profile.portrait} alt={profile.portraitAlt} width="1672" height="941" fetchPriority="high" />
+      <div className="hero-visual-gradient" aria-hidden="true" />
     </motion.div>
 
-    <motion.div className="hero-intro" style={enabled ? { y: copyY } : {}} initial={enabled ? { opacity: 0, x: -35 } : false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.35, ease: EASE }}>
+    {/* Left Negative Space Typography */}
+    <motion.div className="hero-intro" style={enabled ? { y: copyY } : {}} initial={enabled ? { opacity: 0, x: -30 } : false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.25, ease: EASE }}>
       <p className="handwriting">Hello, I’m</p>
-      <h1 className="display">{profile.name}<span>.</span></h1>
-      <p className="hero-role">{profile.roleLines[0]}<br />{profile.roleLines[1]}</p>
-      <p className="hero-description">{profile.subheadline}</p>
-      <div style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
-        <Magnetic href="#portfolio" className="primary-link">Jelajahi Karya <ArrowDown size={17}/></Magnetic>
-        <a href="#about" style={{ fontSize: '11px', color: '#a09c9a', letterSpacing: '0.05em', textTransform: 'uppercase', textDecoration: 'underline', textUnderlineOffset: '4px' }}>Cara Berpikir →</a>
+      <h1 className="hero-display-name display">{profile.name}<span>.</span></h1>
+      
+      <div className="hero-roles-stack">
+        {profile.roles.map(r => (
+          <span key={r} className="role-line display">{r}</span>
+        ))}
       </div>
+
+      <p className="hero-supporting-expertise">
+        {profile.supportingExpertise}
+      </p>
+
+      <p className="hero-description">
+        {profile.subheadline}
+      </p>
+
+      <div className="hero-cta-group">
+        <Magnetic href="#work" className="primary-link">
+          Jelajahi Work &amp; Ventures <ArrowDown size={16}/>
+        </Magnetic>
+        <a href="#about" className="hero-secondary-link">
+          Cara Berpikir &amp; Prinsip →
+        </a>
+      </div>
+
       <span className="hero-location"><MapPin size={12} /> {profile.location}</span>
     </motion.div>
 
-    <motion.div className="hero-side" initial={enabled ? { opacity: 0, x: 30 } : false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.55, ease: EASE }}>
+    {/* 3 Strategic Groups Pillar Rail */}
+    <motion.div className="hero-side" initial={enabled ? { opacity: 0, x: 25 } : false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.45, ease: EASE }}>
       <div className="hero-manifesto">
         <span className="crosshair" aria-hidden="true">✳</span>
-        <p>{profile.manifesto[0]}<br />{profile.manifesto[1]}</p>
+        <p>{profile.manifesto[0]}<br /><strong>{profile.manifesto[1]}</strong></p>
       </div>
       <div className="hero-stats">
-        {profile.pillars.map((pillar, idx) => (
-          <div key={pillar.code}>
+        {profile.groups.map((grp, idx) => (
+          <div key={grp.code}>
             <span className="display">0{idx + 1}</span>
-            <p><strong>{pillar.code}</strong><br/>{pillar.tag}<br/><span style={{ fontSize: '8px', color: '#888' }}>{pillar.label}</span></p>
+            <p><strong>{grp.code}</strong><br/>{grp.tag}<br/><span style={{ fontSize: '8px', color: '#888' }}>{grp.label}</span></p>
           </div>
         ))}
         <a href="#journey" className="hero-timeline-link">
-          <ArrowDown size={14}/><span>{profile.timelineLabel} · PROYEK &amp; PRAKTIK</span>
+          <ArrowDown size={14}/><span>{profile.timelineLabel} · GROUND TO ECOSYSTEM</span>
         </a>
       </div>
     </motion.div>
 
+    {/* Hero Bottom Bar */}
     <div className="hero-bottom">
-      <button className="reel-button" onClick={() => onProject(featured[0])}>
+      <button className="reel-button" onClick={() => onProject(initiatives[0])}>
         <span className="play-circle"><Compass size={13} /></span>
-        EXPLORE INITIATIVES
-        <span className="muted">ARKAVENA &amp; REWIRED</span>
+        EXPLORE VENTURES
+        <span className="muted">THE PRACTICE · KNOWLEDGE · TECH</span>
       </button>
       <span className="hero-scroll">SCROLL TO DISCOVER <ArrowDown size={13}/></span>
-      <span className="edition">SELECTED WORK &amp; PRACTICES / 2026</span>
+      <span className="edition">{profile.footer.domain.toUpperCase()} / {profile.footer.copyrightYear}</span>
     </div>
   </section>;
 }
@@ -155,18 +185,21 @@ function ProjectCard({ project, index, onOpen }) {
   const y = useTransform(scrollYProgress, [0, 1], [-12, 12]);
 
   return <motion.article ref={ref} className="project-card" layout initial={enabled ? { opacity: 0, y: 32 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.05 }} transition={{ duration: enabled ? 0.45 : 0, delay: (index % 3) * 0.04, ease: EASE }} exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.2 } }}>
-    <button className="project-open" onClick={() => onOpen(project)} aria-label={`Lihat ${project.title}`}>
+    <button className="project-open" onClick={() => onOpen(project)} aria-label={`Lihat inisiatif ${project.title}`}>
       <motion.div className="project-picture" style={enabled ? { y } : {}}>
         <MediaImage src={project.image} alt={project.title}/>
       </motion.div>
-      <span className="project-type">{project.category.toUpperCase()}</span>
+      <span className="project-type">{project.group}</span>
       <span className="project-hover"><ArrowUpRight size={22}/></span>
       <span className="project-frame" aria-hidden="true" />
     </button>
     <button className="project-caption" onClick={() => onOpen(project)}>
-      <span className="project-category">{project.category} · {project.evidenceLabel || project.status}</span>
+      <span className="project-category">{project.category} · {project.status}</span>
       <h3>{project.title}</h3>
-      <span className="project-more">PENJELASAN <ArrowUpRight size={14}/></span>
+      <p className="project-card-summary" style={{ fontSize: '11px', color: '#a09c9a', lineHeight: '1.5', margin: '4px 0 8px', textAlign: 'left' }}>
+        {project.summary}
+      </p>
+      <span className="project-more">DETAIL &amp; STATUS <ArrowUpRight size={14}/></span>
     </button>
   </motion.article>;
 }
@@ -207,7 +240,7 @@ function BrandStrip() {
 
   return <Reveal className="brand-section">
     <div className="brand-heading">
-      <p>INITIATIVES &amp; PRACTICE DISCIPLINES<br/><strong>ARKAVENA · REWIRED · DIRHAM LAND · SYSTEMS R&amp;D</strong></p>
+      <p>INITIATIVES, VENTURES &amp; SYSTEMS<br/><strong>THE PRACTICE · THE KNOWLEDGE · THE TECHNOLOGY</strong></p>
       <div>
         <button className="brand-all" onClick={() => setShowAll(v => !v)} aria-expanded={showAll} aria-controls="brand-collection">
           {showAll ? 'TAMPILKAN DERET' : `LIHAT SEMUA (${brands.length})`}
@@ -254,23 +287,23 @@ function Portfolio({ onProject }) {
   const results = initiatives.filter(p => {
     const matchesCategory =
       category === 'Semua' ||
-      (category === 'Inisiatif' && p.type === 'initiative') ||
-      p.category === category;
-    const searchStr = `${p.title} ${p.category} ${p.role || ''} ${p.summary || ''} ${p.description || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+      p.category === category ||
+      p.group.toLowerCase().includes(category.toLowerCase());
+    const searchStr = `${p.title} ${p.shortTitle || ''} ${p.group} ${p.category} ${p.role || ''} ${p.summary || ''} ${p.description || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
     const matchesQuery = searchStr.includes(query.toLowerCase());
     return matchesCategory && matchesQuery;
   });
 
   const projects = results.slice(0, expanded ? results.length : limit);
 
-  return <section id="portfolio" className="portfolio section-wrap">
+  return <section id="work" className="portfolio section-wrap">
     <Reveal className="section-heading">
       <div>
         <span className="eyebrow">{profile.portfolioHeading.eyebrow}</span>
         <h2>{profile.portfolioHeading.headline}<span className="accent">.</span></h2>
       </div>
       <button className="text-link" onClick={() => { if (expanded) { setExpanded(false); setCategory('Semua'); setQuery(''); } else { setExpanded(true); } }}>
-        {expanded ? 'KARYA UTAMA' : 'SEMUA BIDANG'}
+        {expanded ? 'RINGKAS TAMPILAN' : `SEMUA VENTURES (${initiatives.length})`}
         <ArrowRight size={21}/>
       </button>
     </Reveal>
@@ -290,7 +323,7 @@ function Portfolio({ onProject }) {
       <label className="search-box">
         <Search size={15}/>
         <span>Cari</span>
-        <input aria-label="Cari inisiatif atau bidang praktik" type="search" placeholder="Inisiatif, bidang, atau kata kunci…" value={query} onChange={e => { setQuery(e.target.value); setExpanded(true); }}/>
+        <input aria-label="Cari inisiatif, ventures, atau kata kunci" type="search" placeholder="Inisiatif, buku, sistem AI, atau topik…" value={query} onChange={e => { setQuery(e.target.value); setExpanded(true); }}/>
       </label>
     </Reveal>
 
@@ -313,39 +346,90 @@ function Portfolio({ onProject }) {
   </section>;
 }
 
-function Principles() {
-  const [expanded, setExpanded] = useState(false);
-
-  return <section id="principles" className={`recognition section-wrap ${expanded ? 'awards-expanded' : ''}`}>
-    <Reveal className="recognition-intro">
-      <span className="eyebrow">{profile.thinkingHeading.eyebrow}</span>
-      <h2 className="display">{profile.thinkingHeading.title}<span className="accent">.</span></h2>
-      <div className="award-total" style={{ border: '1px solid #361f22', borderRadius: '8px', padding: '18px 24px' }}>
-        <span className="display" style={{ fontSize: '72px', color: '#e32b3c', letterSpacing: '-0.02em', lineHeight: 1 }}>{profile.thinkingHeading.displayWord}</span>
-        <span className="award-total-label" style={{ position: 'static', marginTop: '8px', display: 'block', fontSize: '9px', letterSpacing: '0.1em' }}>EVIDENCE &amp; GOVERNANCE</span>
+function Writing() {
+  const w = profile.writing;
+  return <section id="writing" className="writing-section section-wrap">
+    <Reveal className="section-heading">
+      <div>
+        <span className="eyebrow">{w.eyebrow}</span>
+        <h2>{w.title}<span className="accent">.</span></h2>
       </div>
-      <p>{profile.thinkingHeading.subtitle}</p>
-      <a className="text-link award-proof" href="#about">
-        CARA SAYA BERPIKIR<ArrowDown size={18}/>
+      <span className="edition" style={{ color: '#e32b3c', border: '1px solid #87212b', padding: '6px 12px', borderRadius: '4px', fontSize: '10px' }}>
+        {w.statusBadge}
+      </span>
+    </Reveal>
+    <p className="section-lead" style={{ maxWidth: '840px', color: '#a09c9a', fontSize: '14px', lineHeight: '1.8', marginBottom: '32px' }}>
+      {w.subtitle}
+    </p>
+
+    <div className="writing-layout">
+      <Reveal className="writing-cover-col">
+        <div className="writing-book-card">
+          <MediaImage src={w.coverImage} alt="Cover Buku Real Estate Rewired karya Ervan Erianto" priority/>
+          <div className="writing-badge-row">
+            <span className="writing-tag">OFFICIALLY LAUNCHED</span>
+            <span className="writing-tag">INDEPENDENT PUBLICATION</span>
+          </div>
+        </div>
+      </Reveal>
+      <div className="writing-content-col">
+        <Reveal>
+          <p className="writing-lead-text">{w.lead}</p>
+        </Reveal>
+        <div className="writing-pillars-grid">
+          {w.highlights.map((h, idx) => (
+            <Reveal key={h.num} className="writing-pillar-card" delay={idx * 0.05}>
+              <span className="display writing-num">{h.num}</span>
+              <h4>{h.title}</h4>
+              <p>{h.desc}</p>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <blockquote className="writing-quote">
+            <p>“{w.quote}”</p>
+            <cite>— Ervan Erianto, Penulis 'Real Estate Rewired'</cite>
+          </blockquote>
+        </Reveal>
+      </div>
+    </div>
+  </section>;
+}
+
+function SelectedMilestones() {
+  const [expanded, setExpanded] = useState(false);
+  const m = profile.milestonesHeading;
+
+  return <section id="milestones" className={`recognition section-wrap ${expanded ? 'awards-expanded' : ''}`}>
+    <Reveal className="recognition-intro">
+      <span className="eyebrow">{m.eyebrow}</span>
+      <h2 className="display">{m.title}<span className="accent">.</span></h2>
+      <div className="award-total" style={{ border: '1px solid #361f22', borderRadius: '8px', padding: '18px 24px' }}>
+        <span className="display" style={{ fontSize: '64px', color: '#e32b3c', letterSpacing: '-0.02em', lineHeight: 1 }}>2017</span>
+        <span className="award-total-label" style={{ position: 'static', marginTop: '8px', display: 'block', fontSize: '9px', letterSpacing: '0.1em' }}>→ NOW · GROUND PRACTICE</span>
+      </div>
+      <p>{m.subtitle}</p>
+      <a className="text-link award-proof" href="#journey">
+        LIHAT JALUR PERJALANAN <ArrowDown size={18}/>
       </a>
     </Reveal>
     <div className="recognition-list">
-      <div className="recognition-list-head"><span>EVIDENCE-BASED PILLARS</span><span>DISIPLIN &amp; PRAKTIK</span></div>
+      <div className="recognition-list-head"><span>TAHUN &amp; INISIATIF</span><span>FOKUS EKSEKUSI</span></div>
       <ol id="recognition-list">
-        {profile.thinkingPillars.map((pr, i) => (
-          <Reveal as="li" className={`recognition-row ${i > 2 ? 'additional-award' : ''}`} key={pr.index} delay={i * 0.045}>
-            <span className="award-index">{pr.index}</span>
+        {profile.milestones.map((ms, i) => (
+          <Reveal as="li" className={`recognition-row ${i > 3 ? 'additional-award' : ''}`} key={ms.year} delay={i * 0.045}>
+            <span className="award-index display" style={{ fontSize: '20px', color: '#e32b3c' }}>{ms.year}</span>
             <div>
-              <h3>{pr.title}</h3>
-              <span style={{ fontSize: '10px', color: '#e32b3c', fontWeight: '700', textTransform: 'uppercase', display: 'block', margin: '2px 0 4px' }}>{pr.subtitle}</span>
-              <p>{pr.desc}</p>
+              <h3>{ms.title}</h3>
+              <span style={{ fontSize: '10px', color: '#e32b3c', fontWeight: '700', textTransform: 'uppercase', display: 'block', margin: '2px 0 4px' }}>{ms.category}</span>
+              <p>{ms.desc}</p>
             </div>
             <span className="award-year display">0{i + 1}</span>
           </Reveal>
         ))}
       </ol>
       <button className="award-expand" aria-expanded={expanded} aria-controls="recognition-list" onClick={() => setExpanded(v => !v)}>
-        {expanded ? 'Ringkas pilar' : 'Lihat semua pilar'}
+        {expanded ? 'Ringkas milestones' : 'Lihat semua milestones (2017 → NOW)'}
         {expanded ? <Minus size={16}/> : <Plus size={16}/>}
       </button>
     </div>
@@ -353,87 +437,81 @@ function Principles() {
 }
 
 function Breakdown() {
-  const ref = useRef(null);
-  const enabled = useContext(MotionContext);
-  const [manual, setManual] = useState(false);
-  const [cut, setCut] = useState(52);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  useMotionValueEvent(scrollYProgress, 'change', v => { if (!manual && enabled) setCut(Math.round(85 - v * 70)); });
-  const titleX = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const [cut, setCut] = useState(50);
+  const containerRef = useRef(null);
 
-  return <section className="breakdown section-wrap" ref={ref} aria-labelledby="breakdown-title">
+  const handlePointerMove = e => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+    setCut((x / rect.width) * 100);
+  };
+
+  return <section id="breakdown" className="breakdown section-wrap">
     <Reveal className="breakdown-copy">
       <span className="eyebrow">{profile.breakdown.eyebrow}</span>
-      <motion.h2 id="breakdown-title" className="display" style={enabled ? { x: titleX } : {}}>
-        {profile.breakdown.titleLines[0]}<br/><span className="accent">{profile.breakdown.titleLines[1]}</span>
-      </motion.h2>
-      <p>{profile.breakdown.subtitle} Mengubah kumpulan asumsi, peta masalah, dan data mentah menjadi analisis kelayakan yang terstruktur.</p>
+      <h2 className="display">{profile.breakdown.titleLines[0]}<br />{profile.breakdown.titleLines[1]}<span className="accent">.</span></h2>
+      <p>{profile.breakdown.subtitle}</p>
       <span className="breakdown-credit">{profile.breakdown.credit}</span>
     </Reveal>
-    <Reveal className="comparison">
-      <div className="comparison-stage" style={{ '--cut': `${enabled || manual ? cut : 50}%` }}>
-        <MediaImage src={profile.breakdown.rawImage} alt="Idea dan raw input peta masalah"/>
-        <div className="comparison-final">
-          <MediaImage src={profile.breakdown.finalImage} alt="Structured analysis dan keputusan teruji"/>
-        </div>
+    <Reveal className="comparison" delay={0.15}>
+      <div className="comparison-stage" ref={containerRef} style={{ '--cut': `${cut}%` }} onPointerMove={handlePointerMove} tabIndex={0} role="region" aria-label="Sebelum dan sesudah: Analisis Kelayakan dan Keputusan">
+        <MediaImage src={profile.breakdown.rawImage} alt="Input awal data dan asumsi lahan" />
         <span className="comparison-label raw-label">{profile.breakdown.rawLabel}</span>
-        <span className="comparison-label final-label">{profile.breakdown.finalLabel}</span>
-        <div className="comparison-divider"><span><ChevronLeft size={14}/><ChevronRight size={14}/></span></div>
-        <input aria-label="Perbandingan asumsi dan analisis terstruktur" aria-valuetext={`${cut}% ide mentah, ${100-cut}% analisis terstruktur`} type="range" min="0" max="100" value={cut} onChange={e => { setManual(true); setCut(Number(e.target.value)); }}/>
+        <div className="comparison-final">
+          <MediaImage src={profile.breakdown.finalImage} alt="Analisis kelayakan keputusan properti" />
+          <span className="comparison-label final-label">{profile.breakdown.finalLabel}</span>
+        </div>
+        <div className="comparison-divider" aria-hidden="true">
+          <span><ChevronLeft size={14} /><ChevronRight size={14} /></span>
+        </div>
+        <input type="range" min="0" max="100" value={cut} onChange={e => setCut(Number(e.target.value))} aria-label="Geser perbandingan asumsi vs analisis terstruktur" />
       </div>
-      <div className="comparison-caption"><span>GESER UNTUK MELIHAT INTEGRASI ANALISIS</span><span>DRAG / SCROLL</span></div>
+      <div className="comparison-caption">
+        <span>RAW / SITE DATA</span>
+        <span>DRAG SLIDER</span>
+        <span>DECISION LOGIC</span>
+      </div>
     </Reveal>
   </section>;
 }
 
 function About() {
-  const enabled = useContext(MotionContext);
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 75%', 'end 75%'] });
-
-  return <section id="about" className="about section-wrap" ref={ref}>
-    <Reveal className="about-lead">
-      <div>
-        <span className="eyebrow">{profile.about.eyebrow}</span>
-        <h2 className="display">{profile.about.title[0]}<br/>{profile.about.title[1]}<span className="accent">{profile.about.accentTitle}</span></h2>
-      </div>
-      <div>
-        {profile.about.paragraphs.map((p, idx) => (
-          <p key={idx} style={{ marginBottom: '14px', fontSize: '13px', lineHeight: '1.8', color: '#b9b5b2' }}>{p}</p>
-        ))}
-      </div>
-    </Reveal>
-    <div className="studio-grid">
-      <Reveal className="education-panel">
-        <h3 className="panel-heading">FIELDS OF PRACTICE</h3>
-        <p className="eyebrow accent">FOKUS DISIPLIN</p>
-        {profile.fieldsOfPractice.map(f => (
-          <div className="education-row" key={f.title}>
-            <strong>{f.title}</strong>
-            <p>{f.desc}</p>
+  return <section id="about" className="about section-wrap">
+    <div className="about-grid">
+      <div className="about-col">
+        <Reveal className="about-lead">
+          <span className="eyebrow">{profile.about.eyebrow}</span>
+          <h2>{profile.about.title[0]}<br/>{profile.about.title[1]}<span className="accent">{profile.about.accentTitle}</span></h2>
+          <div className="positioning-box" style={{ background: '#120f10', borderLeft: '3px solid #e32b3c', padding: '16px 20px', margin: '20px 0 24px', borderRadius: '0 4px 4px 0' }}>
+            <p style={{ fontSize: '13px', color: '#f2efeb', fontWeight: '600', lineHeight: '1.7', margin: 0 }}>
+              {profile.about.positioningStatement}
+            </p>
           </div>
-        ))}
-        <p className="eyebrow accent skills-heading">STRATEGIC TOOLKIT</p>
-        <div className="skill-tags">
-          {profile.capabilities.map(s => <span key={s}>{s}</span>)}
-        </div>
-      </Reveal>
-      <div className="process-panel">
-        <Reveal><h3 className="panel-heading">KEJELASAN SEBELUM KOMPLEKSITAS</h3></Reveal>
-        <div className="process-list">
-          <div className="process-track"><motion.div style={{ scaleY: enabled ? scrollYProgress : 1 }}/></div>
-          {profile.process.map(([num, title, text], i) => (
-            <Reveal key={num} className="process-row" delay={i * 0.035}>
-              <span className="process-num display">{num}</span>
-              <span className="process-node"/>
-              <div><h4>{title}</h4><p>{text}</p></div>
-            </Reveal>
+          {profile.about.paragraphs.map((p, idx) => (
+            <p key={idx} style={{ marginBottom: '16px', color: '#a09c9a', lineHeight: '1.8', fontSize: '13px' }}>{p}</p>
           ))}
+        </Reveal>
+        <div className="skills-grid">
+          <Reveal className="skills-block">
+            <span className="eyebrow">METODOLOGI EKSEKUSI (5-TAHAP)</span>
+            <div className="process-list">
+              {profile.process.map(([step, name, desc]) => (
+                <div className="process-row" key={step}>
+                  <span className="process-step display">{step}</span>
+                  <div>
+                    <h4>{name}</h4>
+                    <p>{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </div>
       <Reveal className="quote-panel">
         <span className="quote-mark display">“</span>
-        <blockquote>{profile.about.quoteLines[0]}<br/>{profile.about.quoteLines[1]}<br/>{profile.about.quoteLines[2]}<br/><em>{profile.about.quoteLines[3]}</em></blockquote>
+        <blockquote>{profile.about.quoteLines[0]}<br/>{profile.about.quoteLines[1]}<br/><em>{profile.about.quoteLines[2]}</em></blockquote>
         <span className="handwriting">{profile.about.quoteSign}</span>
         <div className="quote-bottom">{profile.about.quoteBottom.split('\n')[0]}<br/>{profile.about.quoteBottom.split('\n')[1]}<span className="quote-symbol" aria-hidden="true">✳</span></div>
       </Reveal>
@@ -446,7 +524,7 @@ function Journey({ onProject }) {
   return <section id="journey" className="journey section-wrap">
     <Reveal className="section-heading">
       <div>
-        <span className="eyebrow">04 / THE JOURNEY</span>
+        <span className="eyebrow">06 / THE JOURNEY</span>
         <h2>A JOURNEY IN BUILDING<span className="accent">.</span></h2>
       </div>
       <span className="eyebrow" style={{ color: '#a09c9a' }}>2017 → PRESENT</span>
@@ -472,15 +550,27 @@ function Journey({ onProject }) {
         <p className="eyebrow">SUBSTANTIVE OUTPUTS</p>
         <h3 className="display">PRODUK &amp;<br/><span className="accent">KERANGKA KERJA.</span></h3>
         <div className="award-list">
-          {profile.substantiveOutputs.map(item => (
-            <div key={item.title} style={{ display: 'flex', gap: '14px', alignItems: 'center', minHeight: '68px', borderTop: '1px solid var(--line)', padding: '12px 0' }}>
-              <span style={{ color: '#e32b3c', fontSize: '11px', fontWeight: '700' }}>{item.num}</span>
-              <div>
-                <strong style={{ fontSize: '12px', display: 'block', color: '#f2efeb' }}>{item.title}</strong>
-                <span style={{ fontSize: '10px', color: '#a09c9a' }}>{item.detail}</span>
-              </div>
+          <div style={{ display: 'flex', gap: '14px', alignItems: 'center', minHeight: '68px', borderTop: '1px solid var(--line)', padding: '12px 0' }}>
+            <span style={{ color: '#e32b3c', fontSize: '11px', fontWeight: '700' }}>01</span>
+            <div>
+              <strong style={{ fontSize: '12px', display: 'block', color: '#f2efeb' }}>REAL ESTATE REWIRED (BOOK)</strong>
+              <span style={{ fontSize: '10px', color: '#a09c9a' }}>Officially Published &amp; Independently Released Book</span>
             </div>
-          ))}
+          </div>
+          <div style={{ display: 'flex', gap: '14px', alignItems: 'center', minHeight: '68px', borderTop: '1px solid var(--line)', padding: '12px 0' }}>
+            <span style={{ color: '#e32b3c', fontSize: '11px', fontWeight: '700' }}>02</span>
+            <div>
+              <strong style={{ fontSize: '12px', display: 'block', color: '#f2efeb' }}>REWIRED DEVELOPER MAP</strong>
+              <span style={{ fontSize: '10px', color: '#a09c9a' }}>FILTER → LOCK → BLUEPRINT → TEAM → REVENUE → DELIVERY</span>
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: '14px', alignItems: 'center', minHeight: '68px', borderTop: '1px solid var(--line)', padding: '12px 0' }}>
+            <span style={{ color: '#e32b3c', fontSize: '11px', fontWeight: '700' }}>03</span>
+            <div>
+              <strong style={{ fontSize: '12px', display: 'block', color: '#f2efeb' }}>PROJECT CONTROL DISCIPLINE</strong>
+              <span style={{ fontSize: '10px', color: '#a09c9a' }}>Scope, Cost, Schedule, Quality &amp; Documented Change</span>
+            </div>
+          </div>
         </div>
       </Reveal>
     </div>
@@ -503,21 +593,21 @@ function Contact({ onProject }) {
           <Linkedin/><span><small>LINKEDIN RESMI</small>linkedin.com/in/ervan-erianto</span><ArrowUpRight size={16}/>
         </a>
         <div>
-          <Globe/><span><small>DISIPLIN</small>Property · Business · Systems</span>
+          <Globe/><span><small>DISIPLIN UTAMA</small>Real Estate Developer · Founder · Author</span>
         </div>
         <div>
-          <MapPin/><span><small>LOKASI</small>{profile.contact.location}</span>
+          <MapPin/><span><small>LOKASI OPERASIONAL</small>{profile.contact.location}</span>
         </div>
       </Reveal>
       <Reveal className="contact-reel" delay={0.2}>
-        <button onClick={() => onProject(featured[0])} aria-label="Lihat inisiatif Arkavena">
+        <button onClick={() => onProject(initiatives[0])} aria-label="Lihat inisiatif Dirham Land & Real Estate Development">
           <div className="reel-screen">
-            <span className="reel-screen-top">{profile.wordmark}<span>FEATURED INITIATIVE</span></span>
-            <MediaImage src="./Asset/img/initiatives/arkavena.svg" alt="Arkavena Project Control"/>
-            <span className="reel-screen-title display">BUILD WITH<br/><span>CLARITY.</span></span>
+            <span className="reel-screen-top">{profile.wordmark}<span>THE PRACTICE</span></span>
+            <MediaImage src="./Asset/img/initiatives/dirham-land.svg" alt="Real Estate Development Dirham Land"/>
+            <span className="reel-screen-title display">REAL ESTATE<br/><span>DEVELOPER.</span></span>
             <span className="play-circle"><ArrowUpRight size={18} /></span>
           </div>
-          <span className="reel-caption">ARKAVENA · PROJECT CONTROL PERSPECTIVE</span>
+          <span className="reel-caption">DIRHAM LAND &amp; RESIDENTIAL PRACTICE</span>
         </button>
       </Reveal>
     </div>
@@ -525,8 +615,6 @@ function Contact({ onProject }) {
 }
 
 function ProjectDialog({ project, onClose }) {
-  const enabled = useContext(MotionContext);
-
   useEffect(() => {
     const handleKeyDown = e => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handleKeyDown);
@@ -538,7 +626,7 @@ function ProjectDialog({ project, onClose }) {
   return <motion.div className="dialog-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="dialog-title">
     <motion.div className="dialog-window project-dialog" initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }} onClick={e => e.stopPropagation()} transition={{ duration: 0.35, ease: EASE }}>
       <div className="dialog-heading">
-        <span className="eyebrow">{project.category} · {project.evidenceLabel || project.status}</span>
+        <span className="eyebrow">{project.group} · {project.category} · {project.status}</span>
         <button onClick={onClose} className="icon-button" aria-label="Tutup"><X/></button>
       </div>
       <div className="dialog-media still">
@@ -559,7 +647,7 @@ function ProjectDialog({ project, onClose }) {
         </div>
         {sourceUrl && (
           <a className="outline-button" href={sourceUrl} target="_blank" rel="noopener noreferrer">
-            {project.externalUrl ? 'Kunjungi Inisiatif' : 'Hubungi via LinkedIn'}
+            {project.externalUrl ? 'Kunjungi Situs Inisiatif' : 'Hubungi via LinkedIn'}
             <ExternalLink size={15}/>
           </a>
         )}
@@ -578,36 +666,38 @@ function App() {
 
   useEffect(() => { document.documentElement.dataset.motion = enabled ? 'on' : 'off'; }, [enabled]);
   const toggle = () => {
-    setMotionOn(!motionOn);
-    try { localStorage.setItem('ervan-motion', motionOn ? 'off' : 'on'); } catch {}
+    setMotionOn(prev => {
+      const next = !prev;
+      try { localStorage.setItem('ervan-motion', next ? 'on' : 'off'); } catch {}
+      return next;
+    });
   };
-  const close = React.useCallback(() => setProject(null), []);
 
-  return <MotionContext.Provider value={enabled}>
-    <MotionConfig reducedMotion={enabled ? 'user' : 'always'} transition={{ ease: EASE }}>
-      <a className="skip-link" href="#portfolio">Lewati ke karya</a>
-      <motion.div className="reading-progress" style={{ scaleX: enabled ? progress : scrollYProgress }}/>
+  return <MotionConfig reducedMotion="user">
+    <MotionContext.Provider value={enabled}>
+      <a className="skip-link" href="#work">Lewati ke konten utama</a>
+      <motion.div className="reading-progress" style={{ scaleX: progress }} aria-hidden="true"/>
       <Header enabled={enabled} onToggle={toggle}/>
       <main>
-        <Hero onProject={setProject}/>
-        <Portfolio onProject={setProject}/>
-        <Principles/>
+        <Hero onProject={p => setProject(p)}/>
+        <Portfolio onProject={p => setProject(p)}/>
+        <Writing/>
+        <SelectedMilestones/>
         <Breakdown/>
         <About/>
-        <Journey onProject={setProject}/>
-        <Contact onProject={setProject}/>
+        <Journey onProject={p => setProject(p)}/>
+        <Contact onProject={p => setProject(p)}/>
       </main>
       <footer className="footer">
         <a className="wordmark" href="#home">{profile.footer.wordmark}<span>®</span></a>
         <span>© {profile.footer.copyrightYear} {profile.footer.wordmark}. {profile.footer.signOff}</span>
-        <div>
-          <a href={profile.contact.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Ervan Erianto"><Linkedin size={17}/></a>
-          <a href="#home" aria-label="Kembali ke atas"><ArrowUpRight size={18}/></a>
-        </div>
+        <span>{profile.footer.domain}</span>
       </footer>
-      <AnimatePresence>{project && <ProjectDialog key={project.id || project.title} project={project} onClose={close}/>}</AnimatePresence>
-    </MotionConfig>
-  </MotionContext.Provider>;
+      <AnimatePresence>
+        {project && <ProjectDialog project={project} onClose={() => setProject(null)}/>}
+      </AnimatePresence>
+    </MotionContext.Provider>
+  </MotionConfig>;
 }
 
 createRoot(document.getElementById('root')).render(<App/>);

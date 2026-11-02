@@ -1,8 +1,10 @@
 [
-  { "name": "Arkavena", "logo": "./Asset/svg/brand/arkavena.svg" },
-  { "name": "REWIRED", "logo": "./Asset/svg/brand/rewired.svg" },
   { "name": "Dirham Land", "logo": "./Asset/svg/brand/dirham-land.svg" },
-  { "name": "Project Control", "logo": "./Asset/svg/brand/proj-control.svg" },
-  { "name": "Decision Systems Lab", "logo": "./Asset/svg/brand/dig-systems.svg" },
-  { "name": "Feasibility Toolkit", "logo": "./Asset/svg/brand/feasibility.svg" }
+  { "name": "Arkavena", "logo": "./Asset/svg/brand/arkavena.svg" },
+  { "name": "PT Patra Sarana Indonesia", "logo": "./Asset/svg/brand/patra-sarana.svg" },
+  { "name": "Real Estate Rewired", "logo": "./Asset/svg/brand/real-estate-rewired.svg" },
+  { "name": "REWIRED", "logo": "./Asset/svg/brand/rewired.svg" },
+  { "name": "PRAKARA OS", "logo": "./Asset/svg/brand/prakara-os.svg" },
+  { "name": "E.C.H.O", "logo": "./Asset/svg/brand/echo.svg" },
+  { "name": "Project Control", "logo": "./Asset/svg/brand/proj-control.svg" }
 ]

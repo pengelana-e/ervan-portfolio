@@ -1,5 +1,5 @@
 /**
- * Ervan Erianto — Personal Brand & Portfolio Profile (Master Directive v2.0)
+ * Ervan Erianto — Personal Brand & Portfolio Profile (Final Refinement)
  * Strictly public, verified editorial content.
  */
 
@@ -8,209 +8,226 @@ export const profile = {
   name: "Ervan Erianto",
   shortName: "Ervan",
   wordmark: "ERVAN.",
-  roleDisplay: "Real Estate Developer · Business Builder · Systems Thinker",
-  roleLines: ["REAL ESTATE DEVELOPER · BUSINESS BUILDER", "SYSTEMS THINKER"],
+  roles: [
+    "REAL ESTATE DEVELOPER.",
+    "FOUNDER.",
+    "AUTHOR."
+  ],
+  roleDisplay: "Real Estate Developer · Founder · Author",
+  supportingExpertise: "Property Development · Construction · Asset Strategy · Education · Applied AI",
   topline: ["PROPERTY / BUSINESS / SYSTEMS", "BUILDING ACROSS DISCIPLINES"],
   tagline: "Build what matters. Make it work.",
-  taglineId: "Saya membangun properti, bisnis, dan sistem. Bentuknya berbeda, prinsipnya sama: keputusan harus jelas, risiko dipahami, dan eksekusi bisa dipertanggungjawabkan.",
+  taglineId: "Real estate adalah fondasi utama. Edukasi berasal dari pengalaman praktik, bukan sebaliknya.",
 
   // Hero Section
   heroEyebrow: "PROPERTY / BUSINESS / SYSTEMS",
-  heroDisplayWord: "BUILDER",
-  headline: "Membangun yang bertahan.",
-  subheadline: "Saya membangun aset, bisnis, dan sistem. Dari proyek fisik hingga produk digital, saya memulai dari masalah nyata lalu mencari struktur yang membuatnya bekerja.",
-  manifesto: ["Ideas need structure.", "Structure needs execution."],
+  heroDisplayWord: "DEVELOPER",
+  headline: "Membangun dari praktik nyata.",
+  subheadline: "Praktisi real estate sejak 2017 yang mengembangkan proyek properti fisik, membangun bisnis konstruksi dan kendali proyek, menulis buku panduan developer, mendirikan ekosistem edukasi, serta mengembangkan sistem applied AI.",
+  manifesto: [
+    "Real estate adalah fondasi utama.",
+    "Edukasi berasal dari pengalaman praktik."
+  ],
   location: "Surabaya, Indonesia",
   timelineLabel: "2017 → NOW",
 
-  portrait: "./Asset/img/ervan-portrait.png",
-  portraitAlt: "Ervan Erianto — Real Estate Developer, Business Builder & Systems Thinker",
+  portrait: "./Asset/img/ervan-hero.png",
+  portraitAlt: "Ervan Erianto — Real Estate Developer, Founder & Author",
 
-  // 3 Strategic Pillars in Hero
-  pillars: [
+  // 3 Strategic Portfolio Groups
+  groups: [
     {
-      code: "PROPERTY",
-      tag: "REAL ASSETS",
-      label: "Pengembangan Aset",
-      desc: "Pengembangan aset fisik, hunian, dan evaluasi kelayakan lahan."
+      id: "practice",
+      code: "THE PRACTICE",
+      tag: "REAL ASSETS & GOVERNANCE",
+      label: "Pengembangan Aset & Kendali Proyek",
+      desc: "Pengalaman developer properti fisik (Dirham Land), kendali proyek konstruksi (Arkavena), dan inisiatif aset kawasan (PT Patra Sarana Indonesia)."
     },
     {
-      code: "BUSINESS",
-      tag: "OPERATING MODELS",
-      label: "Model & Eksekusi",
-      desc: "Model usaha terukur, tata kelola proyek, dan kejelasan alur keputusan."
+      id: "knowledge",
+      code: "THE KNOWLEDGE",
+      tag: "BOOKS & ECOSYSTEM",
+      label: "Buku & Edukasi Praktisi",
+      desc: "Buku 'Real Estate Rewired' yang resmi diluncurkan secara mandiri dan ekosistem pembelajaran REWIRED bagi pelaku industri properti."
     },
     {
-      code: "SYSTEMS",
-      tag: "DIGITAL TOOLS",
-      label: "Produk & Sistem",
-      desc: "Sistem pengetahuan, alur kerja digital, dan eksplorasi teknologi AI."
+      id: "technology",
+      code: "THE TECHNOLOGY",
+      tag: "APPLIED AI & SYSTEMS",
+      label: "Intelijen Hukum & Sistem AI",
+      desc: "Platform kecerdasan buatan privat PRAKARA OS, engine edukasi REWIRED Intelligence, dan eksplorasi personal AI E.C.H.O."
     }
   ],
 
-  // Portfolio Categories
-  categories: ["Semua", "Inisiatif", "Real Estate", "Project Control", "Knowledge Systems", "Systems R&D"],
+  // Portfolio Categories for Filtering
+  categories: ["Semua", "The Practice", "The Knowledge", "The Technology"],
 
   // Selected Work Section Heading
   portfolioHeading: {
-    eyebrow: "01 / SELECTED WORK & INITIATIVES",
-    headline: "BUILDING BEYOND THE BLUEPRINT.",
-    subtitle: "Proyek, perusahaan, dan sistem yang lahir dari persoalan nyata."
+    eyebrow: "01 / SELECTED WORK & VENTURES",
+    headline: "THE PRACTICE. THE KNOWLEDGE. THE TECHNOLOGY.",
+    subtitle: "Tiga pilar inisiatif yang lahir dari persoalan nyata: pengembangan aset fisik, karya intelektual terbitan mandiri, dan teknologi kecerdasan buatan."
   },
 
-  // 4 Pillars of Thinking (Replacing awards)
-  thinkingHeading: {
-    eyebrow: "02 / THE WORK. THE THINKING.",
-    title: "THE WORK. THE THINKING.",
-    subtitle: "Bukan tentang koleksi penghargaan. Tentang apa yang dibangun dan cara keputusan dibuat.",
-    displayWord: "BUILD"
+  // Writing Section Details
+  writing: {
+    eyebrow: "02 / WRITING & INTELLECTUAL WORK",
+    title: "REAL ESTATE REWIRED",
+    subtitle: "Buku panduan resmi yang membedah logika keputusan developer properti dari sudut pandang praktisi lapangan.",
+    statusBadge: "OFFICIALLY PUBLISHED · 2024",
+    lead: "Pendidikan dan edukasi yang bernilai selalu berakar dari pembuktian di lapangan. Buku 'Real Estate Rewired' hadir bukan dari teori akademis atau spekulasi pasar, melainkan kristalisasi pengalaman nyata menangani perizinan, pembebasan lahan, negosiasi kepemilikan, dan manajemen proyek sejak 2017.",
+    highlights: [
+      {
+        num: "01",
+        title: "Land & Feasibility Logic",
+        desc: "Menguji kelayakan lahan dan asumsi pasar sebelum alokasi modal dimulai."
+      },
+      {
+        num: "02",
+        title: "The 6-Stage Developer Map",
+        desc: "FILTER → LOCK → BLUEPRINT → TEAM → REVENUE → DELIVERY sebagai panduan operasional."
+      },
+      {
+        num: "03",
+        title: "Project Control Discipline",
+        desc: "Mencegah deviasi anggaran dan mengendalikan perubahan lingkup kerja lapangan."
+      },
+      {
+        num: "04",
+        title: "Risk-First Decision Framework",
+        desc: "Menghindari spekulasi dengan simulasi sensitivitas arus kas terburuk."
+      }
+    ],
+    quote: "Buku ini adalah rekaman pertanggungjawaban profesional: bagaimana sebuah proyek direncanakan secara rasional, dieksekusi dengan integritas, dan diserahkan tepat waktu.",
+    coverImage: "./Asset/img/initiatives/real-estate-rewired-book.svg"
   },
-  thinkingPillars: [
+
+  // Selected Milestones (Replacing Awards)
+  milestonesHeading: {
+    eyebrow: "03 / CAREER & VENTURE MILESTONES",
+    title: "SELECTED MILESTONES",
+    subtitle: "Rekam jejak pembuktian dari lapangan sejak 2017 hingga ekosistem saat ini. Tanpa gelar fiktif, berakar pada realitas eksekusi.",
+    displayWord: "MILESTONES"
+  },
+  milestones: [
     {
-      index: "01",
-      title: "REAL-WORLD DEVELOPMENT",
-      subtitle: "Pengembangan Properti Nyata",
-      desc: "Proyek pengembangan properti dan konsekuensi nyata dari setiap keputusan di lapangan."
+      year: "2017",
+      title: "GROUND PRACTICE & LAND CONDITIONING",
+      category: "Real Estate Foundation",
+      desc: "Mengawali praktik pengembangan lahan di Trenggalek dan kawasan Jawa Timur. Mempelajari langsung perizinan dasar, topografi lahan, serta dinamika sosial-legal pertanahan."
     },
     {
-      index: "02",
-      title: "PROJECT CONTROL",
-      subtitle: "Disiplin Pelaksanaan",
-      desc: "Pekerjaan konstruksi yang diarahkan oleh disiplin lingkup pekerjaan, biaya, jadwal, dan pencatatan perubahan."
+      year: "2019",
+      title: "RESIDENTIAL DEVELOPMENT & DIRHAM LAND",
+      category: "Housing Development",
+      desc: "Ekspansi pengembangan perumahan tapak (Dirham Land & Dirham Residence). Mengintegrasikan uji kelayakan ekonomi, arsitektur hunian efisien, dan tata kelola penjualan terpadu."
     },
     {
-      index: "03",
-      title: "KNOWLEDGE TOOLS",
-      subtitle: "Ekosistem & Edukasi",
-      desc: "REWIRED, cara berpikir developer, materi pembelajaran, serta kerangka uji kelayakan proyek."
+      year: "2021",
+      title: "FOUNDING ARKAVENA PROJECT CONTROL",
+      category: "Construction & Governance",
+      desc: "Mendirikan Arkavena sebagai Project Control Partner bagi pemilik proyek. Membawa transparansi dokumen pelaksanaan, kontrol variasi pekerjaan, dan audit kualitas fisik lapangan."
     },
     {
-      index: "04",
-      title: "SYSTEMS R&D",
-      subtitle: "Eksplorasi Alur Kerja & AI",
-      desc: "Riset mandiri pendukung keputusan, alur kerja digital, dan model AI yang diuji sebagai eksperimen berkelanjutan."
+      year: "2023",
+      title: "STRATEGIC ASSET FEASIBILITY (PT PATRA SARANA INDONESIA)",
+      category: "Commercial Asset Planning",
+      desc: "Inisiatif evaluasi aset komersial koridor infrastruktur dan kajian tata guna kawasan terpadu rest area melalui kolaborasi strategis PT Patra Sarana Indonesia."
+    },
+    {
+      year: "2024",
+      title: "OFFICIAL LAUNCH: 'REAL ESTATE REWIRED' BOOK",
+      category: "Published Author",
+      desc: "Menulis dan menerbitkan secara mandiri buku panduan komprehensif 'Real Estate Rewired' sebagai manifestasi cara berpikir developer berbasis disiplin keputusan rasional."
+    },
+    {
+      year: "2025–2026",
+      title: "REWIRED ECOSYSTEM & APPLIED AI R&D",
+      category: "Ecosystem & Technology",
+      desc: "Membangun ekosistem edukasi REWIRED dan memimpin riset privat kecerdasan buatan: sistem mitigasi regulasi properti PRAKARA OS serta personal AI workflow E.C.H.O."
     }
   ],
 
   // Breakdown Section (Assumption to Decision)
   breakdown: {
-    eyebrow: "CONCEPTUAL VISUALIZATION",
+    eyebrow: "04 / DECISION STRUCTURING FRAMEWORK",
     titleLines: ["FROM ASSUMPTION.", "TO DECISION."],
     subtitle: "Sebelum sebuah proyek dibangun, keputusannya harus lebih dulu diuji.",
-    rawLabel: "IDEA / RAW INPUT",
-    finalLabel: "STRUCTURED ANALYSIS",
+    rawLabel: "RAW INPUT / ASSUMPTIONS",
+    finalLabel: "STRUCTURED FEASIBILITY & DECISION LOGIC",
     rawImage: "./Asset/img/initiatives/raw-input-site.svg",
     finalImage: "./Asset/img/initiatives/structured-analysis.svg",
-    credit: "CONCEPTUAL ILLUSTRATION · DECISION STRUCTURING FRAMEWORK\nDRAG / SCROLL TO COMPARE"
+    credit: "FRAMEWORK PENGAMBILAN KEPUTUSAN PROPERTI · DRAG UNTUK MEMBANDINGKAN"
   },
 
-  // About Section
+  // About Section & Positioning
   about: {
-    eyebrow: "03 / THE THINKING BEHIND THE WORK",
+    eyebrow: "05 / POSITIONING & PRINCIPLES",
     title: ["NOT JUST WHAT I BUILD.", "HOW I "],
     accentTitle: "THINK.",
+    positioningStatement: "Ervan adalah praktisi real estate sejak sekitar 2017 yang mengembangkan proyek properti, membangun bisnis konstruksi, menulis buku, mendirikan ekosistem edukasi, dan mengembangkan produk teknologi AI. Real estate adalah fondasi utama. Edukasi berasal dari pengalaman praktik, bukan sebaliknya.",
     paragraphs: [
-      "Saya memulai perjalanan dari pengembangan properti dan konstruksi. Pengalaman di lapangan mengajarkan bahwa sebuah proyek tidak cukup memiliki desain yang menarik. Ia membutuhkan keputusan yang tepat tentang lahan, pasar, biaya, tim, dan waktu.",
-      "Dari situ perhatian saya berkembang ke sesuatu yang lebih luas: bagaimana bisnis diatur agar tidak bergantung pada improvisasi. Sistem bagi saya bukan sekadar aplikasi. Sistem adalah hubungan antara informasi, tanggung jawab, keputusan, dan pelaksanaan.",
-      "Hari ini saya bergerak di antara pengembangan aset, konstruksi, pembelajaran properti, dan eksperimen teknologi. Bentuknya berbeda, tetapi titik berangkatnya tetap sama: pahami persoalan nyata, bangun struktur yang tepat, lalu uji hasilnya."
+      "Saya memulai perjalanan dari pengembangan properti dan konstruksi sejak 2017. Pengalaman di lapangan membuktikan bahwa sebuah proyek tidak cukup hanya memiliki desain yang memikat. Proyek membutuhkan keputusan yang tepat tentang legalitas lahan, daya serap pasar, batasan biaya, kesiapan tim, dan disiplin waktu.",
+      "Dari situ perhatian saya berkembang ke pembangunan sistem bisnis: bagaimana sebuah unit usaha berjalan dengan struktur yang jelas tanpa bergantung pada spekulasi atau improvisasi sesaat. Bagi saya, sistem adalah kejelasan hubungan antara data, tanggung jawab, dan tindakan nyata.",
+      "Hari ini saya berfokus pada tiga pilar yang saling menguatkan: The Practice (pengembangan properti fisik dan kendali konstruksi), The Knowledge (buku dan edukasi developer terstruktur), serta The Technology (pemanfaatan model AI privat untuk analisis regulasi dan alur kerja operasional)."
     ],
     quoteLines: [
-      "Data helps. Judgment decides.",
-      "Build clarity before complexity.",
-      "Terus bergerak, tetapi tetap",
-      "menguji asumsi."
+      "Real estate is the foundation.",
+      "Education comes from practice.",
+      "Data informs. Judgment decides."
     ],
     quoteSign: "Ervan Erianto",
-    quoteBottom: "SURABAYA, INDONESIA\nPROPERTY · BUSINESS · SYSTEMS"
+    quoteBottom: "SURABAYA, INDONESIA · PROPERTY · FOUNDER · AUTHOR"
   },
 
-  // Fields of Practice
-  fieldsOfPractice: [
-    { title: "Real Estate Development", desc: "Perencanaan lahan, kelayakan aset, dan program hunian terukur." },
-    { title: "Commercial Feasibility", desc: "Simulasi sensitivitas biaya, margin, dan toleransi arus kas." },
-    { title: "Construction & Project Control", desc: "Disiplin lingkup kerja, kendali anggaran, dan audit mutu lapangan." },
-    { title: "Business Operating Models", desc: "Arsitektur proses, kejelasan peran, dan alur pengambilan keputusan." },
-    { title: "Knowledge Architecture", desc: "Menerjemahkan pengalaman domain menjadi kurikulum dan materi belajar." },
-    { title: "AI & Digital Product Exploration", desc: "Pemanfaatan model bahasa dan otomatisasi untuk menyederhanakan data operasional." }
-  ],
-
-  // Capabilities tags
-  capabilities: [
-    "Real Estate Development",
-    "Commercial Feasibility",
-    "Construction & Project Control",
-    "Business Operating Models",
-    "Knowledge Architecture",
-    "AI & Digital Exploration"
-  ],
-
-  // Process / Framework (5 Steps)
+  // Operating Framework (5 Steps)
   process: [
-    ["01", "UNDERSTAND THE GROUND", "Kenali aset, manusia, pasar, izin, dan risiko sebelum memilih solusi."],
-    ["02", "TEST THE ECONOMICS", "Ukur asumsi, biaya, arus kas, dan skenario pesimis."],
-    ["03", "BUILD THE STRUCTURE", "Tetapkan lingkup, tanggung jawab, data, dan alur keputusan."],
-    ["04", "EXECUTE & MEASURE", "Jalankan, dokumentasikan perubahan, dan ukur realisasi terhadap rencana."],
-    ["05", "LEARN & REPLICATE", "Perbaiki sistem dari bukti aktual, bukan sekadar optimisme."]
+    ["01", "UNDERSTAND THE GROUND", "Kenali aset, aspek hukum, pasar, izin, dan risiko sebelum memilih solusi."],
+    ["02", "TEST THE ECONOMICS", "Ukur asumsi, batas biaya, arus kas, dan skenario terburuk secara ketat."],
+    ["03", "BUILD THE STRUCTURE", "Tetapkan lingkup kerja terukur, kejelasan peran tim, dan alur persetujuan."],
+    ["04", "EXECUTE & MEASURE", "Jalankan di lapangan, catat deviasi perubahan, dan ukur realisasi rencana."],
+    ["05", "LEARN & REPLICATE", "Sempurnakan sistem dari bukti empiris lapangan, bukan optimisme semata."]
   ],
 
-  // The Journey (5 Thematic Milestones)
+  // The Journey Eras
   journey: [
     {
       index: "01",
-      area: "THE EARLY GROUND",
-      tagline: "Trenggalek · Land Development Foundation",
-      text: "Perjalanan proyek properti dimulai dari kerja sama pengembangan lahan di Trenggalek, meletakkan dasar pemahaman terhadap pengondisian tanah dan legalitas."
+      area: "THE EARLY GROUND (2017–2018)",
+      tagline: "Trenggalek & East Java · Land Practice",
+      text: "Memulai pengalaman langsung dalam pengondisian lahan, verifikasi status kepemilikan tanah, dan memahami dinamika perizinan tingkat daerah di Jawa Timur."
     },
     {
       index: "02",
-      area: "THE FIELD YEARS",
-      tagline: "Malang · Tulungagung · Solo · Lamongan · Surabaya",
-      text: "Pengalaman lintas kota memperluas pemahaman tentang keputusan lapangan, dinamika pasar residensial, dan manajemen risiko bisnis secara langsung."
+      area: "RESIDENTIAL EXPANSION (2019–2020)",
+      tagline: "Dirham Land · Perumahan Tapak",
+      text: "Mengembangkan proyek perumahan tapak mandiri. Menyelaraskan kelayakan finansial, rancang bangun hunian, permodalan, serta rantai penjualan komersial."
     },
     {
       index: "03",
-      area: "CONSTRUCTION & CONTROL",
-      tagline: "Arkavena · Project Control Partner",
-      text: "Pengalaman pelaksanaan dan pengendalian berkembang menjadi pendekatan Arkavena sebagai Project Control Partner bagi pemilik proyek dan renovasi."
+      area: "PROJECT CONTROL GOVERNANCE (2021–2022)",
+      tagline: "Arkavena · Construction & Control",
+      text: "Membangun Arkavena sebagai mitra kendali proyek bagi pemilik modal dan renovasi untuk menjamin kepastian lingkup, mutu material, dan ketepatan anggaran."
     },
     {
       index: "04",
-      area: "KNOWLEDGE & EDUCATION",
-      tagline: "REWIRED · Real Estate Knowledge Ecosystem",
-      text: "REWIRED menjadi ruang mengubah praktik developer menjadi pembelajaran dan kerangka kerja terstruktur yang bisa digunakan para pelaku industri."
+      area: "INTELLECTUAL WORKS & ECOSYSTEM (2023–2024)",
+      tagline: "Real Estate Rewired & REWIRED Ecosystem",
+      text: "Menerbitkan secara mandiri buku 'Real Estate Rewired' dan membangun platform edukasi REWIRED untuk mencetak praktisi properti berbasis logika keputusan rasional."
     },
     {
       index: "05",
-      area: "SYSTEMS & TECHNOLOGY",
-      tagline: "Independent R&D · Decision Systems Lab",
-      text: "Eksperimen mandiri membangun tool, aplikasi, dan sistem AI untuk mendukung efisiensi kerja operasional dan kejelasan pengambilan keputusan."
-    }
-  ],
-
-  // 3 Substantive Outputs (Replacing certificates)
-  substantiveOutputs: [
-    {
-      num: "01",
-      title: "REAL ESTATE REWIRED",
-      detail: "Naskah & Publikasi Belajar Mandiri"
-    },
-    {
-      num: "02",
-      title: "REWIRED DEVELOPER MAP",
-      detail: "FILTER → LOCK → BLUEPRINT → TEAM → REVENUE → DELIVERY"
-    },
-    {
-      num: "03",
-      title: "PROJECT CONTROL DISCIPLINE",
-      detail: "Scope, Time, Cost, Quality & Documented Change"
+      area: "APPLIED AI & DECISION SYSTEMS (2025–2026)",
+      tagline: "PRAKARA OS & E.C.H.O · Systems R&D",
+      text: "Mengarahkan riset teknologi terapan: sistem AI penalaran regulasi hukum pertanahan PRAKARA OS dan personal intelligence architecture E.C.H.O."
     }
   ],
 
   // Contact Information
   contact: {
-    eyebrow: "05 / LET'S BUILD SOMETHING REAL.",
+    eyebrow: "06 / LET'S BUILD SOMETHING REAL.",
     headline: "GOOD IDEAS NEED GOOD EXECUTION.",
-    text: "Saya terbuka untuk percakapan seputar pengembangan properti, project control, pembangunan usaha, pengetahuan, dan sistem yang membuat keputusan lebih jelas.",
+    text: "Terbuka untuk diskusi strategis seputar pengembangan proyek properti, project control konstruksi, program edukasi developer, dan penerapan teknologi AI.",
     cta: "TERHUBUNG DI LINKEDIN",
     linkedinUrl: "https://www.linkedin.com/in/ervan-erianto/",
     location: "Surabaya, Indonesia"
@@ -219,8 +236,9 @@ export const profile = {
   // Footer & Metadata
   footer: {
     wordmark: "ERVAN ERIANTO",
-    tagline: "PROPERTY / BUSINESS / SYSTEMS",
+    tagline: "REAL ESTATE DEVELOPER · FOUNDER · AUTHOR",
     signOff: "BUILD WHAT MATTERS. MAKE IT WORK.",
-    copyrightYear: "2026"
+    copyrightYear: "2026",
+    domain: "ervan.rewired.id"
   }
 };
