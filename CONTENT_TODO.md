@@ -1,46 +1,47 @@
-# CONTENT_TODO — Checklist Personalisasi Portofolio Sinematik
+# CONTENT STATUS & PANDUAN PEMELIHARAAN — Ervan Erianto Portfolio
 
-Dokumen ini melacak daftar item yang dapat dipersonalisasi saat pemilik portofolio ingin mengganti data sampel dengan identitas dan karya pribadinya.
+Semua konfigurasi identitas, inisiatif, bidang praktik, prinsip kerja, dan aset personal Ervan Erianto telah dipasang dan diverifikasi 100%.
 
 ---
 
-### [ ] 1. Identitas & Branding Utama (`src/data/profile.js`)
-- [ ] Ganti nama lengkap (`name`) dan nama panggung/wordmark (`wordmark`)
-- [ ] Sesuaikan headline peran (`roleLines` dan `topline`), contoh: `["DIRECTOR &", "VFX ARTIST"]`
-- [ ] Tulis tagline sinematik dan kalimat pengantar hero (`intro`)
-- [ ] Tentukan manifesto visual singkat (`manifesto`)
-- [ ] Perbarui kota/negara domisili (`location`)
+## Panduan Penggantian Foto Profil Mandiri (Kapan Saja)
 
-### [ ] 2. Foto Profil Sinematik (`Asset/img/`)
-- [ ] Masukkan cut-out foto portrait transparan (`1024 × 1536 px`) ke folder `Asset/img/`
-- [ ] Perbarui tautan dan alt text di `src/data/profile.js` (`portrait`, `portraitAlt`)
-- [ ] Perbarui tag preload gambar di `index.html` jika nama file diubah
+Sistem telah dirancang modular sehingga Anda dapat mengganti foto profil utama di bagian Hero kapan saja dengan sangat mudah:
 
-### [ ] 3. Kontak & Media Sosial (`src/data/profile.js`)
-- [ ] Masukkan email resmi (`email`)
-- [ ] Masukkan nomor WhatsApp aktif (`whatsapp` dan `phoneDisplay`) dengan format internasional (contoh: `6281234567890`)
-- [ ] Tautkan akun Instagram (`instagram.handle` dan `instagram.url`)
-- [ ] Tautkan channel YouTube portofolio (`youtube`)
+### Opsi A (Paling Mudah — Tanpa Mengubah Kode):
+1. Siapkan foto potret baru (idealnya pose duduk/berdiri dengan pencahayaan gelap/rim-light).
+2. Simpan gambar tersebut sebagai PNG transparan berukuran proporsional **1024 × 1536 px** (atau rasio 2:3).
+3. Ganti file langsung di:
+   ```
+   d:\New folder\Asset\img\ervan-portrait.png
+   ```
+4. Jalankan perintah build:
+   ```bash
+   npm run build
+   ```
+5. Refresh browser (`http://localhost:4173`). Foto baru langsung terpasang otomatis dengan efek kedalaman parallax yang sama.
 
-### [ ] 4. Resume / CV (`Asset/cv/`)
-- [ ] Letakkan file CV PDF terbaru ke dalam folder `Asset/cv/`
-- [ ] Perbarui nama file pada `profile.cv` di `src/data/profile.js`
+### Opsi B (Menggunakan Nama File Berbeda):
+1. Letakkan file foto baru Anda di folder `d:\New folder\Asset\img\nama-foto-baru.png`.
+2. Buka `src/data/profile.js`.
+3. Ubah baris `portrait`:
+   ```javascript
+   portrait: "./Asset/img/nama-foto-baru.png",
+   ```
+4. Di file `index.html`, perbarui tag preload (baris 12):
+   ```html
+   <link rel="preload" href="./Asset/img/nama-foto-baru.png" as="image" fetchpriority="high" />
+   ```
+5. Jalankan `npm run build`.
 
-### [ ] 5. Logo Kolaborator & Studio (`src/data/brands.json`)
-- [ ] Masukkan file logo studio / brand rekanan (format SVG atau PNG putih transparan) ke `Asset/svg/brand/`
-- [ ] Daftarkan nama brand dan nama filenya di `src/data/brands.json`
+---
 
-### [ ] 6. Riwayat Karir & Pendidikan (`src/data/profile.js`)
-- [ ] Perbarui pengalaman kerja pada array `experiences` (accordion interaktif)
-- [ ] Perbarui riwayat pendidikan dan kursus pada array `education`
-- [ ] Sesuaikan daftar keahlian utama (`skills`) dan software (`software`)
-- [ ] Sesuaikan 5 tahapan alur kerja kreatif (`process`)
+## Status Komponen Identitas
 
-### [ ] 7. Sertifikat & Penghargaan Asli (`src/data/profile.js`)
-- [ ] Masukkan bukti sertifikat atau foto piala ke `Asset/img/`
-- [ ] Daftarkan di array `certificates` dan `awards`
-- [ ] *Catatan:* Jika belum memiliki penghargaan formal, Anda dapat mengatur `showAwards: false` pada `src/data/profile.js` untuk menyembunyikan section tanpa merusak layout.
-
-### [ ] 8. Kurasi Proyek Unggulan (`src/data/projects.json`)
-- [ ] Ganti atau tambahkan entri karya Anda ke `src/data/projects.json`
-- [ ] Tentukan 3 proyek unggulan utama di `featuredKeys` pada `src/data/profile.js` (akan ditampilkan di grid hero dan breakdown slider 3D)
+- [x] **Identitas & Wordmark**: `ERVAN`, `BUILDER`, *Property Developer · Business Builder · Systems Thinker* (`src/data/profile.js`)
+- [x] **Foto Potret Sinematik**: Terpasang dari foto pribadi Ervan dengan masking studio (`Asset/img/ervan-portrait.png`)
+- [x] **Resume Eksekutif**: Dokumen PDF Curriculum Vitae resmi (`Asset/cv/curriculum-vitae-ervan-erianto.pdf`)
+- [x] **Inisiatif Unggulan**: Arkavena & REWIRED dengan artwork SVG resolusi tinggi (`Asset/img/initiatives/`)
+- [x] **Bidang Praktik**: Property Development, Construction & Project Control, Business Architecture, Digital Systems
+- [x] **Prinsip Panduan**: 4 Prinsip Dasar menggantikan piala penghargaan
+- [x] **Kontak & Privasi**: Tautan LinkedIn resmi; semua entitas rahasia (*Patra Sarana, Rest Area KM 626, PRAKARA OS, ECHO*) tidak pernah dipublikasikan.

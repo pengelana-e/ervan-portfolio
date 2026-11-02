@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600">
+    <defs>
+      <radialGradient id="cardGrad" cx="50%" cy="40%" r="65%">
+        <stop offset="0%" stop-color="#191617"/>
+        <stop offset="60%" stop-color="#0f0d0e"/>
+        <stop offset="100%" stop-color="#080708"/>
+      </radialGradient>
+      <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#e32b3c"/>
+        <stop offset="100%" stop-color="#800615"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Dark Background -->
+    <rect width="960" height="600" fill="url(#cardGrad)"/>
+
+    <!-- Subtle Outer Border -->
+    <rect x="24" y="24" width="912" height="552" fill="none" stroke="#252122" stroke-width="1"/>
+
+    <!-- Header Badge -->
+    <rect x="50" y="46" width="130" height="24" rx="3" fill="#191617" stroke="#e32b3c" stroke-width="1"/>
+    <text x="115" y="62" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#e32b3c" text-anchor="middle">AREA OF PRACTICE</text>
+
+    <!-- Corner Decorative Accents -->
+    <path d="M 24,44 L 24,24 L 44,24" fill="none" stroke="#e32b3c" stroke-width="2"/>
+    <path d="M 936,44 L 936,24 L 916,24" fill="none" stroke="#e32b3c" stroke-width="2"/>
+    <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
+    <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
+
+    <!-- Dynamic Artwork Content -->
+    
+      <!-- Contour Lines & Site Geometry -->
+      <path d="M 120,440 Q 300,320 480,380 T 840,300" fill="none" stroke="#333" stroke-width="1.5"/>
+      <path d="M 120,380 Q 300,260 480,320 T 840,240" fill="none" stroke="#444" stroke-width="1.5"/>
+      <path d="M 120,320 Q 300,200 480,260 T 840,180" fill="none" stroke="#e32b3c" stroke-width="2"/>
+
+      <!-- Isometric Land Parcel Blocks -->
+      <polygon points="380,220 540,140 660,200 500,280" fill="#181516" stroke="#e32b3c" stroke-width="2"/>
+      <polygon points="500,280 660,200 660,280 500,360" fill="#121011" stroke="#e32b3c" stroke-width="2"/>
+      <polygon points="380,220 500,280 500,360 380,300" fill="#0d0c0d" stroke="#e32b3c" stroke-width="2"/>
+
+      <text x="140" y="470" font-family="'Manrope', sans-serif" font-size="11" letter-spacing="2" fill="#888">SITE FEASIBILITY · ASSET STRUCTURING · MASTERPLAN</text>
+      <text x="140" y="490" font-family="'Manrope', sans-serif" font-size="9" letter-spacing="3" fill="#e32b3c">VALUE CREATION · DISIPLIN INVESTASI</text>
+    
+
+    <!-- Watermark Brand Title -->
+    <text x="50" y="545" font-family="'Anton', Impact, sans-serif" font-size="28" letter-spacing="2" fill="#ffffff" opacity="0.9">PROPERTY DEVELOPMENT</text>
+    <text x="50" y="565" font-family="'Manrope', sans-serif" font-size="9" font-weight="600" letter-spacing="3" fill="#888">ASSET OPPORTUNITY & STRATEGIC PLANNING</text>
+  </svg>

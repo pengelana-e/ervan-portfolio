@@ -1,121 +1,151 @@
 export const profile = {
-  name: "Alex Vance",
-  wordmark: "VANCE",
-  roleLines: ["DIRECTOR &", "VFX ARTIST"],
-  topline: ["DIRECTOR / VFX ARTIST", "VISUAL STORYTELLER"],
-  tagline: "Merangkai visi. Menghidupkan realita sinematik.",
-  intro: "Saya mengubah konsep mentah menjadi karya visual sinematik yang berbobot, dari frame pertama hingga akhir.",
-  manifesto: ["Every frame.", "A cinematic story."],
-  location: "JAKARTA, INDONESIA",
+  // Identity
+  name: "Ervan Erianto",
+  shortName: "Ervan",
+  wordmark: "ERVAN",
+  roleDisplay: "Property Developer · Business Builder · Systems Thinker",
+  roleLines: ["PROPERTY DEVELOPER · BUSINESS BUILDER", "SYSTEMS THINKER"],
+  topline: ["PROPERTY / BUSINESS / SYSTEMS", "BUILDING ASSETS THAT LAST"],
+  tagline: "Building assets, businesses, and systems that last.",
+  taglineId: "Membangun aset, bisnis, dan sistem yang bernilai jangka panjang.",
   
-  portrait: "./Asset/img/portrait-cinematic.png",
-  portraitAlt: "Siluet sutradara dan VFX artist dengan pencahayaan rim-light merah sinematik",
-  cv: "./Asset/cv/curriculum-vitae-sample.pdf",
+  // Hero Section
+  heroEyebrow: "PROPERTY / BUSINESS / SYSTEMS",
+  heroDisplayWord: "BUILDER",
+  headline: "Membangun yang bertahan.",
+  subheadline: "Dari aset fisik hingga sistem digital, saya tertarik pada satu hal: menciptakan struktur yang membuat ide bisa dijalankan dan bisnis bisa bertumbuh.",
+  intro: "Saya bergerak di persimpangan pengembangan aset properti, pengendalian proyek, arsitektur bisnis, dan pembangunan sistem digital yang terstruktur.",
+  manifesto: ["Membangun struktur.", "Bukan sekadar prosedur."],
+  location: "INDONESIA",
+  
+  portrait: "./Asset/img/ervan-portrait.png",
+  portraitAlt: "Ervan Erianto — Property Developer, Business Builder & Systems Thinker",
+  cv: "./Asset/cv/curriculum-vitae-ervan-erianto.pdf",
 
-  stats: [
-    { value: "6", suffix: "+", label: ["TAHUN DI INDUSTRI", "KREATIF"] },
-    { value: "40", suffix: "+", label: ["PROYEK FILM", "DAN VISUAL"] },
-    { value: "12", suffix: "+", label: ["KARYA PILIHAN", "SHOWCASE"], linksTo: "#awards" }
-  ],
-
-  contact: {
-    email: "contact@alexvance.studio",
-    instagram: { handle: "@vance.cinematics", url: "https://instagram.com" },
-    youtube: "https://youtube.com",
-    whatsapp: "6281234567890",
-    phoneDisplay: "+62 812-3456-7890",
-    basedIn: "Jakarta, Indonesia",
-    greeting: "Halo Alex"
-  },
-
-  about: {
-    eyebrow: "02 / BEHIND THE FRAMES",
-    title: ["BUKAN SEKADAR VISUAL.", "TAPI CARA "],
-    accentTitle: "BERCERITA.",
-    bio: "Saya Alex Vance, visual director & VFX artist berbasis di Jakarta. Berfokus pada film, visual effects, 3D worldbuilding, dan post-production, menyatukan ketepatan teknis dengan rasa artistik untuk membangun cerita yang bernyawa.",
-    quoteLines: ["Dari konsep", "dan storytelling,", "sampai visual", "yang sinematik."],
-    quoteSign: "Alex Vance",
-    quoteBottom: "LET’S MAKE\nTHE NEXT FRAME COUNT."
-  },
-
-  education: [
-    { title: "Visual Arts & Film Institute", meta: "Directing & CGI", text: "Cinematography, visual effects, digital compositing & direction." },
-    { title: "Motion Lab Studio", meta: "2023", text: "Advanced lighting, 3D photorealism & compositing workflow." },
-    { title: "Courses & Workshops", text: "VFX Pipeline · Color Science & ACES · Virtual Production" }
-  ],
-
-  skills: [
-    "VFX & CGI",
-    "Compositing",
-    "3D Environment",
-    "Video Editing",
-    "Color Grading",
-    "Storytelling",
-    "Cinematography",
-    "Virtual Production"
-  ],
-
-  software: [
-    ["pr", "Premiere Pro"],
-    ["ae", "After Effects"],
-    ["bl", "Blender"],
-    ["ps", "Photoshop"],
-    ["lr", "Lightroom"],
-    ["cc", "CapCut"]
-  ],
-
-  process: [
-    ["01", "THE IDEA", "Mendengar narasi dan objektif. Menentukan mood, worldbuilding, dan resonansi visual."],
-    ["02", "THE PLAN", "Mengembangkan konsep, referensi visual, dan alur teknis produksi yang terukur."],
-    ["03", "THE CRAFT", "Editing ritme, matchmoving, 3D integration, dan efek visual frame-by-frame."],
-    ["04", "THE POLISH", "Color grading sinematik, integrasi audio, dan penajaman detail visual."],
-    ["05", "THE FINAL FRAME", "Review bersama, sentuhan akhir, lalu deliverable siap tayang di layar bioskop atau digital."]
-  ],
-
-  experiences: [
+  // 3 Strategic Pillars (Replacing demo numerical stats)
+  pillars: [
     {
-      date: "2024 · SEKARANG",
-      title: "Senior VFX Artist & Director",
-      place: "Independent Film & Commercial",
-      text: "Memimpin post-production dan efek visual untuk film independen, commercial spot, serta instalasi visual sinematik. Menangani supervisi VFX dari on-set hingga final composite."
+      code: "PROPERTY",
+      label: "Pengembangan Aset",
+      desc: "Pengembangan aset, hunian, dan lingkungan komersial bernilai jangka panjang."
     },
     {
-      date: "2022 – 2024",
-      title: "Lead Compositor & CGI Generalist",
-      place: "Film & Commercial Production",
-      text: "Bertanggung jawab atas 3D environment, matchmove, clean-up, photorealistic lighting, dan rotoscoping untuk film dan iklan brand."
+      code: "BUSINESS",
+      label: "Model & Eksekusi",
+      desc: "Model usaha, arsitektur operasional, dan sistem pengendalian proyek."
     },
     {
-      date: "2021 – 2022",
-      title: "VFX & Motion Designer",
-      place: "Creative Production Studio",
-      text: "Mengerjakan motion graphics, visual effects, editing sinematik, dan color grading untuk konten digital naratif."
-    },
-    {
-      date: "2019 – 2021",
-      title: "Freelance Editor & Colorist",
-      place: "Video, Photography & Film",
-      text: "Menyunting narrative short films, dokumenter, dan musik video dengan pendekatan ritme emosional dan grading bernuansa filmik."
+      code: "SYSTEMS",
+      label: "Produk & Digital",
+      desc: "Produk digital, ekosistem pengetahuan, dan sistem terstruktur."
     }
   ],
 
-  showAwards: true,
-  awards: [
-    { year: "2025", title: "Best Visual Effects (Sample)", event: "Independent Film Showcase" },
-    { year: "2024", title: "Excellence in 3D Environment (Sample)", event: "Digital Cinema Awards" },
-    { year: "2023", title: "Best Short Film Editing (Sample)", event: "National Film Fest" },
-    { year: "2022", title: "Outstanding Visual Craft (Sample)", event: "Creative Showcase" },
-    { year: "2021", title: "Audience Choice Best Narrative (Sample)", event: "Short Film Gala" },
-    { year: "2020", title: "Young Creator Achievement (Sample)", event: "Visual Media Review" }
+  // Initiatives & Practice Navigation
+  categories: ["Semua", "Inisiatif Unggulan", "Property Development", "Project Control", "Business Architecture", "Digital Systems"],
+  featuredKeys: ["Arkavena", "REWIRED", "Property Development", "Construction & Project Control", "Business Architecture", "Knowledge & Digital Systems"],
+
+  // About Section
+  about: {
+    eyebrow: "02 / THE THINKING BEHIND THE WORK",
+    title: ["BUKAN HANYA MEMBANGUN SESUATU.", "MEMIKIRKAN BAGAIMANA IA AKAN "],
+    accentTitle: "BEKERJA.",
+    paragraphs: [
+      "Saya memulai perjalanan profesional dari dunia properti dan konstruksi. Di sana saya belajar bahwa desain yang baik belum tentu menghasilkan proyek yang baik. Yang menentukan adalah bagaimana keputusan dibuat, pekerjaan dikendalikan, dan risiko dipahami sejak awal.",
+      "Pengalaman tersebut membentuk ketertarikan saya pada sistem. Bagi saya, sistem bukan sekadar aplikasi atau prosedur. Sistem adalah cara menghubungkan manusia, informasi, tanggung jawab, dan tindakan agar bisnis tidak terus bergantung pada improvisasi.",
+      "Kini perhatian saya bergerak di persimpangan pengembangan aset, pembangunan usaha, pendidikan, dan teknologi. Bentuk proyeknya bisa berbeda, tetapi prinsipnya sama: mulai dari masalah nyata, bangun struktur yang tepat, lalu uji melalui pelaksanaan."
+    ],
+    quoteLines: [
+      "Dari pemahaman lapangan,",
+      "merancang sistem,",
+      "sampai struktur bisnis",
+      "yang bertumbuh."
+    ],
+    quoteSign: "Ervan Erianto",
+    quoteBottom: "BUILD STRUCTURES THAT LAST.\nTHINK IN SYSTEMS."
+  },
+
+  // Focus Domains & Capabilities
+  capabilities: [
+    "Property Development",
+    "Construction Management",
+    "Project Control",
+    "Feasibility Analysis",
+    "Business Architecture",
+    "Knowledge Systems",
+    "Operating Models",
+    "Decision Governance"
   ],
 
-  certificates: [
-    { title: "Honorary VFX Recognition", year: "2025", image: "./Asset/img/cert-demo-1.svg", description: "Demonstration certificate for visual effects and compositing excellence." },
-    { title: "3D Environment Mastery", year: "2024", image: "./Asset/img/cert-demo-2.svg", description: "Demonstration milestone for 3D worldbuilding and photorealism." },
-    { title: "Cinematic Editing Award", year: "2023", image: "./Asset/img/cert-demo-3.svg", description: "Demonstration certificate for narrative storytelling and editorial rhythm." },
-    { title: "Studio Compositing Certificate", year: "2022", image: "./Asset/img/cert-demo-4.svg", description: "Demonstration milestone for studio pipeline and matchmoving." }
+  // 4 Core Principles (Replacing Fictional Awards Section)
+  principles: [
+    {
+      index: "01",
+      title: "Kejelasan Keputusan",
+      desc: "Mulai dari konteks, aset, manusia, dan risiko yang sesungguhnya sebelum melangkah."
+    },
+    {
+      index: "02",
+      title: "Disiplin Eksekusi",
+      desc: "Menjaga hubungan ketat antara perencanaan strategis, biaya, mutu, dan realitas lapangan."
+    },
+    {
+      index: "03",
+      title: "Tanggung Jawab atas Hasil",
+      desc: "Berfokus pada deliverable nyata yang bekerja, bukan sekadar presentasi atau prosedur seremonial."
+    },
+    {
+      index: "04",
+      title: "Nilai Jangka Panjang",
+      desc: "Membangun struktur dan aset yang mampu bertahan, bertumbuh, dan memberi dampak berkelanjutan."
+    }
   ],
 
-  featuredKeys: ['wgGEoeSLR3g', '4iOvfP2j-qo', 'CYBERPUNK ENVIRONMENT'],
-  footerNote: "EVERY FRAME HAS A PURPOSE."
+  // Process / How I Work (4 Steps)
+  process: [
+    ["01", "UNDERSTAND THE GROUND", "Mulai dari konteks, aset, manusia, dan risiko yang sesungguhnya."],
+    ["02", "DESIGN THE SYSTEM", "Definisikan struktur, tanggung jawab, pengukuran, dan alur keputusan."],
+    ["03", "EXECUTE WITH DISCIPLINE", "Hubungkan strategi dengan pekerjaan yang benar-benar dapat dijalankan."],
+    ["04", "MEASURE AND IMPROVE", "Gunakan hasil aktual untuk mengoreksi asumsi dan meningkatkan kualitas keputusan."]
+  ],
+
+  // Thematic Journey Milestones (No unverified dates)
+  journey: [
+    {
+      area: "Aset & Pengembangan",
+      tagline: "Property Development & Asset Structuring",
+      text: "Pengalaman dalam pengembangan properti, penilaian potensi lahan, analisis kelayakan, dan perumusan keputusan investasi aset."
+    },
+    {
+      area: "Konstruksi & Pengendalian",
+      tagline: "Project Control & Field Governance",
+      text: "Pendalaman pada pelaksanaan proyek fisik, manajemen biaya, pemantauan progres, kendali mutu, dan perlindungan kepentingan pemilik aset."
+    },
+    {
+      area: "Edukasi & Pengetahuan",
+      tagline: "REWIRED Learning Ecosystem",
+      text: "Pengembangan REWIRED sebagai ekosistem belajar yang menjembatani praktik nyata properti dengan pengetahuan yang terstruktur dan aplikatif."
+    },
+    {
+      area: "Sistem Digital",
+      tagline: "Knowledge & Digital Systems",
+      text: "Eksplorasi teknologi untuk menerjemahkan logika operasional dan keahlian domain menjadi produk serta sistem pengambilan keputusan terstruktur."
+    }
+  ],
+
+  // Contact Information (Strictly Public)
+  contact: {
+    kicker: "04 / LET'S BUILD SOMETHING MEANINGFUL",
+    headline: "Punya persoalan yang layak diselesaikan?",
+    text: "Saya terbuka untuk percakapan mengenai properti, pengembangan bisnis, kerja sama strategis, dan sistem yang membantu organisasi bekerja lebih baik.",
+    cta: "Terhubung di LinkedIn",
+    linkedinUrl: "https://www.linkedin.com/in/ervan-erianto/"
+  },
+
+  // Footer & Metadata
+  footer: {
+    wordmark: "ERVAN ERIANTO",
+    tagline: "PROPERTY / BUSINESS / SYSTEMS",
+    signOff: "Build with clarity. Think long term."
+  }
 };

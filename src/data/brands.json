@@ -1,50 +1,26 @@
 [
   {
-    "file": "Netflix.svg",
-    "name": "Netflix"
+    "file": "arkavena.svg",
+    "name": "Arkavena"
   },
   {
-    "file": "AetherFilms.svg",
-    "name": "Aether Films"
+    "file": "rewired.svg",
+    "name": "REWIRED"
   },
   {
-    "file": "ApexCinema.svg",
-    "name": "Apex Cinema Group"
+    "file": "prop-dev.svg",
+    "name": "Property Development"
   },
   {
-    "file": "ChromaVFX.svg",
-    "name": "Chroma VFX"
+    "file": "proj-control.svg",
+    "name": "Project Control"
   },
   {
-    "file": "LuminaStudios.svg",
-    "name": "Lumina Studios"
+    "file": "biz-arch.svg",
+    "name": "Business Architecture"
   },
   {
-    "file": "NexusPost.svg",
-    "name": "Nexus Post"
-  },
-  {
-    "file": "Hyperion3D.svg",
-    "name": "Hyperion 3D"
-  },
-  {
-    "file": "SpectraGrade.svg",
-    "name": "Spectra Grade"
-  },
-  {
-    "file": "VanguardMedia.svg",
-    "name": "Vanguard Media"
-  },
-  {
-    "file": "HorizonVisuals.svg",
-    "name": "Horizon Visuals"
-  },
-  {
-    "file": "KinetixLab.svg",
-    "name": "Kinetix Lab"
-  },
-  {
-    "file": "OnyxSound.svg",
-    "name": "Onyx Sound"
+    "file": "dig-systems.svg",
+    "name": "Digital Systems"
   }
 ]

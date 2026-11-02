@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext, createContext } from 'react';
 import { createRoot } from 'react-dom/client';
 import { motion, AnimatePresence, MotionConfig, useScroll, useTransform, useSpring, useReducedMotion, useMotionValueEvent, useAnimationFrame, useInView } from 'framer-motion';
-import { ArrowUpRight, ArrowDown, ArrowRight, Play, X, Menu, Mail, Phone, MapPin, Instagram, Youtube, Download, Pause, Search, Plus, Minus, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowRight, Play, X, Menu, Linkedin, Globe, MapPin, Download, Pause, Search, Plus, Minus, ChevronLeft, ChevronRight, ExternalLink, ShieldCheck, Compass } from 'lucide-react';
 import archive from './data/projects.json';
 import brands from './data/brands.json';
 import { profile } from './data/profile.js';
@@ -9,18 +9,8 @@ import './styles.css';
 
 const MotionContext = createContext(true);
 const EASE = [0.22, 1, 0.36, 1];
-const categories = ['Semua', 'VFX', 'Film', '3D', 'Commercial', 'Photography', 'Visual', 'Manipulation', 'Websites'];
-
-// Initial featured projects: at least 6 rich demonstration project cards as requested in P1
-const featured = profile.featuredKeys
-  .map(key => archive.find(p => p.media === key || p.title === key))
-  .filter(Boolean);
-
-// Ensure featured has at least 6 cards by appending high-visual demonstration projects
-if (featured.length < 6) {
-  const candidates = archive.filter(p => !featured.some(f => f.title === p.title) && p.image);
-  featured.push(...candidates.slice(0, 6 - featured.length));
-}
+const categories = profile.categories;
+const featured = archive; // All 6 initiatives and practice cards
 
 function Reveal({ children, className = '', delay = 0, as = 'div' }) {
   const enabled = useContext(MotionContext);
@@ -36,11 +26,8 @@ function MediaImage({ src, alt, className = '', priority = false, ...props }) {
     setState(img?.complete ? (img.naturalWidth ? 'loaded' : 'error') : 'loading');
   }, [src]);
   return <span className={`media-image ${state} ${className}`}>
-    {state === 'error' && <span className="image-fallback"><span className="display">{profile.wordmark[0]}.</span><span>Pratinjau visual</span></span>}
-    <img ref={imgRef} src={src} alt={alt} loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'} width="960" height="600" onLoad={() => setState('loaded')} onError={e => {
-      if (e.currentTarget.src.includes('maxresdefault.jpg')) e.currentTarget.src = e.currentTarget.src.replace('maxresdefault.jpg', 'hqdefault.jpg');
-      else setState('error');
-    }} {...props} />
+    {state === 'error' && <span className="image-fallback"><span className="display">E.</span><span>Visual Karya</span></span>}
+    <img ref={imgRef} src={src} alt={alt} loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : 'auto'} width="960" height="600" onLoad={() => setState('loaded')} onError={() => setState('error')} {...props} />
   </span>;
 }
 
@@ -61,30 +48,35 @@ function Header({ enabled, onToggle }) {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, 'change', latest => setScrolled(latest > 50));
-  return <header className={`header ${scrolled ? 'is-scrolled' : ''}`}>
-    <div className="header-inner">
-      <a className="wordmark" href="#home" aria-label={`${profile.name}, beranda`}>{profile.wordmark}<span>®</span></a>
-      <nav className="nav-desktop">
+
+  return <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
+    <div className="header-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+      <a className="wordmark" href="#home" aria-label={`${profile.name}, beranda`}>
+        {profile.wordmark}<span>®</span>
+      </a>
+      <nav className="desktop-nav">
         <a href="#portfolio">KARYA</a>
         <a href="#about">TENTANG</a>
-        <a href="#experience">PERJALANAN</a>
+        <a href="#principles">PENDEKATAN</a>
+        <a href="#journey">PERJALANAN</a>
         <a href="#contact">KONTAK</a>
       </nav>
       <div className="header-actions">
         <button onClick={onToggle} className="motion-toggle" aria-pressed={enabled} aria-label="Toggle animasi"><span className="motion-dot"/>MOTION {enabled ? 'ON' : 'OFF'}</button>
-        <Magnetic href={profile.cv} download className="cv-pill" aria-label="Unduh Resume"><Download size={14}/><span>RESUME</span></Magnetic>
-        <button className="menu-burger" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? 'Tutup navigasi' : 'Buka navigasi'}>{open ? <X/> : <Menu/>}</button>
+        <Magnetic href={profile.cv} download className="cv-pill" aria-label="Unduh Resume Ervan Erianto"><Download size={14}/><span>RESUME</span></Magnetic>
+        <button className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? 'Tutup navigasi' : 'Buka navigasi'}>{open ? <X/> : <Menu/>}</button>
       </div>
     </div>
     <AnimatePresence>
-      {open && <motion.nav className="nav-mobile" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ ease: EASE, duration: 0.35 }}>
-        <a href="#portfolio" onClick={() => setOpen(false)}>KARYA</a>
-        <a href="#about" onClick={() => setOpen(false)}>TENTANG</a>
-        <a href="#experience" onClick={() => setOpen(false)}>PERJALANAN</a>
-        <a href="#contact" onClick={() => setOpen(false)}>KONTAK</a>
-        <div className="nav-mobile-footer">
+      {open && <motion.nav className="mobile-menu" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ ease: EASE, duration: 0.35 }}>
+        <a href="#portfolio" onClick={() => setOpen(false)}>KARYA <ArrowUpRight size={18}/></a>
+        <a href="#about" onClick={() => setOpen(false)}>TENTANG <ArrowUpRight size={18}/></a>
+        <a href="#principles" onClick={() => setOpen(false)}>PENDEKATAN <ArrowUpRight size={18}/></a>
+        <a href="#journey" onClick={() => setOpen(false)}>PERJALANAN <ArrowUpRight size={18}/></a>
+        <a href="#contact" onClick={() => setOpen(false)}>KONTAK <ArrowUpRight size={18}/></a>
+        <div className="mobile-menu-footer">
           <button onClick={onToggle} className="motion-toggle" aria-pressed={enabled}><span className="motion-dot"/>MOTION {enabled ? 'ON' : 'OFF'}</button>
-          <a href={profile.cv} download className="cv-pill"><Download size={14}/><span>RESUME</span></a>
+          <a href={profile.cv} download className="cv-pill"><Download size={14}/><span>UNDUH RESUME</span></a>
         </div>
       </motion.nav>}
     </AnimatePresence>
@@ -103,11 +95,11 @@ function Hero({ onProject }) {
   return <section id="home" className="hero" ref={ref}>
     <div className="hero-top">
       <span>{profile.topline[0]}<br/><span className="muted">{profile.topline[1]}</span></span>
-      <span className="availability"><i />AVAILABLE FOR COLLABORATION</span>
+      <span className="availability"><i />AVAILABLE FOR STRATEGIC COLLABORATION</span>
     </div>
 
     <motion.div className="hero-title display" aria-hidden="true" style={enabled ? { y: titleY } : {}} initial={enabled ? { clipPath: 'inset(0 0 100% 0)' } : false} animate={{ clipPath: 'inset(0 0 0% 0)' }} transition={{ duration: 1.4, ease: EASE }}>
-      PORTFOLIO
+      {profile.heroDisplayWord}
     </motion.div>
 
     <motion.div className="hero-portrait" style={enabled ? { y: portraitY, scale: portraitScale } : {}} initial={enabled ? { opacity: 0 } : false} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.2 }}>
@@ -118,8 +110,8 @@ function Hero({ onProject }) {
       <p className="handwriting">Hello, I’m</p>
       <h1 className="display">{profile.name}<span>.</span></h1>
       <p className="hero-role">{profile.roleLines[0]}<br />{profile.roleLines[1]}</p>
-      <p className="hero-description">{profile.intro}</p>
-      <Magnetic href="#portfolio" className="primary-link">Lihat karya saya <ArrowDown size={17}/></Magnetic>
+      <p className="hero-description">{profile.subheadline}</p>
+      <Magnetic href="#portfolio" className="primary-link">Jelajahi Karya <ArrowDown size={17}/></Magnetic>
       <span className="hero-location"><MapPin size={12} /> {profile.location}</span>
     </motion.div>
 
@@ -129,14 +121,10 @@ function Hero({ onProject }) {
         <p>{profile.manifesto[0]}<br />{profile.manifesto[1]}</p>
       </div>
       <div className="hero-stats">
-        {profile.stats.map((s, idx) => (
-          <div key={idx} className={s.linksTo ? 'hero-award-stat' : ''}>
-            <span className="display">{s.value}<span>{s.suffix || '+'}</span></span>
-            {s.linksTo ? (
-              <a href={s.linksTo} aria-label={s.label.join(' ')}>{s.label[0]}<br/>{s.label[1]}<ArrowUpRight size={12}/></a>
-            ) : (
-              <p>{s.label[0]}<br/>{s.label[1]}</p>
-            )}
+        {profile.pillars.map((pillar, idx) => (
+          <div key={pillar.code}>
+            <span className="display">0{idx + 1}</span>
+            <p><strong>{pillar.code}</strong><br/>{pillar.label}</p>
           </div>
         ))}
         <a href={profile.cv} download><Download size={16}/><span>DOWNLOAD CV</span></a>
@@ -145,12 +133,12 @@ function Hero({ onProject }) {
 
     <div className="hero-bottom">
       <button className="reel-button" onClick={() => onProject(featured[0])}>
-        <span className="play-circle"><Play size={12} fill="currentColor" /></span>
-        PLAY SHOWREEL
-        <span className="muted">VFX / CGI</span>
+        <span className="play-circle"><Compass size={13} /></span>
+        EXPLORE INITIATIVES
+        <span className="muted">ARKAVENA &amp; REWIRED</span>
       </button>
       <span className="hero-scroll">SCROLL TO DISCOVER <ArrowDown size={13}/></span>
-      <span className="edition">SELECTED WORK / 2022–2026</span>
+      <span className="edition">SELECTED WORK &amp; PRACTICES / 2026</span>
     </div>
   </section>;
 }
@@ -160,21 +148,20 @@ function ProjectCard({ project, index, onOpen }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [-12, 12]);
-  const video = ['youtube', 'drive'].includes(project.type);
 
-  return <motion.article ref={ref} className="project-card" layout initial={enabled ? { opacity: 0, y: 32 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.05 }} transition={{ duration: enabled ? 0.6 : 0, delay: (index % 3) * 0.06, ease: EASE }} exit={{ opacity: 0, scale: 0.96 }}>
+  return <motion.article ref={ref} className="project-card" layout initial={enabled ? { opacity: 0, y: 32 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.05 }} transition={{ duration: enabled ? 0.45 : 0, delay: (index % 3) * 0.04, ease: EASE }} exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.2 } }}>
     <button className="project-open" onClick={() => onOpen(project)} aria-label={`Lihat ${project.title}`}>
       <motion.div className="project-picture" style={enabled ? { y } : {}}>
         <MediaImage src={project.image} alt={project.title}/>
       </motion.div>
-      <span className="project-type">{project.type === 'render' ? '3D BREAKDOWN' : video ? 'FILM / VIDEO' : project.type === 'website' ? 'WEBSITE' : 'STILL / IMAGE'}</span>
-      <span className="project-hover">{video ? <Play fill="currentColor" size={18}/> : <ArrowUpRight size={22}/>}</span>
+      <span className="project-type">{project.category.toUpperCase()}</span>
+      <span className="project-hover"><ArrowUpRight size={22}/></span>
       <span className="project-frame" aria-hidden="true" />
     </button>
     <button className="project-caption" onClick={() => onOpen(project)}>
       <span className="project-category">{project.category} {project.year && `· ${project.year}`}</span>
       <h3>{project.title}</h3>
-      <span className="project-more">DETAIL <ArrowUpRight size={14}/></span>
+      <span className="project-more">PENJELASAN <ArrowUpRight size={14}/></span>
     </button>
   </motion.article>;
 }
@@ -215,22 +202,22 @@ function BrandStrip() {
 
   return <Reveal className="brand-section">
     <div className="brand-heading">
-      <p>BEEN PART OF<br/><strong>THE BIGGER PICTURE.</strong></p>
+      <p>INITIATIVES &amp; PRACTICE AREAS<br/><strong>DISIPLIN PENGEMBANGAN DAN SISTEM.</strong></p>
       <div>
         <button className="brand-all" onClick={() => setShowAll(v => !v)} aria-expanded={showAll} aria-controls="brand-collection">
           {showAll ? 'TAMPILKAN DERET' : `LIHAT SEMUA (${brands.length})`}
           {showAll ? <Minus size={14}/> : <Plus size={14}/>}
         </button>
         {!showAll && <>
-          <button className="icon-button brand-pause" aria-label={paused ? 'Putar animasi logo' : 'Jeda animasi logo'} aria-pressed={paused} onClick={() => setPaused(v => !v)}>
+          <button className="icon-button brand-pause" aria-label={paused ? 'Putar animasi' : 'Jeda animasi'} aria-pressed={paused} onClick={() => setPaused(v => !v)}>
             {paused ? <Play size={13}/> : <Pause size={13}/>}
           </button>
-          <button className="icon-button" onClick={() => move(-1)} aria-label="Logo sebelumnya"><ChevronLeft size={17}/></button>
-          <button className="icon-button" onClick={() => move(1)} aria-label="Logo selanjutnya"><ChevronRight size={17}/></button>
+          <button className="icon-button" onClick={() => move(-1)} aria-label="Sebelumnya"><ChevronLeft size={17}/></button>
+          <button className="icon-button" onClick={() => move(1)} aria-label="Selanjutnya"><ChevronRight size={17}/></button>
         </>}
       </div>
     </div>
-    <div id="brand-collection" className={showAll ? 'brand-full-grid' : 'brand-viewport'} ref={ref} onPointerEnter={e => { if(e.pointerType==='mouse') setInteracting(true); }} onPointerLeave={() => setInteracting(false)} onPointerDown={() => setPaused(true)} onFocusCapture={() => setInteracting(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setInteracting(false); }} tabIndex={showAll ? undefined : 0} role={showAll ? 'list' : 'region'} aria-label="Logo brand dan institusi, geser untuk melihat semuanya">
+    <div id="brand-collection" className={showAll ? 'brand-full-grid' : 'brand-viewport'} ref={ref} onPointerEnter={e => { if(e.pointerType==='mouse') setInteracting(true); }} onPointerLeave={() => setInteracting(false)} onPointerDown={() => setPaused(true)} onFocusCapture={() => setInteracting(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setInteracting(false); }} tabIndex={showAll ? undefined : 0} role={showAll ? 'list' : 'region'} aria-label="Daftar inisiatif dan bidang praktik">
       {showAll ? brands.map(b => (
         <div className="brand-logo" key={b.file} role="listitem">
           <img src={`./Asset/svg/brand/${b.file}`} alt={b.name} title={b.name} width="150" height="60" loading="lazy"/>
@@ -257,27 +244,30 @@ function Portfolio({ onProject }) {
   const [category, setCategory] = useState('Semua');
   const [query, setQuery] = useState('');
   const [expanded, setExpanded] = useState(false);
-  const [limit, setLimit] = useState(9);
+  const [limit, setLimit] = useState(6);
 
-  const results = archive.filter(p => (category === 'Semua' || p.category === category) && `${p.title} ${p.category} ${p.role} ${p.description || ''}`.toLowerCase().includes(query.toLowerCase()));
-  const projects = expanded || category !== 'Semua' || query ? results.slice(0, limit) : featured;
+  const results = archive.filter(p => (category === 'Semua' || p.category === category || (category === 'Inisiatif Unggulan' && ['Arkavena', 'REWIRED'].includes(p.title))) && `${p.title} ${p.category} ${p.role} ${p.description || ''}`.toLowerCase().includes(query.toLowerCase()));
+  const projects = results.slice(0, expanded ? results.length : limit);
 
   return <section id="portfolio" className="portfolio section-wrap">
     <Reveal className="section-heading">
       <div>
-        <span className="eyebrow">01 / SELECTED WORK</span>
-        <h2>KARYA YANG BICARA<span className="accent">.</span></h2>
+        <span className="eyebrow">01 / SELECTED WORK &amp; INITIATIVES</span>
+        <h2>GAGASAN YANG DIBAWA KE DUNIA NYATA<span className="accent">.</span></h2>
       </div>
-      <button className="text-link" onClick={() => { if (expanded) { setExpanded(false); setCategory('Semua'); setQuery(''); } else { setExpanded(true); setLimit(9); } }}>
-        {expanded ? 'KARYA PILIHAN' : 'SEMUA KARYA'}
+      <button className="text-link" onClick={() => { if (expanded) { setExpanded(false); setCategory('Semua'); setQuery(''); } else { setExpanded(true); } }}>
+        {expanded ? 'KARYA UNGGULAN' : 'SEMUA BIDANG'}
         <ArrowRight size={21}/>
       </button>
     </Reveal>
+    <p className="section-lead" style={{ maxWidth: '820px', color: '#a09c9a', fontSize: '13px', lineHeight: '1.8', marginBottom: '24px' }}>
+      Pekerjaan saya berada di antara pengembangan ruang, pembangunan bisnis, dan perancangan sistem. Setiap inisiatif dimulai dari masalah nyata dan kebutuhan untuk mengeksekusinya dengan lebih baik.
+    </p>
 
     <Reveal className="portfolio-toolbar">
       <div className="filters" role="group" aria-label="Kategori karya">
         {categories.map(c => (
-          <button key={c} className={category === c ? 'selected' : ''} aria-pressed={category === c} onClick={() => { setCategory(c); setExpanded(true); setLimit(9); }}>
+          <button key={c} className={category === c ? 'selected' : ''} aria-pressed={category === c} onClick={() => { setCategory(c); setExpanded(true); }}>
             {c}
             {c === category && <motion.span className="filter-line" layoutId="filter-line"/>}
           </button>
@@ -286,29 +276,22 @@ function Portfolio({ onProject }) {
       <label className="search-box">
         <Search size={15}/>
         <span>Cari</span>
-        <input aria-label="Cari karya" type="search" placeholder="Judul atau kategori…" value={query} onChange={e => { setQuery(e.target.value); setExpanded(true); setLimit(9); }}/>
+        <input aria-label="Cari inisiatif atau bidang praktik" type="search" placeholder="Inisiatif atau bidang praktik…" value={query} onChange={e => { setQuery(e.target.value); setExpanded(true); }}/>
       </label>
     </Reveal>
 
     <motion.div className="project-grid" layout>
       <AnimatePresence mode="popLayout">
         {projects.map((p, i) => (
-          <ProjectCard key={p.category + p.title + p.media} project={p} index={i} onOpen={onProject}/>
+          <ProjectCard key={p.category + p.title} project={p} index={i} onOpen={onProject}/>
         ))}
       </AnimatePresence>
     </motion.div>
 
     {projects.length === 0 && (
       <div className="empty-state">
-        <p>Tidak ada karya untuk “{query}”.</p>
+        <p>Tidak ada inisiatif untuk “{query}”.</p>
         <button className="text-link" onClick={() => { setQuery(''); setCategory('Semua'); }}>Reset pencarian <X size={15}/></button>
-      </div>
-    )}
-
-    {expanded && results.length > limit && (
-      <div className="load-more">
-        <button className="outline-button" onClick={() => setLimit(v => v + 9)}>Tampilkan karya lainnya <Plus size={16}/></button>
-        <span>{projects.length} dari {results.length} karya</span>
       </div>
     )}
 
@@ -316,42 +299,38 @@ function Portfolio({ onProject }) {
   </section>;
 }
 
-function Awards({ onProject }) {
+function Principles() {
   const [expanded, setExpanded] = useState(false);
   const laurelPath = 'M48 94C8 68 9 30 35 5M22 61C8 60 3 49 3 44c12 0 19 6 19 17zm-5-19C5 35 6 23 8 19c11 5 13 14 9 23zm7-20C15 12 20 3 24 0c7 8 6 16 0 22zM31 79C17 79 8 70 7 64c13-2 22 4 24 15zm-3-18c-5-10-2-19 7-25 5 11 1 20-7 25zm10 24c-6-11-4-20 5-27 6 9 5 20-5 27z';
 
-  if (!profile.showAwards) return null;
-
-  return <section id="awards" className={`recognition section-wrap ${expanded ? 'awards-expanded' : ''}`}>
+  return <section id="principles" className={`recognition section-wrap ${expanded ? 'awards-expanded' : ''}`}>
     <Reveal className="recognition-intro">
-      <span className="eyebrow">RECOGNITION & AWARDS</span>
-      <h2 className="display">THE WORK.<br/><span className="accent">THE RECOGNITION.</span></h2>
+      <span className="eyebrow">WHAT DRIVES THE WORK</span>
+      <h2 className="display">PRINSIP YANG LEBIH PENTING DARI <span className="accent">PENGHARGAAN.</span></h2>
       <div className="award-total">
         <svg viewBox="0 0 60 100" aria-hidden="true"><path d={laurelPath} fill="currentColor"/></svg>
-        <span className="display">10<span>+</span></span>
+        <span className="display">04</span>
         <svg viewBox="0 0 60 100" aria-hidden="true"><g transform="translate(60 0) scale(-1 1)"><path d={laurelPath} fill="currentColor"/></g></svg>
-        <span className="award-total-label">AWARDS WON</span>
+        <span className="award-total-label">CORE PRINCIPLES</span>
       </div>
-      <p>Karya yang dibuat dengan visi penuh rasa.<br/>Penghargaan dan sertifikasi dari eksplorasi sinematik.</p>
-      {profile.certificates.length > 0 && (
-        <button className="text-link award-proof" onClick={() => onProject({ ...profile.certificates[0], type: 'image', media: profile.certificates[0].image, category: 'Award', description: profile.certificates[0].description })}>
-          LIHAT SERTIFIKAT<ArrowUpRight size={18}/>
-        </button>
-      )}
+      <p>Struktur nilai yang memandu setiap keputusan pengembangan aset, eksekusi konstruksi, dan pembangunan sistem.</p>
+      <a className="text-link award-proof" href="#about">
+        CARA SAYA BEKERJA<ArrowDown size={18}/>
+      </a>
     </Reveal>
     <div className="recognition-list">
-      <div className="recognition-list-head"><span>SELECTED RECOGNITION</span><span>2020 – 2025</span></div>
+      <div className="recognition-list-head"><span>GUIDING PRINCIPLES</span><span>DISIPLIN &amp; NILAI</span></div>
       <ol id="recognition-list">
-        {profile.awards.map((award, i) => (
-          <Reveal as="li" className={`recognition-row ${i > 2 ? 'additional-award' : ''}`} key={`${award.year}-${i}`} delay={i * 0.045}>
-            <span className="award-index">0{i + 1}</span>
-            <div><h3>{award.title}</h3><p>{award.event}</p></div>
-            <span className="award-year display">{award.year}</span>
+        {profile.principles.map((pr, i) => (
+          <Reveal as="li" className={`recognition-row ${i > 2 ? 'additional-award' : ''}`} key={pr.index} delay={i * 0.045}>
+            <span className="award-index">{pr.index}</span>
+            <div><h3>{pr.title}</h3><p>{pr.desc}</p></div>
+            <span className="award-year display">PRINCIPIUM</span>
           </Reveal>
         ))}
       </ol>
       <button className="award-expand" aria-expanded={expanded} aria-controls="recognition-list" onClick={() => setExpanded(v => !v)}>
-        {expanded ? 'Ringkas penghargaan' : 'Lihat penghargaan lainnya'}
+        {expanded ? 'Ringkas prinsip' : 'Lihat semua prinsip'}
         {expanded ? <Minus size={16}/> : <Plus size={16}/>}
       </button>
     </div>
@@ -359,35 +338,33 @@ function Awards({ onProject }) {
 }
 
 function Breakdown() {
-  const scene = featured.find(p => p.type === 'render') || archive.find(p => p.type === 'render');
   const ref = useRef(null);
   const enabled = useContext(MotionContext);
   const [manual, setManual] = useState(false);
-  const [cut, setCut] = useState(65);
+  const [cut, setCut] = useState(55);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  useMotionValueEvent(scrollYProgress, 'change', v => { if (!manual && enabled) setCut(Math.round(90 - v * 80)); });
+  useMotionValueEvent(scrollYProgress, 'change', v => { if (!manual && enabled) setCut(Math.round(85 - v * 70)); });
   const titleX = useTransform(scrollYProgress, [0, 1], [30, -30]);
-
-  if (!scene || !scene.renders || !scene.renders[0]) return null;
-  const resize = url => url.replace('/upload/', '/upload/c_scale,w_1200,q_auto,f_auto/');
 
   return <section className="breakdown section-wrap" ref={ref} aria-labelledby="breakdown-title">
     <Reveal className="breakdown-copy">
-      <span className="eyebrow">A LOOK UNDER THE SURFACE</span>
-      <motion.h2 id="breakdown-title" className="display" style={enabled ? { x: titleX } : {}}>FROM RAW.<br/><span className="accent">TO REAL.</span></motion.h2>
-      <p>Satu scene. Berlapis proses.<br/>Lihat bagaimana sebuah 3D environment berubah dari bentuk dasar menjadi dunia yang hidup.</p>
-      <span className="breakdown-credit">CYBERPUNK ENVIRONMENT / 2025<br/>3D ARTIST · LIGHTING · RENDERING</span>
+      <span className="eyebrow">FROM CONCEPT TO PHYSICAL REALITY</span>
+      <motion.h2 id="breakdown-title" className="display" style={enabled ? { x: titleX } : {}}>DARI CETAK BIRU.<br/><span className="accent">KE STRUKTUR NYATA.</span></motion.h2>
+      <p>Menghubungkan rancangan perencanaan arsitektur dengan realitas fisik pelaksanaan di lapangan. Setiap parameter diuji melalui disiplin kendali mutu, waktu, dan anggaran.</p>
+      <span className="breakdown-credit">ARKAVENA PROTOCOL · BUILT ENVIRONMENT<br/>PROJECT CONTROL &amp; CONSTRUCTION GOVERNANCE</span>
     </Reveal>
     <Reveal className="comparison">
       <div className="comparison-stage" style={{ '--cut': `${enabled || manual ? cut : 50}%` }}>
-        <MediaImage src={resize(scene.renders[0].solid)} alt="Cyberpunk environment sebelum material dan pencahayaan"/>
-        <div className="comparison-final"><MediaImage src={resize(scene.renders[0].final)} alt="Cyberpunk environment hasil render akhir"/></div>
-        <span className="comparison-label raw-label">SOLID VIEW</span>
-        <span className="comparison-label final-label">FINAL RENDER</span>
+        <MediaImage src="./Asset/img/initiatives/arkavena.svg" alt="Arkavena blueprint dan sistem kendali proyek"/>
+        <div className="comparison-final">
+          <MediaImage src="./Asset/img/initiatives/practice-project-control.svg" alt="Realisasi eksekusi dan pengendalian lapangan"/>
+        </div>
+        <span className="comparison-label raw-label">BLUEPRINT &amp; CONTROL</span>
+        <span className="comparison-label final-label">FIELD DISCIPLINE</span>
         <div className="comparison-divider"><span><ChevronLeft size={14}/><ChevronRight size={14}/></span></div>
-        <input aria-label="Perbandingan sebelum dan sesudah render" aria-valuetext={`${cut}% solid, ${100-cut}% final render`} type="range" min="0" max="100" value={cut} onChange={e => { setManual(true); setCut(Number(e.target.value)); }}/>
+        <input aria-label="Perbandingan perencanaan dan realitas eksekusi" aria-valuetext={`${cut}% perencanaan, ${100-cut}% disiplin lapangan`} type="range" min="0" max="100" value={cut} onChange={e => { setManual(true); setCut(Number(e.target.value)); }}/>
       </div>
-      <div className="comparison-caption"><span>GESER UNTUK MELIHAT PROSESNYA</span><span>DRAG / SCROLL</span></div>
+      <div className="comparison-caption"><span>GESER UNTUK MELIHAT INTEGRASI PROSES</span><span>DRAG / SCROLL</span></div>
     </Reveal>
   </section>;
 }
@@ -403,31 +380,37 @@ function About() {
         <span className="eyebrow">{profile.about.eyebrow}</span>
         <h2 className="display">{profile.about.title[0]}<br/>{profile.about.title[1]}<span className="accent">{profile.about.accentTitle}</span></h2>
       </div>
-      <p>{profile.about.bio}</p>
+      <div>
+        {profile.about.paragraphs.map((p, idx) => (
+          <p key={idx} style={{ marginBottom: '14px', fontSize: '13px', lineHeight: '1.8', color: '#b9b5b2' }}>{p}</p>
+        ))}
+      </div>
     </Reveal>
     <div className="studio-grid">
       <Reveal className="education-panel">
-        <h3 className="panel-heading">EDUCATION & SKILLS</h3>
-        <p className="eyebrow accent">PENDIDIKAN</p>
-        {profile.education.map((edu, idx) => (
-          <div key={idx} className="education-row">
-            <strong>{edu.title}</strong>
-            {edu.meta && <span>{edu.meta}</span>}
-            {edu.text && <p>{edu.text}</p>}
-          </div>
-        ))}
-        <p className="eyebrow accent skills-heading">CREATIVE TOOLKIT</p>
-        <div className="skill-tags">
-          {profile.skills.map(s => <span key={s}>{s}</span>)}
+        <h3 className="panel-heading">AREAS OF FOCUS &amp; CAPABILITIES</h3>
+        <p className="eyebrow accent">FOKUS PRAKTIK</p>
+        <div className="education-row">
+          <strong>Property &amp; Built Environment</strong>
+          <span>Pengembangan Aset</span>
+          <p>Pengembangan aset fisik, studi kelayakan, evaluasi lahan, dan perencanaan ruang komersial.</p>
         </div>
-        <div className="software-row">
-          {profile.software.map(([file, name]) => (
-            <img key={file} src={`./Asset/svg/${file}.svg`} alt={name} title={name} loading="lazy" width="28" height="28"/>
-          ))}
+        <div className="education-row">
+          <strong>Project Control Governance</strong>
+          <span>Kendali Konstruksi</span>
+          <p>Disiplin biaya, pengendalian jadwal, manajemen risiko, dan integrasi keputusan lapangan.</p>
+        </div>
+        <div className="education-row">
+          <strong>Business Systems &amp; Knowledge</strong>
+          <p>Arsitektur operasional dan penerjemahan pengalaman domain menjadi produk digital terstruktur.</p>
+        </div>
+        <p className="eyebrow accent skills-heading">STRATEGIC TOOLKIT</p>
+        <div className="skill-tags">
+          {profile.capabilities.map(s => <span key={s}>{s}</span>)}
         </div>
       </Reveal>
       <div className="process-panel">
-        <Reveal><h3 className="panel-heading">FROM IDEA TO FINAL FRAME</h3></Reveal>
+        <Reveal><h3 className="panel-heading">KEJELASAN SEBELUM KOMPLEKSITAS</h3></Reveal>
         <div className="process-list">
           <div className="process-track"><motion.div style={{ scaleY: enabled ? scrollYProgress : 1 }}/></div>
           {profile.process.map(([num, title, text], i) => (
@@ -451,21 +434,21 @@ function About() {
 
 function Journey({ onProject }) {
   const [open, setOpen] = useState(0);
-  return <section id="experience" className="journey section-wrap">
+  return <section id="journey" className="journey section-wrap">
     <Reveal className="section-heading">
       <div>
         <span className="eyebrow">03 / THE JOURNEY</span>
-        <h2>TERUS BERGERAK. TERUS BERKARYA<span className="accent">.</span></h2>
+        <h2>SATU PERJALANAN. BEBERAPA BIDANG YANG SALING TERHUBUNG<span className="accent">.</span></h2>
       </div>
       <a className="text-link" href={profile.cv} download>RESUME<Download size={16}/></a>
     </Reveal>
     <div className="journey-grid">
       <div className="experience-list">
-        {profile.experiences.map((job, i) => (
-          <Reveal className={`experience-row ${open === i ? 'is-open' : ''}`} key={job.title}>
+        {profile.journey.map((job, i) => (
+          <Reveal className={`experience-row ${open === i ? 'is-open' : ''}`} key={job.area}>
             <button aria-expanded={open === i} aria-controls={`job-${i}`} onClick={() => setOpen(open === i ? null : i)}>
-              <span className="experience-date">{job.date}</span>
-              <span><h3>{job.title}</h3><span className="experience-place">{job.place}</span></span>
+              <span className="experience-date">0{i + 1}</span>
+              <span><h3>{job.area}</h3><span className="experience-place">{job.tagline}</span></span>
               {open === i ? <Minus size={18}/> : <Plus size={18}/>}
             </button>
             <AnimatePresence initial={false}>
@@ -477,13 +460,13 @@ function Journey({ onProject }) {
         ))}
       </div>
       <Reveal className="awards-panel">
-        <p className="eyebrow">A FEW MILESTONES</p>
-        <h3 className="display">LITTLE WINS.<br/><span className="accent">BIG MEANING.</span></h3>
+        <p className="eyebrow">ACTIVE INITIATIVES</p>
+        <h3 className="display">STRUKTUR.<br/><span className="accent">EKSEKUSI NYATA.</span></h3>
         <div className="award-list">
-          {profile.certificates.map((cert, i) => (
-            <button key={cert.title} onClick={() => onProject({ ...cert, type: 'image', media: cert.image, category: 'Certificate', description: cert.description })}>
+          {featured.slice(0, 2).map((item, i) => (
+            <button key={item.title} onClick={() => onProject(item)}>
               <span>{String(i + 1).padStart(2, '0')}</span>
-              <span>{cert.title}<small>{cert.year}</small></span>
+              <span>{item.title}<small>{item.category}</small></span>
               <ArrowUpRight size={19}/>
             </button>
           ))}
@@ -494,76 +477,44 @@ function Journey({ onProject }) {
 }
 
 function Contact({ onProject }) {
-  const [sent, setSent] = useState(false);
-  const send = e => {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const text = `${profile.contact.greeting}, saya ${data.get('name')}.\n\nJenis proyek: ${data.get('type')}\n${data.get('message')}`;
-    window.open(`https://wa.me/${profile.contact.whatsapp}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
-    setSent(true);
-  };
   return <section id="contact" className="contact section-wrap">
     <div className="contact-grid">
       <Reveal className="contact-intro">
-        <span className="eyebrow">04 / YOUR NEXT STORY</span>
-        <h2 className="display">LET’S WORK<br/>TOGETHER<span className="accent">.</span></h2>
-        <p>Punya cerita yang ingin diwujudkan?<br/>Mari buat sesuatu yang layak ditonton.</p>
-        <Magnetic href={`https://wa.me/${profile.contact.whatsapp}`} target="_blank" rel="noopener noreferrer" className="contact-cta">
-          <span className="round-arrow"><ArrowUpRight size={21}/></span>MULAI PERCAKAPAN
+        <span className="eyebrow">{profile.contact.kicker}</span>
+        <h2 className="display">{profile.contact.headline.split(' ')[0]} {profile.contact.headline.split(' ')[1]}<br/>{profile.contact.headline.split(' ').slice(2).join(' ')}<span className="accent">.</span></h2>
+        <p>{profile.contact.text}</p>
+        <Magnetic href={profile.contact.linkedinUrl} target="_blank" rel="noopener noreferrer" className="contact-cta">
+          <span className="round-arrow"><Linkedin size={20}/></span>{profile.contact.cta.toUpperCase()}
         </Magnetic>
       </Reveal>
       <Reveal className="contact-links" delay={0.1}>
-        <a href={`mailto:${profile.contact.email}`}><Mail/><span><small>EMAIL</small>{profile.contact.email}</span><ArrowUpRight size={16}/></a>
-        <a href={profile.contact.instagram.url} target="_blank" rel="noopener noreferrer"><Instagram/><span><small>INSTAGRAM</small>{profile.contact.instagram.handle}</span><ArrowUpRight size={16}/></a>
-        <a href={`tel:${profile.contact.phoneDisplay}`}><Phone/><span><small>PHONE / WHATSAPP</small>{profile.contact.phoneDisplay}</span><ArrowUpRight size={16}/></a>
-        <div><MapPin/><span><small>BASED IN</small>{profile.contact.basedIn}</span></div>
+        <a href={profile.contact.linkedinUrl} target="_blank" rel="noopener noreferrer">
+          <Linkedin/><span><small>LINKEDIN RESMI</small>linkedin.com/in/ervan-erianto</span><ArrowUpRight size={16}/>
+        </a>
+        <div>
+          <Globe/><span><small>AREA FOKUS</small>Property · Business · Systems</span>
+        </div>
+        <div>
+          <MapPin/><span><small>LOKASI</small>Indonesia</span>
+        </div>
       </Reveal>
       <Reveal className="contact-reel" delay={0.2}>
-        <button onClick={() => onProject(featured[0])} aria-label={`Putar showreel ${profile.wordmark}`}>
+        <button onClick={() => onProject(featured[0])} aria-label="Lihat inisiatif Arkavena">
           <div className="reel-screen">
-            <span className="reel-screen-top">{profile.wordmark}®<span>VFX / SHOWREEL</span></span>
-            <MediaImage src={featured[0]?.image} alt={`Showreel ${profile.wordmark}`}/>
-            <span className="reel-screen-title display">MAKE IT<br/><span>FEEL REAL.</span></span>
-            <span className="play-circle"><Play size={18} fill="currentColor"/></span>
+            <span className="reel-screen-top">{profile.wordmark}®<span>FEATURED INITIATIVE</span></span>
+            <MediaImage src="./Asset/img/initiatives/arkavena.svg" alt="Arkavena Project Control"/>
+            <span className="reel-screen-title display">BUILD WITH<br/><span>CLARITY.</span></span>
+            <span className="play-circle"><ArrowUpRight size={18} /></span>
           </div>
-          <span className="reel-caption">PRESS PLAY. ENTER MY WORLD.</span>
+          <span className="reel-caption">ARKAVENA · PROJECT CONTROL PERSPECTIVE</span>
         </button>
       </Reveal>
     </div>
-    <Reveal>
-      <details className="project-brief">
-        <summary>Ceritakan proyek Anda <Plus size={19}/></summary>
-        <form onSubmit={send}>
-          <label>Nama Anda<input name="name" required placeholder="Nama atau brand" autoComplete="name" maxLength="100"/></label>
-          <label>Jenis proyek
-            <select name="type">
-              <option>Film & Video Editing</option>
-              <option>VFX & CGI</option>
-              <option>3D & Compositing</option>
-              <option>Commercial Content</option>
-              <option>Photography</option>
-              <option>Website</option>
-              <option>Kolaborasi lainnya</option>
-            </select>
-          </label>
-          <label className="brief-message">Tentang proyek
-            <textarea name="message" required rows="3" placeholder="Ceritakan ide, kebutuhan, dan perkiraan waktunya…" maxLength="3000"/>
-          </label>
-          <button className="solid-button" type="submit">Lanjut ke WhatsApp <ArrowUpRight size={18}/></button>
-          <p className="form-note" role="status">{sent ? 'Draft pesan siap di WhatsApp. Tekan Kirim di sana untuk memulai percakapan.' : 'Brief akan dibuka sebagai draft pesan di WhatsApp.'}</p>
-        </form>
-      </details>
-    </Reveal>
   </section>;
 }
 
 function ProjectDialog({ project, onClose }) {
   const enabled = useContext(MotionContext);
-  const [shot, setShot] = useState(0);
-  const [renderMode, setRenderMode] = useState(null);
-  const [mediaLoaded, setMediaLoaded] = useState(false);
-  const [mediaFailed, setMediaFailed] = useState(false);
-  const [retried, setRetried] = useState(0);
 
   useEffect(() => {
     const handleKeyDown = e => { if (e.key === 'Escape') onClose(); };
@@ -571,106 +522,44 @@ function ProjectDialog({ project, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  const isVideo = project.type === 'youtube' || project.type === 'drive';
-  const embedType = project.type;
-  const embedMedia = project.media;
-
-  const currentRender = project.renders?.[shot];
-  const availableModes = currentRender ? Object.entries(currentRender).filter(([_, url]) => Boolean(url)) : [];
-  const effectiveMode = renderMode || availableModes[availableModes.length - 1]?.[0] || 'final';
-  const rendered = currentRender?.[effectiveMode] || project.image || project.media;
-
-  const sourceUrl = project.type === 'youtube' ? `https://www.youtube.com/watch?v=${project.media}` : project.type === 'website' ? project.media : null;
-
-  const changeShot = nextShot => {
-    setShot(nextShot);
-    const nextRender = project.renders?.[nextShot];
-    if (nextRender && !nextRender[effectiveMode]) {
-      const fallback = Object.keys(nextRender)[0];
-      setRenderMode(fallback);
-    }
-  };
+  const sourceUrl = project.type === 'website' ? project.media : profile.contact.linkedinUrl;
 
   return <motion.div className="dialog-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-    <motion.div className="dialog-window" initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }} onClick={e => e.stopPropagation()} transition={{ duration: 0.35, ease: EASE }}>
+    <motion.div className="dialog-window project-dialog" initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }} onClick={e => e.stopPropagation()} transition={{ duration: 0.35, ease: EASE }}>
       <div className="dialog-heading">
         <span className="eyebrow">{project.category} {project.year && ` / ${project.year}`}</span>
-        <button onClick={onClose} className="icon-button" aria-label="Tutup karya"><X/></button>
+        <button onClick={onClose} className="icon-button" aria-label="Tutup"><X/></button>
       </div>
-      <div className={`dialog-media ${!isVideo ? 'still' : ''}`}>
-        {isVideo ? (
-          <>
-            {!mediaLoaded && (
-              <div className="media-loading" role="status">
-                {mediaFailed ? (
-                  <>
-                    <p>Preview belum bisa dimuat. Buka sumber aslinya untuk menonton.</p>
-                    <button className="outline-button" onClick={() => { setMediaFailed(false); setMediaLoaded(false); setRetried(v => v + 1); }}>Coba lagi</button>
-                  </>
-                ) : (
-                  <>
-                    <span className={enabled ? 'loading-ring' : 'loading-ring paused'}/>
-                    <p>Memuat film…</p>
-                  </>
-                )}
-              </div>
-            )}
-            <iframe
-              key={`${embedMedia}-${retried}`}
-              src={embedType === 'youtube' ? `https://www.youtube-nocookie.com/embed/${embedMedia}?autoplay=1&rel=0` : `https://drive.google.com/file/d/${embedMedia}/preview`}
-              title={project.title}
-              width="1280"
-              height="720"
-              allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              onLoad={() => { setMediaLoaded(true); setMediaFailed(false); }}
-              onError={() => setMediaFailed(true)}
-            />
-          </>
-        ) : (
-          <MediaImage src={rendered} alt={project.title} priority/>
-        )}
+      <div className="dialog-media still">
+        <MediaImage src={project.image} alt={project.title} priority/>
       </div>
-      {project.type === 'render' && (availableModes.length > 0 || project.renders.length > 1) && (
-        <div className="render-controls">
-          <div role="group" aria-label="Tahap render">
-            {availableModes.map(([mode, label]) => (
-              <button key={mode} className={effectiveMode === mode ? 'selected' : ''} onClick={() => setRenderMode(mode)} aria-pressed={effectiveMode === mode}>
-                {mode.toUpperCase()}
-              </button>
-            ))}
-          </div>
-          {project.renders.length > 1 && (
-            <div className="shot-controls">
-              <button className="icon-button" aria-label="Shot sebelumnya" onClick={() => changeShot((shot - 1 + project.renders.length) % project.renders.length)}><ChevronLeft/></button>
-              <span>SHOT {shot + 1} / {project.renders.length}</span>
-              <button className="icon-button" aria-label="Shot selanjutnya" onClick={() => changeShot((shot + 1) % project.renders.length)}><ChevronRight/></button>
-            </div>
-          )}
-        </div>
-      )}
       <div className="dialog-description">
         <div>
           <h2 id="dialog-title">{project.title}</h2>
-          {project.role && <span className="accent">{project.role}</span>}
-          <p>{project.description}</p>
+          {project.role && <span className="accent" style={{ display: 'block', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '8px' }}>{project.role}</span>}
+          <p style={{ fontSize: '13px', lineHeight: '1.8', color: '#b9b5b2' }}>{project.description}</p>
+          {project.tags && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '14px' }}>
+              {project.tags.map(t => (
+                <span key={t} style={{ background: '#181516', border: '1px solid #333', padding: '3px 8px', fontSize: '10px', borderRadius: '3px', color: '#bbb' }}>{t}</span>
+              ))}
+            </div>
+          )}
         </div>
         {sourceUrl && (
           <a className="outline-button" href={sourceUrl} target="_blank" rel="noopener noreferrer">
-            {project.type === 'website' ? 'Kunjungi website' : 'Buka sumber asli'}
+            {project.type === 'website' ? 'Kunjungi Inisiatif' : 'Hubungi via LinkedIn'}
             <ExternalLink size={15}/>
           </a>
         )}
       </div>
-      {isVideo && <p className="embed-note">Jika video dibatasi oleh pemiliknya, gunakan “Buka sumber asli”.</p>}
     </motion.div>
   </motion.div>;
 }
 
 function App() {
   const reduced = useReducedMotion();
-  const [motionOn, setMotionOn] = useState(() => { try { return localStorage.getItem('portfolio-motion') !== 'off'; } catch { return true; } });
+  const [motionOn, setMotionOn] = useState(() => { try { return localStorage.getItem('ervan-motion') !== 'off'; } catch { return true; } });
   const enabled = motionOn && !reduced;
   const [project, setProject] = useState(null);
   const { scrollYProgress } = useScroll();
@@ -679,7 +568,7 @@ function App() {
   useEffect(() => { document.documentElement.dataset.motion = enabled ? 'on' : 'off'; }, [enabled]);
   const toggle = () => {
     setMotionOn(!motionOn);
-    try { localStorage.setItem('portfolio-motion', motionOn ? 'off' : 'on'); } catch {}
+    try { localStorage.setItem('ervan-motion', motionOn ? 'off' : 'on'); } catch {}
   };
   const close = React.useCallback(() => setProject(null), []);
 
@@ -691,18 +580,17 @@ function App() {
       <main>
         <Hero onProject={setProject}/>
         <Portfolio onProject={setProject}/>
-        <Awards onProject={setProject}/>
+        <Principles/>
         <Breakdown/>
         <About/>
         <Journey onProject={setProject}/>
         <Contact onProject={setProject}/>
       </main>
       <footer className="footer">
-        <a className="wordmark" href="#home">{profile.wordmark}<span>®</span></a>
-        <span>© {new Date().getFullYear()} {profile.wordmark}. {profile.footerNote}</span>
+        <a className="wordmark" href="#home">{profile.footer.wordmark}<span>®</span></a>
+        <span>© {new Date().getFullYear()} {profile.footer.wordmark}. {profile.footer.signOff.toUpperCase()}</span>
         <div>
-          <a href={profile.contact.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><Youtube size={17}/></a>
-          <a href={profile.contact.instagram.url} target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"><Instagram size={17}/></a>
+          <a href={profile.contact.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Ervan Erianto"><Linkedin size={17}/></a>
           <a href="#home" aria-label="Kembali ke atas"><ArrowUpRight size={18}/></a>
         </div>
       </footer>
