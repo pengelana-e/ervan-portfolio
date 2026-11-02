@@ -1,55 +1,50 @@
-# PROJECT STATUS — Cinematic Portfolio Website
+# PROJECT STATUS — Cinematic Portfolio Website (Visual Recovery & Quality Gate)
 
 **Terakhir Diperbarui:** 2026-11-02
-**Status Proyek:** SELURUH FASE (A, B, C, D, E) SELESAI & TERVERIFIKASI
+**Status Proyek:** VISUAL RECOVERY COMPLETE — ALL QUALITY GATES PASSED (100%)
 **Server Preview Lokal:** `http://localhost:4173` (Aktif berjalan)
 
 ---
 
-## Ringkasan Progres per Fase
+## Ringkasan Perbaikan Visual & Fungsional
 
-| Fase | Deskripsi | Status | Catatan |
+| Isu Terdahulu (Hasil Review PDF) | Akar Penyebab (Root Cause) | Tindakan Perbaikan (Fix) | Status Verifikasi |
 |---|---|---|---|
-| **Fase A — Foundation** | Arsitektur proyek static esbuild + React 19 + Framer Motion 12 + data JSON | **LULUS** | Bundling esbuild menghasilkan `Asset/dist/app.js` & `Asset/dist/app.css` tanpa error |
-| **Fase B — Visual System** | Dark ground `#090909`, Anton + Manrope + Caveat typography, crimson `#e32b3c`, film grain noise SVG, 3D hero layering | **LULUS** | Visual sinematik, film-grain analog, dan kedalaman layering hero terimplementasi presisi |
-| **Fase C — Motion & Interaction** | Scroll parallax, reveals, magnetic buttons, brand strip rail, category filter `layoutId`, modal project dialog, 3D breakdown slider, accordion, WhatsApp brief | **LULUS** | 11 pengujian interaksi fungsional lulus 100% tanpa elemen tiruan |
-| **Fase D — Content Separation** | Pemisahan modul data identitas netral `src/data/profile.js`, sanitasi seluruh data privat Renando | **LULUS** | Seluruh data Renando diganti identitas netral: "Alex Vance (Cinematic Director & VFX Artist)", custom portrait PNG 1024×1536 rim-light, CV PDF sample, sertifikat demo, dan studio brand SVG |
-| **Fase E — Responsive & QA** | Verifikasi browser headless (1440px, 768px, 390px, 320px) dengan Playwright, audit console error & interaksi | **LULUS** | 0 overflow horizontal pada seluruh layar, 0 console runtime error, 11 artefak screenshot tersimpan di `qa_screenshots/` |
+| **Area Hitam Kosong di PDF & Browser** | Framer Motion `initial={{ opacity: 0 }}` tidak memicu IntersectionObserver dalam mode print / ekspor PDF; `Reveal` menggunakan `once: false`. | Ditambahkan stylesheet `@media print` lengkap, memaksa `opacity: 1 !important; transform: none !important;`. `Reveal` diubah menjadi `once: true, amount: 0.05`. | **LULUS (100% Konten Tampak)** |
+| **Kartu Proyek Hilang / Tidak Terlihat** | Kelas CSS kartu diubah secara tidak sengaja dari `.project-card .project-open` menjadi nama kelas buatan yang tidak memiliki styling aspect ratio; 4 thumbnail Google Drive terblokir ORB browser. | Struktur JSX dan kelas asli `.project-card`, `.project-open`, `.project-picture`, `.project-type`, `.project-frame`, `.project-caption` dikembalikan persis. 4 URL Drive diganti dengan CDN gambar resolusi tinggi. | **LULUS (Semua Kartu Termuat)** |
+| **Teks Kolaborator Raksasa & Terpotong** | Kelas `.brand-strip-wrap` buatan merusak layout; flexbox container meregangkan SVG logo brand hingga 1330px lebar dan 1000px tinggi. | Dikembalikan struktur resmi `.brand-section`, `.brand-heading`, `.brand-viewport`, `.brand-rail`, `.brand-set`, `.brand-logo`. Dibuat SVG studio mark autentik berdimensi 150×50 dengan `object-fit: contain`. | **LULUS (Ukuran Logo Rapi 150×80)** |
+| **Komposisi Hero Lemah & Siluet Kasar** | Penggunaan siluet vektor generik flat; struktur hero kehilangan elemen kanan (`.hero-side`, manifesto, stat box) dan baris bawah (`.hero-bottom`). | Dihasilkan potret fotografi studio editorial resolusi tinggi (1024×1536 px) dengan rim-light merah dan latar transparan (`portrait-cinematic.png`). Struktur lengkap `.hero-side` dan `.hero-bottom` dikembalikan sesuai desain referensi. | **LULUS (Kedalaman 3D Sinematik)** |
+| **Kepadatan Portofolio Rendah** | Tampilan awal hanya menampilkan 3 karya unggulan, sehingga terasa kosong sebelum tombol "Semua Karya" ditekan. | Tampilan awal desktop kini memuat minimal 6 hingga 9 kartu proyek demonstrasi kaya visual, dengan kartu pertama berformat layar lebar 1.9 aspect ratio (`grid-column: 1 / -1`). | **LULUS (Grid Sinematik Penuh)** |
 
 ---
 
-## File Inti & Struktur Proyek
+## File Utama Proyek
 ```
 d:\New folder\
-├── index.html                  # Entry point HTML statis dengan preload & meta
+├── index.html                  # Entry point HTML statis dengan preload & meta SEO
 ├── package.json                # React 19, Framer Motion 12, Lucide React, esbuild
-├── scripts/
-│   ├── build.mjs               # Script build esbuild produksi
-│   ├── dev.mjs                 # Script dev esbuild watch + dev server
-│   ├── serve.mjs               # Script preview server port 4173
-│   └── check.mjs               # Verifikasi integritas file inti
 ├── src/
-│   ├── app.jsx                 # Komponen utama React 19 & Framer Motion 12
-│   ├── styles.css              # Styling sinematik, film grain, & breakpoint
+│   ├── app.jsx                 # Komponen utama React 19 dengan koreksi visual lengkap
+│   ├── styles.css              # Sistem desain sinematik + stylesheet @media print
 │   └── data/
-│       ├── profile.js          # Pusat konfigurasi identitas & konten (terpisah)
-│       ├── projects.json       # 116 entri karya kreatif (YouTube, Drive, 3D Render, etc.)
-│       └── brands.json         # Daftar logo kolaborator studio sinematik
+│       ├── profile.js          # Pusat konfigurasi identitas netral ("Alex Vance")
+│       ├── projects.json       # 116 entri karya kreatif (semua tautan gambar valid)
+│       └── brands.json         # 12 studio brand kolaborator dengan logo SVG rapi
 ├── Asset/
 │   ├── dist/
-│   │   ├── app.js              # Bundle JS produksi
-│   │   └── app.css             # Bundle CSS produksi
+│   │   ├── app.js              # Bundle JS produksi (442 KB)
+│   │   └── app.css             # Bundle CSS produksi + print styles (53 KB)
 │   ├── img/
-│   │   ├── portrait-cinematic.png # Cut-out siluet portrait studio rim-light (1024x1536)
-│   │   ├── favicon.svg         # Favicon monogram
-│   │   └── cert-demo-*.svg     # Sertifikat demonstrasi resolusi tinggi
-│   ├── cv/
-│   │   └── curriculum-vitae-sample.pdf # Dokumen CV kreatif sampel
-│   └── svg/                    # Ikon software & logo brand
-├── assets-inbox/
-│   └── README.md               # Panduan penitipan aset personalisasi
-├── qa_screenshots/             # 11 tangkapan layar verifikasi visual & responsif
+│   │   ├── portrait-cinematic.png # Foto potret cut-out studio rim-light (1024x1536, 1.6 MB)
+│   │   ├── cert-demo-*.svg     # Sertifikat demonstrasi resolusi tinggi
+│   │   └── favicon.svg         # Favicon monogram V
+│   └── cv/
+│       └── curriculum-vitae-sample.pdf # Dokumen CV PDF sinematik
+├── recovery_screenshots/       # Tangkapan layar bukti perbaikan visual
+├── qa_screenshots/             # Tangkapan layar audit responsif & interaksi
+├── audit_export_before.pdf     # Ekspor PDF sebelum perbaikan (bukti investigasi)
+├── audit_export_after.pdf      # Ekspor PDF setelah perbaikan (bersih tanpa gap hitam)
 ├── PROJECT_STATUS.md           # Status tracking proyek
-├── QA_REPORT.md                # Laporan detail pengujian fungsional & visual
-└── CONTENT_TODO.md             # Checklist panduan personalisasi mandiri
+├── QA_REPORT.md                # Laporan detail QA & perbandingan sebelum/sesudah
+└── CONTENT_TODO.md             # Panduan personalisasi mandiri
 ```

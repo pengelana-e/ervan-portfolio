@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-    <text x="100" y="38" font-family="'Anton', sans-serif" font-size="22" letter-spacing="3" fill="#ffffff" text-anchor="middle" opacity="0.85">CHROMA VFX</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+    <g transform="translate(0, 0)">
+      <circle cx="16" cy="25" r="9" fill="none" stroke="#e32b3c" stroke-width="2.5"/><circle cx="25" cy="25" r="9" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.8"/>
+    </g>
+    <text x="44" y="32" font-family="'Anton', Impact, sans-serif" font-size="16" letter-spacing="2" fill="#ffffff" opacity="0.95">CHROMA VFX</text>
   </svg>

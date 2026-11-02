@@ -14,27 +14,25 @@
   "consoleErrors": [],
   "interactions": {
     "motionToggle": {
-      "pass": true,
-      "initial": "on",
-      "toggled": "off"
+      "pass": true
     },
     "scrollProgress": {
       "pass": true
     },
     "categoryFilter": {
       "pass": true,
-      "vfx": 6,
-      "film": 9,
-      "all": 9
+      "vfx": 8,
+      "film": 16,
+      "all": 16
     },
     "search": {
       "pass": true,
-      "resultCount": 1
+      "resultCount": 1,
+      "resetCount": 9
     },
     "loadMore": {
-      "pass": true,
-      "before": 9,
-      "after": 18
+      "pass": false,
+      "error": "locator.click: Error: strict mode violation: locator('.section-heading .text-link') resolved to 2 elements:\n    1) <button class=\"text-link\">…</button> aka getByRole('button', { name: 'KARYA PILIHAN' })\n    2) <a download=\"\" class=\"text-link\" href=\"./Asset/cv/curriculum-vitae-sample.pdf\">…</a> aka getByRole('link', { name: 'RESUME', exact: true })\n\nCall log:\n\u001b[2m  - waiting for locator('.section-heading .text-link')\u001b[22m\n"
     },
     "projectDialog": {
       "pass": true

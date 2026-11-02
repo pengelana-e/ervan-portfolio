@@ -4,24 +4,24 @@
     "name": "Netflix"
   },
   {
-    "file": "ChromaVFX.svg",
-    "name": "Chroma VFX Studio"
-  },
-  {
     "file": "AetherFilms.svg",
     "name": "Aether Films"
-  },
-  {
-    "file": "LuminaStudios.svg",
-    "name": "Lumina Studios"
   },
   {
     "file": "ApexCinema.svg",
     "name": "Apex Cinema Group"
   },
   {
+    "file": "ChromaVFX.svg",
+    "name": "Chroma VFX"
+  },
+  {
+    "file": "LuminaStudios.svg",
+    "name": "Lumina Studios"
+  },
+  {
     "file": "NexusPost.svg",
-    "name": "Nexus Post Production"
+    "name": "Nexus Post"
   },
   {
     "file": "Hyperion3D.svg",
@@ -29,7 +29,7 @@
   },
   {
     "file": "SpectraGrade.svg",
-    "name": "Spectra Color Science"
+    "name": "Spectra Grade"
   },
   {
     "file": "VanguardMedia.svg",
@@ -41,10 +41,10 @@
   },
   {
     "file": "KinetixLab.svg",
-    "name": "Kinetix Creative Lab"
+    "name": "Kinetix Lab"
   },
   {
     "file": "OnyxSound.svg",
-    "name": "Onyx Sound Design"
+    "name": "Onyx Sound"
   }
 ]
