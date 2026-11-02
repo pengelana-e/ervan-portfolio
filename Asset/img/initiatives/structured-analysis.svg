@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" style="background:#0b1114">
+  <defs>
+    <linearGradient id="structGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1920"/>
+      <stop offset="100%" stop-color="#090d10"/>
+    </linearGradient>
+    <pattern id="structGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#182730" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="960" height="600" fill="url(#structGrad)"/>
+  <rect width="960" height="600" fill="url(#structGrid)"/>
+
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="210" height="32" rx="4" fill="#0d2e3d"/>
+    <text x="14" y="21" font-family="'Manrope', sans-serif" font-size="11" font-weight="700" fill="#48cae4" letter-spacing="1">STRUCTURED ANALYSIS</text>
+
+    <!-- 4 Clear Structured Pillars -->
+    <g transform="translate(0, 70)">
+      <!-- Box 1: Market Fit -->
+      <g transform="translate(0, 0)">
+        <rect width="195" height="380" rx="6" fill="#101c24" stroke="#1d3f52"/>
+        <text x="16" y="32" font-family="'Anton', sans-serif" font-size="22" fill="#48cae4">01 · MARKET</text>
+        <line x1="16" y1="46" x2="175" y2="46" stroke="#234c62"/>
+        <text x="16" y="75" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#f2efeb">Validasi Permintaan</text>
+        <text x="16" y="98" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Target pembeli jelas</text>
+        <text x="16" y="118" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Price-ceiling teruji</text>
+        <text x="16" y="138" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Daya serap per bulan</text>
+        <text x="16" y="158" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Diferensiasi produk</text>
+
+        <rect x="16" y="290" width="160" height="60" rx="4" fill="#162c38"/>
+        <text x="26" y="315" font-family="'Manrope', sans-serif" font-size="9" fill="#72b5d4">STATUS KELAYAKAN</text>
+        <text x="26" y="336" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#48cae4">DEMAND VERIFIED</text>
+      </g>
+
+      <!-- Box 2: Cost & Scope -->
+      <g transform="translate(215, 0)">
+        <rect width="195" height="380" rx="6" fill="#101c24" stroke="#1d3f52"/>
+        <text x="16" y="32" font-family="'Anton', sans-serif" font-size="22" fill="#48cae4">02 · COST</text>
+        <line x1="16" y1="46" x2="175" y2="46" stroke="#234c62"/>
+        <text x="16" y="75" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#f2efeb">Disiplin Anggaran</text>
+        <text x="16" y="98" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• HPP per m² terkunci</text>
+        <text x="16" y="118" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Kontinjensi 8-10%</text>
+        <text x="16" y="138" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Scope boundary ketat</text>
+        <text x="16" y="158" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Vendor qualification</text>
+
+        <rect x="16" y="290" width="160" height="60" rx="4" fill="#162c38"/>
+        <text x="26" y="315" font-family="'Manrope', sans-serif" font-size="9" fill="#72b5d4">PENGENDALIAN BIAYA</text>
+        <text x="26" y="336" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#48cae4">BUDGET LOCKED</text>
+      </g>
+
+      <!-- Box 3: Risk & Stress Test -->
+      <g transform="translate(430, 0)">
+        <rect width="195" height="380" rx="6" fill="#101c24" stroke="#1d3f52"/>
+        <text x="16" y="32" font-family="'Anton', sans-serif" font-size="22" fill="#48cae4">03 · RISK</text>
+        <line x1="16" y1="46" x2="175" y2="46" stroke="#234c62"/>
+        <text x="16" y="75" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#f2efeb">Mitigasi Eksposur</text>
+        <text x="16" y="98" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Skenario penjualan -30%</text>
+        <text x="16" y="118" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Delay termin konstruksi</text>
+        <text x="16" y="138" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Cadangan arus kas</text>
+        <text x="16" y="158" font-family="'Manrope', sans-serif" font-size="10" fill="#8cb3c7">• Legal &amp; perizinan aman</text>
+
+        <rect x="16" y="290" width="160" height="60" rx="4" fill="#162c38"/>
+        <text x="26" y="315" font-family="'Manrope', sans-serif" font-size="9" fill="#72b5d4">TOLERANSI RISIKO</text>
+        <text x="26" y="336" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#48cae4">STRESS TESTED</text>
+      </g>
+
+      <!-- Box 4: Action & Decision -->
+      <g transform="translate(645, 0)">
+        <rect width="195" height="380" rx="6" fill="#122530" stroke="#00b4d8"/>
+        <text x="16" y="32" font-family="'Anton', sans-serif" font-size="22" fill="#90e0ef">04 · DECISION</text>
+        <line x1="16" y1="46" x2="175" y2="46" stroke="#235c75"/>
+        <text x="16" y="75" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#f2efeb">Alur Eksekusi Nyata</text>
+        <text x="16" y="98" font-family="'Manrope', sans-serif" font-size="10" fill="#caf0f8">• Tanggung jawab jelas</text>
+        <text x="16" y="118" font-family="'Manrope', sans-serif" font-size="10" fill="#caf0f8">• Milestone bertahap</text>
+        <text x="16" y="138" font-family="'Manrope', sans-serif" font-size="10" fill="#caf0f8">• Dokumentasi perubahan</text>
+        <text x="16" y="158" font-family="'Manrope', sans-serif" font-size="10" fill="#caf0f8">• Governance berkala</text>
+
+        <rect x="16" y="290" width="160" height="60" rx="4" fill="#0077b6"/>
+        <text x="26" y="315" font-family="'Manrope', sans-serif" font-size="9" fill="#caf0f8">KEPUTUSAN STRATEGIS</text>
+        <text x="26" y="336" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#ffffff">GO FOR DELIVERY</text>
+      </g>
+    </g>
+
+    <text x="0" y="510" font-family="'Manrope', sans-serif" font-size="11" fill="#588094">Conceptual illustration · Reorganized dataset: market, cost, risk, and structured decision governance</text>
+  </g>
+</svg>

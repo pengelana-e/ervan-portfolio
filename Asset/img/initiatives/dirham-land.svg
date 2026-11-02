@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" style="background:#0e0b0c">
+  <defs>
+    <linearGradient id="gridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#241517"/>
+      <stop offset="100%" stop-color="#0e0b0c"/>
+    </linearGradient>
+    <linearGradient id="accentRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e32b3c"/>
+      <stop offset="100%" stop-color="#ff5967"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#251b1d" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="600" fill="url(#gridGrad)"/>
+  <rect width="960" height="600" fill="url(#grid)" opacity="0.6"/>
+
+  <!-- Conceptual Masterplan / Land Parcel Geometry -->
+  <g transform="translate(60, 50)">
+    <!-- Header / Identification -->
+    <text x="0" y="32" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#e32b3c" letter-spacing="2">RESIDENTIAL DEVELOPMENT</text>
+    <text x="0" y="65" font-family="'Anton', sans-serif" font-size="34" fill="#f2efeb" letter-spacing="1">DIRHAM LAND · HOUSING PROGRAM</text>
+    <text x="0" y="88" font-family="'Manrope', sans-serif" font-size="13" fill="#8f8987">Land Feasibility · Product Typology · Cost Control · Sales Phasing</text>
+
+    <!-- Parcel Boundary Schematic -->
+    <path d="M 40 140 L 420 120 L 520 220 L 480 430 L 120 450 Z" fill="#171112" stroke="#48252a" stroke-width="2"/>
+    <path d="M 120 200 L 400 180 L 440 370 L 160 390 Z" fill="#201517" stroke="#e32b3c" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+    <!-- Lot Clusters -->
+    <g fill="#2b1a1d" stroke="#572b31" stroke-width="1">
+      <rect x="150" y="210" width="45" height="70" rx="3"/>
+      <rect x="205" y="210" width="45" height="70" rx="3"/>
+      <rect x="260" y="210" width="45" height="70" rx="3"/>
+      <rect x="315" y="210" width="45" height="70" rx="3"/>
+      
+      <rect x="150" y="295" width="45" height="70" rx="3"/>
+      <rect x="205" y="295" width="45" height="70" rx="3"/>
+      <rect x="260" y="295" width="45" height="70" rx="3"/>
+      <rect x="315" y="295" width="45" height="70" rx="3"/>
+    </g>
+
+    <!-- Road / Access Axis -->
+    <line x1="80" y1="287" x2="420" y2="287" stroke="#e32b3c" stroke-width="2"/>
+    <text x="210" y="283" font-family="'Manrope', sans-serif" font-size="9" fill="#ff7a85" letter-spacing="1">MAIN ACCESS BOULEVARD</text>
+
+    <!-- Feasibility Metric Cards (Right Side) -->
+    <g transform="translate(560, 110)">
+      <rect x="0" y="0" width="280" height="90" rx="4" fill="#140f10" stroke="#361f22"/>
+      <text x="20" y="28" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" fill="#8f8987">FEASIBILITY STAGE</text>
+      <text x="20" y="58" font-family="'Anton', sans-serif" font-size="24" fill="#f2efeb">LAND POTENTIAL</text>
+      <text x="20" y="78" font-family="'Manrope', sans-serif" font-size="11" fill="#e32b3c">Topography &amp; Infrastructure Context</text>
+
+      <rect x="0" y="105" width="280" height="90" rx="4" fill="#140f10" stroke="#361f22"/>
+      <text x="20" y="133" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" fill="#8f8987">PRODUCT DESIGN</text>
+      <text x="20" y="163" font-family="'Anton', sans-serif" font-size="24" fill="#f2efeb">TYPOLOGY &amp; UNIT FIT</text>
+      <text x="20" y="183" font-family="'Manrope', sans-serif" font-size="11" fill="#e32b3c">Target Market &amp; Spatial Efficiency</text>
+
+      <rect x="0" y="210" width="280" height="90" rx="4" fill="#140f10" stroke="#361f22"/>
+      <text x="20" y="238" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" fill="#8f8987">DELIVERY GOVERNANCE</text>
+      <text x="20" y="268" font-family="'Anton', sans-serif" font-size="24" fill="#f2efeb">PHASED EXECUTION</text>
+      <text x="20" y="288" font-family="'Manrope', sans-serif" font-size="11" fill="#e32b3c">Cost Discipline &amp; Sales Cadence</text>
+    </g>
+
+    <!-- Attribution Note -->
+    <text x="0" y="475" font-family="'Manrope', sans-serif" font-size="11" fill="#6c6463">Attribution: Proyek kolaboratif / keterlibatan dalam pengembangan · Dirham Land</text>
+  </g>
+</svg>

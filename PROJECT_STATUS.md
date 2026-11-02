@@ -1,62 +1,69 @@
 # PROJECT STATUS — Website Portofolio Sinematik Personal Ervan Erianto
 
 **Terakhir Diperbarui:** 2026-11-02  
-**Status Proyek:** PERSONALISASI PENUH SELESAI — SEMUA QUALITY GATES & PRIVASI LULUS (100%)  
+**Status Proyek:** MASTER DIRECTIVE V2 IMPLEMENTED & AUDITED — ALL QUALITY GATES PASSED (100%)  
 **Server Preview Lokal:** `http://localhost:4173` (Aktif berjalan)
 
 ---
 
-## Ringkasan Eksekutif Personalisasi
+## 1. Ringkasan Eksekutif Master Directive v2
 
-Website cinematic portfolio telah berhasil dipersonalisasi sepenuhnya dari profil demonstrasi netral (*Alex Vance*) menjadi identitas personal profesional **Ervan Erianto**, berlandaskan penuh pada `ERVAN_ERIANTO_MASTER_PORTFOLIO_BRIEF.md`.
+Seluruh arahan dari `ERVAN_ERIANTO_ANTIGRAVITY_CINEMATIC_MASTER_V2.md` telah diimplementasikan penuh di atas arsitektur React 19 + Framer Motion 12 yang sudah berjalan di `http://localhost:4173`, tanpa merusak sistem gerak, komposisi visual, responsivitas, maupun kedalaman editorial sinematik.
 
-Seluruh sistem visual sinematik reference (latar gelap `#090909`, aksen merah crimson `#e32b3c`, film grain texture, tipografi Anton/Manrope/Caveat, scroll parallax, breakdown slider, and responsive drawer) dipertahankan 100% dengan konten yang sepenuhnya jujur, terstruktur, dan mematuhi batasan kerahasiaan (*Strict Confidentiality & Privacy*).
+Website kini merepresentasikan narasi terpadu Ervan Erianto di persimpangan pengembangan properti nyata, kendali konstruksi, tata kelola bisnis, ekosistem pembelajaran (*REWIRED*), dan riset sistem digital/AI independen (*Decision Systems Lab*), dengan integritas pengungkapan (*disclosure*) yang jujur dan perlindungan kerahasiaan 100%.
 
 ---
 
-## Matriks Transformasi Konten & Identitas
+## 2. Matriks Implementasi Konten Sesuai Master Directive v2
 
-| Komponen / Bagian | Sebelum (Demo Alex Vance) | Sesudah (Ervan Erianto — Production Ready) | Status |
+| Komponen / Bagian | Ketentuan Master Directive v2 | Implementasi pada Website | Status QA |
 |---|---|---|---|
-| **Identitas & Positioning** | Alex Vance — VFX & Cinematic Director | **Ervan Erianto** — *Property Developer · Business Builder · Systems Thinker* | **Terpasang 100%** |
-| **Foto Potret Hero** | Model editorial 3D sintetis | Foto pribadi Ervan Erianto resolusi tinggi (1024×1536 px PNG cut-out transparan dengan crimson rim lighting & alpha gradient feathering) | **Terpasang 100%** |
-| **Pilar Strategis Hero** | Statistik metrik semu ("40+ Projects, 12 Awards") | **3 Pilar Nyata**: `01 PROPERTY` (Pengembangan Aset), `02 BUSINESS` (Model & Eksekusi Usaha), `03 SYSTEMS` (Produk & Pengetahuan Real Estate) | **Terpasang 100%** |
-| **Inisiatif Unggulan** | Cyberpunk 2077 & film reels fiktif | **Arkavena** (Mitra Pengendalian Proyek & Built Environment) & **REWIRED** (Ekosistem Edukasi & Pengetahuan Real Estate) | **Terpasang 100%** |
-| **Bidang Praktik Portofolio** | Kategori film 3D / manipulasi visual | 4 Kartu Praktik: *Property Development*, *Construction & Project Control*, *Business Architecture*, *Knowledge & Digital Systems* | **Terpasang 100%** |
-| **Koleksi Visual (Brand Strip)** | Logo studio film VFX fiktif | Marka inisiatif dan bidang disiplin resolusi tinggi SVG: `Arkavena`, `REWIRED`, `PropDev`, `ProjControl`, `BizArch`, `DigSystems` | **Terpasang 100%** |
-| **Bagian Penghargaan** | Trofi & sertifikat festival film fiktif | **04 Core Principles** ("Prinsip yang Lebih Penting dari Penghargaan"): 1. Realitas Lapangan di Atas Narasi Rencana, 2. Kejelasan Sebelum Kompleksitas, 3. Disiplin Antara Biaya, Mutu, dan Waktu, 4. Sistem yang Berjalan Mandiri | **Terpasang 100%** |
-| **Breakdown Slider** | 3D Wireframe vs Final VFX Compositing | **Dari Cetak Biru ke Struktur Nyata**: Arkavena Blueprint vs Disiplin Kendali Lapangan | **Terpasang 100%** |
-| **Alur Kerja & Studio** | Proses rendering visual 3D CGI | 4 Langkah Eksekusi: 01 Problem Definition, 02 System Architecture, 03 Execution & Governance, 04 Continuous Refinement | **Terpasang 100%** |
-| **The Journey (Rekam Jejak)** | Riwayat studio film VFX | 4 Dimensi Perjalanan yang Saling Terhubung (Pengembangan Properti, Tata Kelola Proyek, Arsitektur Bisnis, Ekosistem Pengetahuan) | **Terpasang 100%** |
-| **Kontak & Privasi** | Formulir kontak palsu & nomor telepon demo | Jalur komunikasi resmi **LinkedIn** (`https://www.linkedin.com/in/ervan-erianto/`), tanpa nomor telepon pribadi/email terekspos | **Terpasang 100%** |
-| **Unduhan Resume (CV)** | Sample CV Alex Vance | Dokumen **Curriculum Vitae Ervan Erianto** resmi (PDF eksekutif) | **Terpasang 100%** |
+| **Sticky Header** | Wordmark `ERVAN.`, Nav: Karya → Tentang → Pendekatan → Perjalanan → Kontak, pill `PERJALANAN`, localStorage `ervan-motion`. | Terpasang persis, tombol CV fiktif diganti tautan semantic ke `#journey` berlabel `PERJALANAN`. | **LULUS** |
+| **Hero Section** | Typographic layer `BUILDER`, role `REAL ESTATE DEVELOPER · BUSINESS BUILDER · SYSTEMS THINKER`, intro teruji, CTA ganda (`Jelajahi Karya` & `Cara Saya Berpikir`), 3 pilar: `PROPERTY (REAL ASSETS)`, `BUSINESS (OPERATING MODELS)`, `SYSTEMS (DIGITAL TOOLS)`. Lokasi `Surabaya, Indonesia`. | Terpasang lengkap dengan potret studio transparan berdimensi 1024×1536 px dan efek rim-light merah halus. | **LULUS** |
+| **Selected Work & Initiatives** | Headline: `BUILDING BEYOND THE BLUEPRINT.`, Subtitle: `Proyek, perusahaan, dan sistem yang lahir dari persoalan nyata.` 6 Entitas terkurasi: **Arkavena** (Active), **REWIRED** (Active), **Residential Development / Dirham Land** (Active/Collaborative), **Project Control Systems** (Method), **REWIRED Feasibility Toolkit** (Framework), **Decision Systems Lab** (R&D). | Data tersanitasi di `src/data/initiatives.js` & `src/data/projects.json`. Seluruh kartu memiliki artwork SVG teknis beresolusi tinggi, filter kategori dinamis, dan pencarian instan. | **LULUS** |
+| **Brand / Initiative Rail** | Hanya menampilkan inisiatif dan disiplin nyata (tanpa klien palsu atau logo pihak ketiga tak berizin). | Memuat SVG brand resmi: Arkavena, REWIRED, Dirham Land, Project Control, Decision Systems Lab, Feasibility Toolkit. | **LULUS** |
+| **The Work. The Thinking (Pengganti Awards)** | Menghapus piala/sertifikat/laurel fiktif. Judul: `THE WORK. THE THINKING.`, Subtitle: `Bukan tentang koleksi penghargaan. Tentang apa yang dibangun dan cara keputusan dibuat.` Typographic word `BUILD`. 4 Pilar pembuktian. | Komponen direstrukturisasi dengan 4 pilar bukti: *Real-World Development*, *Project Control*, *Knowledge Tools*, *Systems R&D*. | **LULUS** |
+| **Breakdown Comparison Slider** | Judul: `FROM ASSUMPTION. TO DECISION.`, Subtitle: `Sebelum sebuah proyek dibangun, keputusannya harus lebih dulu diuji.` Label: `IDEA / RAW INPUT` vs `STRUCTURED ANALYSIS`. Label eksplisit `Conceptual illustration`. | Artwork perbandingan konseptual dibangun: peta masalah/asumsi mentah (`raw-input-site.svg`) vs matriks analisis terstruktur (`structured-analysis.svg`) dengan slider drag/scroll interaktif. | **LULUS** |
+| **About Section** | 3 paragraf otentik editorial dari master directive v2. Panel `FIELDS OF PRACTICE` (6 disiplin). Timeline proses 5-langkah (Understand Ground → Test Economics → Build Structure → Execute & Measure → Learn & Replicate). Kutipan visi & tanda tangan Surabaya. | Terpasang sesuai teks v2 tanpa distorsi. Seluruh software icon CGI/VFX lama telah diganti dengan label disiplin nyata. | **LULUS** |
+| **The Journey** | Judul: `A JOURNEY IN BUILDING.` 5 Tonggak tematis (Trenggalek → Lintas Kota → Arkavena → REWIRED → Systems & Technology). Side panel: 3 Substantive Outputs (*Real Estate REWIRED*, *REWIRED Developer Map*, *Project Control Discipline*). | Accordion interaktif 5 langkah terpasang dengan panel luaran substantif nyata di sisi kanan. | **LULUS** |
+| **Contact & Footer** | Eyebrow: `05 / LET'S BUILD SOMETHING REAL.`, Headline: `GOOD IDEAS NEED GOOD EXECUTION.`, Kontak tunggal terverifikasi: **LinkedIn Ervan Erianto**. Lokasi: `Surabaya, Indonesia`. Footer: `© 2026 ERVAN ERIANTO. BUILD WHAT MATTERS. MAKE IT WORK.` | Tautan LinkedIn resmi, bebas nomor telepon palsu/formulir semu. Metadata SEO di `index.html` sinkron 100%. | **LULUS** |
+| **Photo Drop-in Workflow** | Folder `assets-inbox/ervan-photos/` dan otomatisasi pemrosesan potret. | Disediakan skrip `scripts/process_incoming_photos.mjs` dan dokumentasi README lengkap. | **LULUS** |
 
 ---
 
-## Audit Kepatuhan Privasi (Privacy & Confidentiality Gate)
+## 3. Hasil Audit Kebocoran & Kerahasiaan (Strict Leak Audit)
 
-Pengujian otomatis dengan pola regex ketat memastikan bahwa **TIDAK ADA** informasi berstatus `INTERNAL/HOLD` yang terpublikasi di HTML, JSON, maupun JavaScript:
+Audit regex otomatis dilakukan secara mendalam pada teks yang dirender di browser, DOM HTML, bundel JavaScript produksi (`Asset/dist/app.js`), dan bundel CSS (`Asset/dist/app.css`):
 
-- `PT Patra Sarana Indonesia` : **BERSIH (0 sebutan)**
-- `Rest Area KM 626A / 626B` : **BERSIH (0 sebutan)**
-- `PRAKARA OS` : **BERSIH (0 sebutan)**
-- `E.C.H.O / ECHO` : **BERSIH (0 sebutan)**
-- Informasi kompensasi/finansial/hukum/keluarga : **BERSIH (0 sebutan)**
-- Identitas lama *Alex Vance* & *VFX Director* : **BERSIH (0 sebutan)**
+| Entitas Rahasia / Terlarang | Status DOM / HTML | Status Bundel JS / CSS | Keterangan |
+|---|---|---|---|
+| `PT Patra Sarana Indonesia / Patra Sarana` | **0 (BERSIH)** | **0 (BERSIH)** | Sesuai batas pengungkapan master directive v2. |
+| `Rest Area KM 626 / 626A / 626B` | **0 (BERSIH)** | **0 (BERSIH)** | Tidak ada klaim kepemilikan/pengoperasian rest area. |
+| `PRAKARA OS / PRAKARA` | **0 (BERSIH)** | **0 (BERSIH)** | Data R&D hukum privat tidak pernah bocor. |
+| `E.C.H.O / ECHO` | **0 (BERSIH)** | **0 (BERSIH)** | Arsitektur asisten AI privat tidak pernah bocor. |
+| `Alex Vance / Vance` | **0 (BERSIH)** | **0 (BERSIH)** | Persona demo lama telah terhapus total. |
+| `Renando / DuingZ` | **0 (BERSIH)** | **0 (BERSIH)** | Identitas pembuat template dibersihkan dari publik. |
+| `VFX / Director` | **0 (BERSIH)** | **0 (BERSIH)** | Peran fiktif lama telah terhapus total. |
+| Tautan Google Drive Pribadi (`drive.google.com`) | **0 (BERSIH)** | **0 (BERSIH)** | Tidak ada tautan drive sensitif dalam build publik. |
 
 ---
 
-## Hasil QA Responsif & Fungsional (Playwright Suite)
+## 4. Hasil Audit Fungsional & Responsif (Playwright Suite)
 
-- **Desktop 1440×900 & 1920×1080:** **LULUS** (0 horizontal overflow, 0 console error, rendering tajam)
-- **Tablet 768×1024:** **LULUS** (0 horizontal overflow, layout grid adaptif)
-- **Mobile 390×844 & Small Mobile 320×568:** **LULUS** (0 horizontal overflow, drawer navigasi responsif lancar)
-- **Interaksi:**
-  - *Motion Toggle (On/Off)*: LULUS
-  - *Reading Progress Bar*: LULUS
-  - *Category Filter (Inisiatif Unggulan, PropDev, All)*: LULUS
-  - *Search Box*: LULUS (Pencarian "Arkavena" & "REWIRED" akurat)
-  - *Project Dialog Modal & Escape Key*: LULUS
-  - *Breakdown Comparison Slider*: LULUS
-  - *Journey Accordion*: LULUS
-  - *Mobile Menu Drawer*: LULUS
+- **Viewports Teruji**:
+  - `Desktop 1440×900`: **PASS** (0 horizontal overflow)
+  - `Desktop 1920×1080`: **PASS** (0 horizontal overflow)
+  - `Tablet 768×1024`: **PASS** (0 horizontal overflow)
+  - `Mobile 390×844`: **PASS** (0 horizontal overflow)
+  - `Small Mobile 320×568`: **PASS** (0 horizontal overflow)
+- **Console Errors**: **0**
+- **Network Requests**: **0 Failed** (Semua aset termuat dengan status HTTP 200)
+- **Interaksi Utama**: **100% PASS**
+  - Motion toggle: PASS
+  - Scroll & Reading progress bar: PASS
+  - Category filter (Inisiatif: 3, Real Estate: 1, Project Control: 2, Semua: 6): PASS
+  - Search filter (Pencarian Arkavena, Dirham, REWIRED, Reset): PASS
+  - Modal dialog proyek & Escape to close: PASS
+  - Breakdown slider (Idea / Raw Input vs Structured Analysis): PASS
+  - Journey accordion & substantive outputs: PASS
+  - Mobile menu drawer: PASS

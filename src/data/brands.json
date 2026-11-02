@@ -1,26 +1,8 @@
 [
-  {
-    "file": "arkavena.svg",
-    "name": "Arkavena"
-  },
-  {
-    "file": "rewired.svg",
-    "name": "REWIRED"
-  },
-  {
-    "file": "prop-dev.svg",
-    "name": "Property Development"
-  },
-  {
-    "file": "proj-control.svg",
-    "name": "Project Control"
-  },
-  {
-    "file": "biz-arch.svg",
-    "name": "Business Architecture"
-  },
-  {
-    "file": "dig-systems.svg",
-    "name": "Digital Systems"
-  }
+  { "name": "Arkavena", "logo": "./Asset/svg/brand/arkavena.svg" },
+  { "name": "REWIRED", "logo": "./Asset/svg/brand/rewired.svg" },
+  { "name": "Dirham Land", "logo": "./Asset/svg/brand/dirham-land.svg" },
+  { "name": "Project Control", "logo": "./Asset/svg/brand/proj-control.svg" },
+  { "name": "Decision Systems Lab", "logo": "./Asset/svg/brand/dig-systems.svg" },
+  { "name": "Feasibility Toolkit", "logo": "./Asset/svg/brand/feasibility.svg" }
 ]
