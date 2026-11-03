@@ -10,29 +10,29 @@ export const profile = {
   wordmark: "ERVAN.",
   roles: [
     "REAL ESTATE DEVELOPER.",
-    "FOUNDER.",
-    "AUTHOR."
+    "BUSINESS BUILDER.",
+    "SYSTEMS THINKER."
   ],
-  roleDisplay: "Real Estate Developer · Founder · Author",
+  roleDisplay: "Real Estate Developer · Business Builder · Systems Thinker",
   supportingExpertise: "Property Development · Construction · Asset Strategy · Education · Applied AI",
   topline: ["PROPERTY / BUSINESS / SYSTEMS", "BUILDING ACROSS DISCIPLINES"],
-  tagline: "Build what matters. Make it work.",
-  taglineId: "Real estate adalah fondasi utama. Edukasi berasal dari pengalaman praktik, bukan sebaliknya.",
+  tagline: "Building assets, businesses, and systems that last.",
+  taglineId: "Saya membangun properti, bisnis, dan sistem. Bentuknya berbeda, prinsipnya sama: keputusan harus jelas, risiko dipahami, dan eksekusi bisa dipertanggungjawabkan.",
 
   // Hero Section
   heroEyebrow: "PROPERTY / BUSINESS / SYSTEMS",
-  heroDisplayWord: "DEVELOPER",
-  headline: "Membangun dari praktik nyata.",
-  subheadline: "Praktisi real estate sejak 2017 yang mengembangkan proyek properti fisik, membangun bisnis konstruksi dan kendali proyek, menulis buku panduan developer, mendirikan ekosistem edukasi, serta mengembangkan sistem applied AI.",
+  heroDisplayWord: "BUILDER",
+  headline: "Membangun yang bertahan.",
+  subheadline: "Dari aset fisik hingga sistem digital, saya tertarik pada satu hal: menciptakan struktur yang membuat ide bisa dijalankan dan bisnis bisa bertumbuh.",
   manifesto: [
-    "Real estate adalah fondasi utama.",
-    "Edukasi berasal dari pengalaman praktik."
+    "Ideas need structure.",
+    "Structure needs execution."
   ],
   location: "Surabaya, Indonesia",
   timelineLabel: "2017 → NOW",
 
-  portrait: "./Asset/img/ervan-hero.png",
-  portraitAlt: "Ervan Erianto — Real Estate Developer, Founder & Author",
+  portrait: "./Asset/img/ervan-portrait.png",
+  portraitAlt: "Ervan Erianto — Real Estate Developer, Business Builder & Systems Thinker",
 
   // 3 Strategic Portfolio Groups
   groups: [

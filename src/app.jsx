@@ -109,25 +109,19 @@ function Hero({ onProject }) {
       {profile.heroDisplayWord}
     </motion.div>
 
-    {/* Authentic Portrait Visual (ervan-hero.png): Ervan on right, dark open space on left */}
-    <motion.div className="hero-visual-frame" style={enabled ? { y: visualY } : {}} initial={enabled ? { opacity: 0 } : false} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.15 }}>
-      <img src={profile.portrait} alt={profile.portraitAlt} width="1672" height="941" fetchPriority="high" />
-      <div className="hero-visual-gradient" aria-hidden="true" />
+    {/* Authentic Cutout Portrait (Transparent PNG layered in front of lettering) */}
+    <motion.div className="hero-portrait" style={enabled ? { y: visualY } : {}} initial={enabled ? { opacity: 0, scale: 1.05 } : false} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, delay: 0.15 }}>
+      <img src={profile.portrait} alt={profile.portraitAlt} width="1024" height="1536" fetchPriority="high" />
+      <div className="hero-portrait-mask" aria-hidden="true" />
     </motion.div>
 
-    {/* Left Negative Space Typography */}
+    {/* Left Typography */}
     <motion.div className="hero-intro" style={enabled ? { y: copyY } : {}} initial={enabled ? { opacity: 0, x: -30 } : false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.25, ease: EASE }}>
       <p className="handwriting">Hello, I’m</p>
       <h1 className="hero-display-name display">{profile.name}<span>.</span></h1>
       
-      <div className="hero-roles-stack">
-        {profile.roles.map(r => (
-          <span key={r} className="role-line display">{r}</span>
-        ))}
-      </div>
-
-      <p className="hero-supporting-expertise">
-        {profile.supportingExpertise}
+      <p className="hero-role">
+        {profile.roleDisplay}
       </p>
 
       <p className="hero-description">
@@ -136,10 +130,10 @@ function Hero({ onProject }) {
 
       <div className="hero-cta-group">
         <Magnetic href="#work" className="primary-link">
-          Jelajahi Work &amp; Ventures <ArrowDown size={16}/>
+          Jelajahi Karya <ArrowDown size={16}/>
         </Magnetic>
-        <a href="#about" className="hero-secondary-link">
-          Cara Berpikir &amp; Prinsip →
+        <a href="#about" className="cv-pill">
+          <span>MENGENAL SAYA</span> <ArrowUpRight size={14}/>
         </a>
       </div>
 
@@ -194,12 +188,12 @@ function ProjectCard({ project, index, onOpen }) {
       <span className="project-frame" aria-hidden="true" />
     </button>
     <button className="project-caption" onClick={() => onOpen(project)}>
-      <span className="project-category">{project.category} · {project.status}</span>
-      <h3>{project.title}</h3>
-      <p className="project-card-summary" style={{ fontSize: '11px', color: '#a09c9a', lineHeight: '1.5', margin: '4px 0 8px', textAlign: 'left' }}>
-        {project.summary}
-      </p>
-      <span className="project-more">DETAIL &amp; STATUS <ArrowUpRight size={14}/></span>
+      <span className="project-number display">{`0${index + 1}`}</span>
+      <span>
+        <h3>{project.title}</h3>
+        <span className="project-category">{project.group} · {project.category}</span>
+      </span>
+      <ArrowUpRight size={18}/>
     </button>
   </motion.article>;
 }
