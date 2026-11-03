@@ -15,7 +15,7 @@ fs.readdirSync(VIDEO_TMP_DIR).forEach(f => {
 });
 
 async function recordPreview() {
-  console.log('[VIDEO] Starting video recording...');
+  console.log('[VIDEO] Starting V4 Clean Editorial video recording...');
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
     viewport: { width: 1440, height: 900 },
@@ -31,26 +31,26 @@ async function recordPreview() {
 
   // 1. Hero mouse movement for parallax
   for (let x = 400; x <= 1000; x += 80) {
-    await page.mouse.move(x, 400 + Math.sin(x / 50) * 100);
-    await page.waitForTimeout(70);
+    await page.mouse.move(x, 350 + Math.sin(x / 50) * 80);
+    await page.waitForTimeout(60);
   }
   await page.waitForTimeout(600);
 
-  // 2. Click "JELAJAHI KARYA" CTA
+  // 2. Click "EXPLORE MY WORK" CTA
   const exploreBtn = await page.locator('.hero-cta-group a.primary-link').first();
   if (exploreBtn) {
     await exploreBtn.click();
-    await page.waitForTimeout(1400);
+    await page.waitForTimeout(1200);
   }
 
   // 3. Hover over cards
   const cards = await page.locator('.project-card').all();
   if (cards.length > 0) {
     await cards[0].hover();
-    await page.waitForTimeout(600);
+    await page.waitForTimeout(500);
     if (cards.length > 1) {
       await cards[1].hover();
-      await page.waitForTimeout(600);
+      await page.waitForTimeout(500);
     }
   }
 
@@ -58,13 +58,13 @@ async function recordPreview() {
   const firstOpen = await page.locator('.project-card button.project-open').first();
   if (firstOpen) {
     await firstOpen.click();
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(1200);
     // Close modal
     await page.locator('.dialog-heading button').click();
-    await page.waitForTimeout(800);
+    await page.waitForTimeout(600);
   }
 
-  // 5. Scroll through milestones
+  // 5. Scroll through Selected Milestones
   await page.locator('#milestones').scrollIntoViewIfNeeded();
   await page.waitForTimeout(1400);
 
@@ -72,32 +72,16 @@ async function recordPreview() {
   await page.locator('#about').scrollIntoViewIfNeeded();
   await page.waitForTimeout(1400);
 
-  // 7. Scroll through Frameworks and interact with comparison slider
-  await page.locator('#frameworks').scrollIntoViewIfNeeded();
-  await page.waitForTimeout(1000);
-  const slider = await page.locator('.comparison-stage input[type="range"]');
-  if (await slider.count() > 0) {
-    await slider.fill('25');
-    await page.waitForTimeout(500);
-    await slider.fill('75');
-    await page.waitForTimeout(500);
-    await slider.fill('50');
-    await page.waitForTimeout(800);
-  }
+  // 7. Scroll through Technology Spotlight
+  await page.locator('#technology').scrollIntoViewIfNeeded();
+  await page.waitForTimeout(1200);
 
-  // 8. Scroll to Journey & Contact
+  // 8. Scroll to Contact
   await page.locator('#contact').scrollIntoViewIfNeeded();
   await page.waitForTimeout(1000);
 
-  // Expand an accordion item
-  const secondAccordion = await page.locator('.journey-row button').nth(1);
-  if (secondAccordion) {
-    await secondAccordion.click();
-    await page.waitForTimeout(1000);
-  }
-
   // Hover over LinkedIn CTA
-  const ctaBtn = await page.locator('.contact-actions-row a.contact-primary-btn').first();
+  const ctaBtn = await page.locator('.contact-v4-actions a.contact-primary-btn').first();
   if (ctaBtn) {
     await ctaBtn.hover();
     await page.waitForTimeout(1200);

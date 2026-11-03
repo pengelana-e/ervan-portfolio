@@ -1,149 +1,107 @@
 /**
- * Ervan Erianto — Selected Work & Ventures (V3 Phase 1)
- * Exactly Six Primary Cards in Strict Order:
- * 01. REAL ESTATE DEVELOPMENT
- * 02. ARKAVENA
- * 03. ASSET STRATEGY
- * 04. REAL ESTATE REWIRED
- * 05. REWIRED
- * 06. APPLIED AI & BUSINESS SYSTEMS
+ * Ervan Erianto — Selected Work & Ventures (V4 Clean Editorial Refinement)
+ * EXACTLY SIX CARDS IN STRICT ORDER
  */
 
 export const initiatives = [
-  // ==========================================
-  // 01. REAL ESTATE DEVELOPMENT
-  // ==========================================
+  // 01 — REAL ESTATE DEVELOPMENT
   {
     id: "real-estate-development",
+    number: "01",
     title: "Real Estate Development",
-    shortTitle: "Dirham Land",
-    group: "THE PRACTICE",
-    category: "The Practice",
-    status: "Active Practice · 2016 → Present",
-    publicExposure: "PUBLIC",
-    summary: "Praktik pengembangan properti profesional sejak 2016: kemitraan lahan, kelayakan finansial, perumahan tapak, dan eksekusi proyek.",
-    description: "Konteks pengembangan properti nyata Ervan Erianto sejak 2016 mencakup penataan perumahan tapak dan pengondisian lahan, termasuk portofolio Dirham Land dan Dirham Residence. Berfokus pada disiplin kelayakan pasar, uji legalitas tanah, masterplanning efisien, pengendalian biaya pembangunan, serta strategi komersialisasi terpadu.",
+    category: "Property Development",
+    summary: "Pengembangan proyek residensial, kemitraan lahan, studi kelayakan, dan eksekusi properti sejak 2016.",
+    description: "Pengembangan proyek residensial, kemitraan lahan, studi kelayakan, dan eksekusi properti sejak 2016. Berfokus pada perumahan tapak (Dirham Land & Dirham Residence), disiplin kelayakan pasar, uji legalitas tanah, serta tata kelola proyek terpadu.",
     role: "Property Developer / Equity & Execution Partner",
-    evidenceLabel: "Professional Real Estate Development Since 2016",
     image: "./Asset/img/initiatives/dirham-land.svg",
     mediaType: "image",
     externalUrl: null,
-    tags: ["Real Estate Development", "Dirham Land", "Land Partnerships", "Feasibility", "Residential Projects", "Project Execution"],
+    tags: ["Property Development", "Dirham Land", "Land Partnerships", "Feasibility", "Residential Projects"],
     year: "2016 → NOW",
     featured: true
   },
 
-  // ==========================================
-  // 02. ARKAVENA
-  // ==========================================
+  // 02 — ARKAVENA
   {
     id: "arkavena",
+    number: "02",
     title: "Arkavena",
-    shortTitle: "Construction & Control",
-    group: "THE PRACTICE",
-    category: "The Practice",
-    status: "Active Practice · 2021 → Present",
-    publicExposure: "PUBLIC",
-    summary: "Bisnis konstruksi dan project control yang berfokus pada manajemen biaya, progres fisik, ruang lingkup, dan standar mutu.",
-    description: "Arkavena adalah unit bisnis konstruksi dan kendali proyek yang mengedepankan transparansi tata kelola bagi pemilik proyek. Mengawal disiplin manajemen biaya (cost management), pengawasan deviasi progres (schedule control), pengetatan variasi pekerjaan (scope management), dan audit mutu fisik lapangan secara akuntabel.",
+    category: "Construction & Project Control",
+    summary: "Konstruksi dan renovasi dengan pengendalian biaya, progres, mutu, dan ruang lingkup pekerjaan.",
+    description: "Konstruksi dan renovasi dengan pengendalian biaya, progres, mutu, dan ruang lingkup pekerjaan. Mengedepankan transparansi tata kelola bagi pemilik proyek untuk mencegah deviasi anggaran dan memastikan kepatuhan spesifikasi teknis lapangan.",
     role: "Co-founder / Project Control Partner",
-    evidenceLabel: "Construction & Project Control",
     image: "./Asset/img/initiatives/arkavena.svg",
     mediaType: "website",
     externalUrl: "https://arkavena.com",
-    tags: ["Construction", "Project Control", "Cost Management", "Scope Governance", "Quality Control"],
+    tags: ["Construction", "Project Control", "Cost Governance", "Scope Management", "Quality Assurance"],
     year: "2021 → NOW",
     featured: true
   },
 
-  // ==========================================
-  // 03. ASSET STRATEGY
-  // ==========================================
+  // 03 — ASSET STRATEGY
   {
     id: "asset-strategy",
+    number: "03",
     title: "Asset Strategy",
-    shortTitle: "Commercial Development",
-    group: "THE PRACTICE",
-    category: "The Practice",
-    status: "Strategic Initiative · Commercial Planning",
-    publicExposure: "PUBLIC",
-    summary: "Strategi pengembangan komersial, optimalisasi aset, model pendapatan, dan perencanaan operasional kawasan.",
-    description: "Pengembangan strategi untuk properti komersial, utilisasi aset, perancangan model pendapatan (revenue models), dan perencanaan operasional kawasan terpadu. Termasuk kolaborasi inisiatif koridor strategis melalui PT Patra Sarana Indonesia untuk kajian kelayakan tata guna kawasan (feasibility study).",
+    category: "Commercial Property Development",
+    summary: "Strategi pemanfaatan dan pengembangan aset komersial, termasuk inisiatif pengelolaan kawasan.",
+    description: "Strategi pemanfaatan dan pengembangan aset komersial, termasuk inisiatif pengelolaan kawasan terpadu. Melibatkan studi kelayakan koridor strategis dan perancangan model pendapatan komersial yang berkelanjutan.",
     role: "Strategic Advisor / Commercial Asset Strategy",
-    evidenceLabel: "Commercial Asset Strategy & Planning",
     image: "./Asset/img/initiatives/asset-strategy.svg",
     mediaType: "image",
     externalUrl: null,
-    tags: ["Asset Strategy", "Commercial Development", "PT Patra Sarana Indonesia", "Revenue Models", "Feasibility Study"],
+    tags: ["Commercial Property Development", "Asset Strategy", "Feasibility Study", "Revenue Models"],
     year: "2023 → NOW",
     featured: true
   },
 
-  // ==========================================
-  // 04. REAL ESTATE REWIRED
-  // ==========================================
+  // 04 — REAL ESTATE REWIRED
   {
     id: "real-estate-rewired-book",
+    number: "04",
     title: "Real Estate Rewired",
-    shortTitle: "Published Book",
-    group: "THE KNOWLEDGE",
-    category: "The Knowledge",
-    status: "Published Book · Official Release",
-    publicExposure: "PUBLIC",
-    summary: "Buku karya Ervan Erianto yang membedah logika keputusan developer properti dari sudut pandang pengalaman praktik lapangan.",
-    description: "Buku panduan resmi yang ditulis dan diterbitkan oleh Ervan Erianto berdasarkan pengalaman nyata mengelola proyek properti. Buku ini membongkar mitos spekulasi dan menghadirkan kerangka berpikir rasional: mulai dari evaluasi kelayakan lahan, mitigasi risiko regulasi, hingga tata kelola alokasi modal developer.",
+    category: "Published Author",
+    summary: "Buku tentang keputusan, risiko, dan praktik developer properti, ditulis berdasarkan pengalaman lapangan.",
+    description: "Buku resmi karya Ervan Erianto tentang keputusan, risiko, dan praktik developer properti, ditulis berdasarkan pengalaman lapangan nyata sejak 2016. Membedah logika kelayakan lahan, struktur modal rasional, dan pencegahan spekulasi.",
     role: "Published Author",
-    evidenceLabel: "Published Book · Official Release",
     image: "./Asset/img/initiatives/real-estate-rewired-book.svg",
     mediaType: "image",
     externalUrl: null,
-    tags: ["Published Author", "Real Estate Rewired", "Developer Mindset", "Decision Framework", "Property Logic"],
+    tags: ["Published Author", "Real Estate Rewired", "Developer Mindset", "Decision Framework"],
     year: "2024",
     featured: true
   },
 
-  // ==========================================
-  // 05. REWIRED
-  // ==========================================
+  // 05 — REWIRED
   {
     id: "rewired-ecosystem",
+    number: "05",
     title: "REWIRED",
-    shortTitle: "Education & Community",
-    group: "THE KNOWLEDGE",
-    category: "The Knowledge",
-    status: "Active Ecosystem · Founder & Educator",
-    publicExposure: "PUBLIC",
-    summary: "Inisiatif ekosistem yang menghubungkan pengetahuan praktis properti, edukasi, developer frameworks, komunitas, dan kolaborasi.",
-    description: "REWIRED adalah inisiatif pendidikan dan komunitas pengembang properti yang didirikan oleh Ervan Erianto. Wadah ini menjembatani realitas praktik lapangan dengan kerangka kerja (framework) terstruktur, melatih para praktisi mengambil keputusan rasional, serta membuka ruang kolaborasi pengembangan proyek antar-anggota.",
-    role: "Founder · Real Estate Education & Community",
-    evidenceLabel: "Education & Developer Community",
+    category: "Education & Community",
+    summary: "Inisiatif edukasi dan komunitas untuk mengembangkan pengetahuan, kemampuan, dan kolaborasi developer properti.",
+    description: "Inisiatif edukasi dan komunitas untuk mengembangkan pengetahuan, kemampuan, dan kolaborasi developer properti. Mengubah pengalaman empiris menjadi kerangka kerja terstruktur untuk melatih praktisi mengambil keputusan rasional.",
+    role: "Founder · Education & Community",
     image: "./Asset/img/initiatives/rewired.svg",
     mediaType: "website",
     externalUrl: "https://rewired.id",
-    tags: ["Founder", "REWIRED", "Real Estate Education", "Developer Community", "Frameworks", "Collaboration"],
+    tags: ["Education & Community", "REWIRED", "Developer Frameworks", "Practitioner Network"],
     year: "2024 → NOW",
     featured: true
   },
 
-  // ==========================================
-  // 06. APPLIED AI & BUSINESS SYSTEMS
-  // ==========================================
+  // 06 — APPLIED AI & BUSINESS SYSTEMS
   {
     id: "applied-ai-systems",
+    number: "06",
     title: "Applied AI & Business Systems",
-    shortTitle: "AI & Business Systems",
-    group: "THE TECHNOLOGY",
-    category: "The Technology",
-    status: "Active Systems & Products · Applied AI",
-    publicExposure: "PUBLIC",
-    summary: "Perancangan dan pembangunan produk bertenaga AI, intelligent workflows, dan otomatisasi sistem bisnis terapan.",
-    description: "Penerapan kecerdasan buatan sebagai kapabilitas profesional nyata untuk memecahkan persoalan bisnis kompleks. Menghadirkan tiga portofolio pembuktian: (1) PRAKARA OS — sistem intelijen hukum privat untuk due diligence regulasi pertanahan kompleks; (2) E.C.H.O — personal AI assistant dan eksperimentasi alur kerja strategis; (3) REWIRED Intelligence — sistem pembelajaran dan kurasi pengetahuan properti berbasis AI.",
+    category: "AI Products & Intelligent Workflows",
+    summary: "Pengembangan produk dan workflow AI untuk pekerjaan kompleks, termasuk PRAKARA OS, E.C.H.O, dan REWIRED Intelligence.",
+    description: "Pengembangan produk dan workflow AI untuk pekerjaan kompleks, termasuk PRAKARA OS, E.C.H.O, dan REWIRED Intelligence. Menghadirkan kapabilitas terapan untuk analisis perkara regulasi pertanahan dan otomatisasi alur kerja strategis.",
     role: "Systems Architect / Applied AI Builder",
-    evidenceLabel: "Applied AI Products & Workflows",
     image: "./Asset/img/initiatives/applied-ai-systems.svg",
     mediaType: "image",
     externalUrl: null,
-    tags: ["Applied AI", "PRAKARA OS", "E.C.H.O", "REWIRED Intelligence", "Business Automation", "Intelligent Workflows"],
+    tags: ["Applied AI", "PRAKARA OS", "E.C.H.O", "REWIRED Intelligence", "Intelligent Workflows"],
     year: "2025 → NOW",
     featured: true
   }

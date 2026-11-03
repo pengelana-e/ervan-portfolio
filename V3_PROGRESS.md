@@ -147,3 +147,87 @@ Sistem animasi disempurnakan secara terukur tanpa *gimmick*, tanpa *scroll hijac
 - **Products & Frameworks:** [qa_v3_p3_final_frameworks_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v3_p3_final_frameworks_desktop.png)
 - **Journey & Contact:** [qa_v3_p3_final_contact_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v3_p3_final_contact_desktop.png)
 - **Detail Modal Dialog:** [qa_v3_p3_final_dialog_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v3_p3_final_dialog_desktop.png)
+
+
+---
+
+## ERVAN PORTFOLIO V4 — CLEAN EDITORIAL REFINEMENT (COMPLETED & VERIFIED)
+
+> **Checkpoint Git Tag:** `checkpoint-v4-complete`  
+> **Tanggal Selesai:** 3 November 2026  
+> **Status:** Lulus Uji Kualitas Editorial Bersih & QA Browser Otomatis (100% Pass)  
+> **Hasil Uji:** 0 Console Errors · 0 Failed Requests · 0 Horizontal Overflow  
+> **Local Server URL:** `http://localhost:4173`
+
+---
+
+### 1. Prinsip Penyempurnaan Editorial V4 (Show Less, Feel More Expensive)
+
+Reduksi total teks terlihat sebesar ~35–40% untuk menghilangkan *visual noise*, *micro-labels*, dan kesan *dashboard*:
+
+1. **Hero Section yang Sederhana & Dominan:**
+   - **Elemen Esensial:** Teks latar raksasa `BUILDER.`, potret otentik Ervan Erianto dengan pencahayaan rim lembut, nama besar `Ervan Erianto.`, profesi utama `Real Estate Developer since 2016.`, identitas pendukung `Founder · Author · Applied AI.`, serta manifesto *"Building properties, businesses, knowledge, and intelligent systems."*.
+   - **Single Primary CTA:** Tombol tunggal `EXPLORE MY WORK`.
+   - **Pembersihan Elemen Ramai:** Menghilangkan panel 3 pilar di sisi kanan (hero stats rail), crosshair berputar, micro-badges repetitif, dan label koordinat yang memadati komposisi foto.
+
+2. **Selected Work & Ventures (6 Kartu Terkunci & Bersih):**
+   - Tepat 6 kartu primer dengan copywriting ringkas sesuai arahan mutlak:
+     - `01 — REAL ESTATE DEVELOPMENT` (*Property Development*)
+     - `02 — ARKAVENA` (*Construction & Project Control*)
+     - `03 — ASSET STRATEGY` (*Commercial Property Development*)
+     - `04 — REAL ESTATE REWIRED` (*Published Author*)
+     - `05 — REWIRED` (*Education & Community*)
+     - `06 — APPLIED AI & BUSINESS SYSTEMS` (*AI Products & Intelligent Workflows*)
+   - Menghapus bilah pencarian (*search box*) dan tombol filter kategori yang membebani tampilan 6 kartu.
+   - Menghapus deretan marquee logo brand yang repetitif agar fokus terpusat pada portofolio kurasi utama.
+
+3. **Selected Milestones (Compact Editorial Timeline):**
+   - Mengganti kartu berukuran besar dengan daftar editorial kronologis yang kompak (5 tonggak sejarah terverifikasi).
+   - Mempertahankan rel progres dinamis dengan aksen Sky Blue yang terisi seiring pergerakan scroll.
+
+4. **About / How I Think (Pernyataan Editorial Tegas):**
+   - Menghapus paragraf biografi panjang dan quote box ganda.
+   - **Headline:** `NOT JUST WHAT I BUILD. HOW I THINK.`
+   - **Pernyataan Utama:** *"Pengalaman lapangan mengajarkan saya untuk menguji asumsi, mengelola risiko, dan membangun proses yang bisa dijalankan."*
+   - **Tiga Prinsip:**
+     - `01 — VALIDATE FIRST`: "Keputusan dimulai dari fakta dan kelayakan."
+     - `02 — CONTROL EXECUTION`: "Biaya, progres, risiko, dan mutu harus terkendali."
+     - `03 — MAKE IT REPEATABLE`: "Pengalaman terbaik diubah menjadi sistem."
+
+5. **Technology Spotlight (PRAKARA OS Focused Feature):**
+   - Menghilangkan grid kartu teknologi redundant dan slider perbandingan yang berat.
+   - Menggantinya dengan fitur fokus tunggal: `PRAKARA OS — Private Legal Intelligence` beserta ringkasan arsitektur privat dan eksplorasi pendukung (*E.C.H.O · REWIRED Intelligence · AI-powered workflows*).
+
+6. **Journey & Contact (Penutup Sinematik):**
+   - Menyatukan penutup dengan pernyataan tegas: `GOOD IDEAS NEED GOOD EXECUTION.`
+   - Tombol utama tunggal: `TERHUBUNG DI LINKEDIN` menuju profil resmi terverifikasi.
+   - Menghapus form kontak yang tidak relevan dan widget dekoratif yang berlebihan.
+
+---
+
+### 2. Hasil Audit Browser Nyata V4 (Playwright)
+
+| Viewport | Resolusi | Horizontal Overflow | Broken Images | Console Errors | Status |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Desktop 1440** | 1440 × 900 | **0 px** | **0** | **0** | **Lulus** |
+| **Tablet 768** | 768 × 1024 | **0 px** | **0** | **0** | **Lulus** |
+| **Mobile 390** | 390 × 844 | **0 px** | **0** | **0** | **Lulus** |
+| **Small Mobile 320** | 320 × 568 | **0 px** | **0** | **0** | **Lulus** |
+
+---
+
+### 3. Tangkapan Layar & Video Walkthrough V4
+
+- **Video Walkthrough (WebM):** [ervan_cinematic_walkthrough.webm](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/ervan_cinematic_walkthrough.webm)
+- **Desktop Fullpage (1440px):** [qa_v4_fullpage_desktop-1440.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_fullpage_desktop-1440.png)
+- **Tablet Fullpage (768px):** [qa_v4_fullpage_tablet-768.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_fullpage_tablet-768.png)
+- **Mobile Fullpage (390px):** [qa_v4_fullpage_mobile-390.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_fullpage_mobile-390.png)
+- **Small Mobile Fullpage (320px):** [qa_v4_fullpage_small-mobile-320.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_fullpage_small-mobile-320.png)
+- **Hero Desktop:** [qa_v4_hero_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_hero_desktop.png)
+- **Hero Mobile:** [qa_v4_hero_mobile.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_hero_mobile.png)
+- **Selected Work Grid:** [qa_v4_work_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_work_desktop.png)
+- **Selected Milestones:** [qa_v4_milestones_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_milestones_desktop.png)
+- **About / How I Think:** [qa_v4_about_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_about_desktop.png)
+- **Technology Spotlight:** [qa_v4_technology_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_technology_desktop.png)
+- **Contact:** [qa_v4_contact_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_contact_desktop.png)
+- **Detail Modal Dialog:** [qa_v4_dialog_desktop.png](file:///C:/Users/ervan/.gemini/antigravity/brain/f231f4f5-aa2f-4f1f-90cb-9f01ae1ba772/qa_v4_dialog_desktop.png)
