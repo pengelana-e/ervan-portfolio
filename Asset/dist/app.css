@@ -297,19 +297,13 @@ html, body {
   width: 100%;
   object-fit: contain;
   object-position: center bottom;
-  filter: contrast(1.05) drop-shadow(0 20px 40px rgba(0,0,0,0.85));
-  mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+  filter: contrast(1.03);
+  mask-image: linear-gradient(to bottom, black 72%, transparent 97%);
+  -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 97%);
 }
 
 .hero-portrait-mask {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 160px;
-  background: linear-gradient(0deg, var(--bg) 0%, rgba(9,9,9,0.85) 45%, transparent 100%);
-  pointer-events: none;
+  display: none;
 }
 
 /* Left Typography */
