@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" style="background:#0e0b0c">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" style="background:#0c1a29">
   <defs>
     <linearGradient id="gridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#241517"/>
-      <stop offset="100%" stop-color="#0e0b0c"/>
+      <stop offset="100%" stop-color="#0c1a29"/>
     </linearGradient>
     <linearGradient id="accentRed" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#38BDF8"/>

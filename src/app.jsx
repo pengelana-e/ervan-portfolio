@@ -178,46 +178,83 @@ function Hero({ onProject }) {
       <div className="hero-portrait-mask" aria-hidden="true" />
     </motion.div>
 
-    {/* Left Negative Space Typography */}
+    {/* Left Negative Space Typography with Staggered Motion Reveals */}
     <motion.div
       className="hero-intro"
       style={enabled ? { y: copyY } : {}}
-      initial={enabled ? { opacity: 0, x: -30 } : false}
+      initial={enabled ? { opacity: 0, x: -25 } : false}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
+      transition={{ duration: 0.8, delay: 0.15, ease: EASE }}
     >
-      <div className="hero-eyebrow-badge">
+      <motion.div
+        className="hero-eyebrow-badge"
+        initial={enabled ? { opacity: 0, y: 12 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+      >
         <span className="live-pulse" />
         <span>PROPERTY · BUSINESS · SYSTEMS</span>
-      </div>
+      </motion.div>
 
-      <p className="handwriting">Hello, I’m</p>
+      <motion.p
+        className="handwriting"
+        initial={enabled ? { opacity: 0, y: 10 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.28, ease: EASE }}
+      >
+        Hello, I’m
+      </motion.p>
       
-      <h1 className="hero-display-name display">
+      <motion.h1
+        className="hero-display-name display"
+        initial={enabled ? { opacity: 0, y: 16 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.36, ease: EASE }}
+      >
         {profile.name}<span>.</span>
-      </h1>
+      </motion.h1>
       
-      <div className="hero-role-pill">
+      <motion.div
+        className="hero-role-pill"
+        initial={enabled ? { opacity: 0, y: 12 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.44, ease: EASE }}
+      >
         <span>{profile.heroRoleBadge}</span>
-      </div>
+      </motion.div>
 
-      <p className="hero-description">
+      <motion.p
+        className="hero-description"
+        initial={enabled ? { opacity: 0, y: 12 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.52, ease: EASE }}
+      >
         {profile.subheadline}
-      </p>
+      </motion.p>
 
-      <div className="hero-cta-group">
+      <motion.div
+        className="hero-cta-group"
+        initial={enabled ? { opacity: 0, y: 12 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
+      >
         <Magnetic href="#work" className="primary-link">
           <span>JELAJAHI KARYA</span> <ArrowDown size={16}/>
         </Magnetic>
         <Magnetic href="#about" className="secondary-outline-link">
           <span>PRINSIP BERPIKIR</span> <ArrowUpRight size={15}/>
         </Magnetic>
-      </div>
+      </motion.div>
 
-      <div className="hero-status-row">
+      <motion.div
+        className="hero-status-row"
+        initial={enabled ? { opacity: 0, y: 12 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.68, ease: EASE }}
+      >
         <span className="hero-location"><MapPin size={12} /> {profile.location}</span>
         <span className="hero-availability"><span className="status-dot"/> STRATEGIC INITIATIVES</span>
-      </div>
+      </motion.div>
     </motion.div>
 
     {/* 3 Strategic Pillars Rail */}
@@ -280,7 +317,7 @@ function ProjectCard({ project, index, onOpen }) {
   >
     <button className="project-open" onClick={() => onOpen(project)} aria-label={`Buka inisiatif ${project.title}`}>
       <motion.div className="project-picture" style={enabled ? { y } : {}}>
-        <MediaImage src={project.image} alt={project.title}/>
+        <MediaImage src={project.image} alt={project.title} priority={true}/>
       </motion.div>
       <span className="project-type">{project.group}</span>
       <span className="project-hover"><ArrowUpRight size={22}/></span>
@@ -353,7 +390,7 @@ function BrandStrip() {
     <div id="brand-collection" className={showAll ? 'brand-full-grid' : 'brand-viewport'} ref={ref} onPointerEnter={e => { if(e.pointerType==='mouse') setInteracting(true); }} onPointerLeave={() => setInteracting(false)} onPointerDown={() => setPaused(true)} onFocusCapture={() => setInteracting(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setInteracting(false); }} tabIndex={showAll ? undefined : 0} role={showAll ? 'list' : 'region'} aria-label="Daftar inisiatif dan bidang praktik">
       {showAll ? brands.map(b => (
         <div className="brand-logo" key={b.name} role="listitem">
-          <img src={b.logo} alt={b.name} title={b.name} width="150" height="60" loading="lazy"/>
+          <img src={b.logo} alt={b.name} title={b.name} width="150" height="60" loading="eager"/>
           <span>{b.name}</span>
         </div>
       )) : (
@@ -362,7 +399,7 @@ function BrandStrip() {
             <div className="brand-set" key={copy} aria-hidden={copy === 1 ? true : undefined}>
               {brands.map(b => (
                 <div className="brand-logo" key={b.name}>
-                  <img src={b.logo} alt={copy ? '' : b.name} title={b.name} width="150" height="60" loading="lazy" draggable="false"/>
+                  <img src={b.logo} alt={copy ? '' : b.name} title={b.name} width="150" height="60" loading="eager" draggable="false"/>
                 </div>
               ))}
             </div>
