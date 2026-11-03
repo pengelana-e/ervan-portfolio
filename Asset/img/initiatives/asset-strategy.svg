@@ -27,7 +27,7 @@
     <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
     <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
 
-    <!-- Technical Grid & Architectural Lines -->
+    <!-- Technical Grid &amp; Architectural Lines -->
     <line x1="80" y1="120" x2="880" y2="120" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
     <line x1="80" y1="240" x2="880" y2="240" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
     <line x1="80" y1="360" x2="880" y2="360" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
@@ -35,7 +35,7 @@
 
     <!-- Main Artwork -->
     
-  <!-- Regional Site & Commercial Zone Plan -->
+  <!-- Regional Site &amp; Commercial Zone Plan -->
   <rect x="280" y="140" width="400" height="240" rx="4" fill="#120f10" stroke="#e32b3c" stroke-width="1.5" stroke-dasharray="6,4"/>
   <rect x="320" y="170" width="140" height="90" fill="#1c1618" stroke="#87212b" stroke-width="1.5"/>
   <text x="390" y="220" font-family="'Manrope', sans-serif" font-size="11" font-weight="700" fill="#e32b3c" text-anchor="middle">COMMERCIAL NODE</text>
@@ -47,8 +47,8 @@
   <text x="480" y="125" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="3" fill="#666" text-anchor="middle">CORRIDOR INFRASTRUCTURE &amp; ZONING</text>
 
 
-    <!-- Labels & Accents -->
+    <!-- Labels &amp; Accents -->
     <text x="50" y="525" font-family="'Anton', Impact, sans-serif" font-size="34" letter-spacing="1" fill="#f2efeb">PT PATRA SARANA INDONESIA</text>
-    <text x="50" y="550" font-family="'Manrope', sans-serif" font-size="12" font-weight="600" letter-spacing="1" fill="#a09c9a">Commercial Asset Feasibility & Regional Planning Initiative</text>
+    <text x="50" y="550" font-family="'Manrope', sans-serif" font-size="12" font-weight="600" letter-spacing="1" fill="#a09c9a">Commercial Asset Feasibility &amp; Regional Planning Initiative</text>
     <text x="910" y="550" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="2" fill="#e32b3c" text-anchor="end">FEASIBILITY STUDY · STRATEGIC INITIATIVE</text>
 </svg>

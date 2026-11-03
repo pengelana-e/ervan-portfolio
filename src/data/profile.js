@@ -160,25 +160,79 @@ export const profile = {
     credit: "FRAMEWORK PENGAMBILAN KEPUTUSAN PROPERTI · DRAG UNTUK MEMBANDINGKAN"
   },
 
-  // About Section & Positioning
+  // About Section & How I Think
   about: {
-    eyebrow: "05 / POSITIONING & PRINCIPLES",
+    eyebrow: "04 / HOW I THINK",
     title: ["NOT JUST WHAT I BUILD.", "HOW I "],
     accentTitle: "THINK.",
-    positioningStatement: "Ervan adalah praktisi real estate sejak sekitar 2017 yang mengembangkan proyek properti, membangun bisnis konstruksi, menulis buku, mendirikan ekosistem edukasi, dan mengembangkan produk teknologi AI. Real estate adalah fondasi utama. Edukasi berasal dari pengalaman praktik, bukan sebaliknya.",
+    quote: "Real estate is the foundation. Education comes from practice. Data informs. Judgment decides.",
+    thesis: "Saya membangun properti, bisnis, dan sistem. Bentuknya berbeda, prinsipnya sama: keputusan harus jelas, risiko dipahami, dan eksekusi bisa dipertanggungjawabkan.",
+    principles: [
+      {
+        num: "01",
+        tag: "GROUND FIRST",
+        title: "Praktik Lapangan Menguji Teori",
+        desc: "Desain yang baik belum tentu proyek yang baik. Yang menentukan adalah kepastian legalitas tanah, daya serap pasar, batasan biaya, dan disiplin perizinan sejak hari pertama."
+      },
+      {
+        num: "02",
+        tag: "STRUCTURE BEFORE SPEED",
+        title: "Sistem Menghubungkan Tanggung Jawab",
+        desc: "Sistem bukan sekadar software, melainkan kejelasan alur keputusan, akuntabilitas tim, dan kendali deviasi biaya agar bisnis tidak bergantung pada improvisasi."
+      },
+      {
+        num: "03",
+        tag: "DECISION OVER SPECULATION",
+        title: "Disiplin Menghadapi Risiko",
+        desc: "Menguji setiap asumsi melalui simulasi skenario cashflow paling konservatif. Berani menolak proyek spekulatif demi menjaga keutuhan modal dan reputasi jangka panjang."
+      }
+    ],
     paragraphs: [
       "Saya memulai perjalanan dari pengembangan properti dan konstruksi sejak 2017. Pengalaman di lapangan membuktikan bahwa sebuah proyek tidak cukup hanya memiliki desain yang memikat. Proyek membutuhkan keputusan yang tepat tentang legalitas lahan, daya serap pasar, batasan biaya, kesiapan tim, dan disiplin waktu.",
-      "Dari situ perhatian saya berkembang ke pembangunan sistem bisnis: bagaimana sebuah unit usaha berjalan dengan struktur yang jelas tanpa bergantung pada spekulasi atau improvisasi sesaat. Bagi saya, sistem adalah kejelasan hubungan antara data, tanggung jawab, dan tindakan nyata.",
-      "Hari ini saya berfokus pada tiga pilar yang saling menguatkan: The Practice (pengembangan properti fisik dan kendali konstruksi), The Knowledge (buku dan edukasi developer terstruktur), serta The Technology (pemanfaatan model AI privat untuk analisis regulasi dan alur kerja operasional)."
-    ],
-    quoteLines: [
-      "Real estate is the foundation.",
-      "Education comes from practice.",
-      "Data informs. Judgment decides."
+      "Dari situ perhatian saya berkembang ke pembangunan sistem bisnis: bagaimana sebuah unit usaha berjalan dengan struktur yang jelas tanpa bergantung pada spekulasi atau improvisasi sesaat. Bagi saya, sistem adalah kejelasan hubungan antara data, tanggung jawab, dan tindakan nyata."
     ],
     quoteSign: "Ervan Erianto",
     quoteBottom: "SURABAYA, INDONESIA · PROPERTY · FOUNDER · AUTHOR"
   },
+
+  // Products & Frameworks Section
+  frameworksHeading: {
+    eyebrow: "05 / SYSTEMS, TECH & FRAMEWORKS",
+    title: "PRODUCTS & FRAMEWORKS",
+    subtitle: "Dari kecerdasan buatan hukum privat hingga model kendali developer: mengubah kompleksitas lapangan menjadi struktur keputusan yang dapat direplikasi."
+  },
+  frameworks: [
+    {
+      id: "prakara-os",
+      name: "PRAKARA OS",
+      category: "APPLIED AI · LEGAL INTELLIGENCE",
+      status: "PRIVATE R&D / ACTIVE TEST GATES",
+      badge: "FEATURED AI PLATFORM",
+      summary: "Kecerdasan buatan terfokus untuk due diligence hukum tanah, analisis kepatuhan perizinan tata ruang, dan mitigasi risiko regulasi properti.",
+      highlights: ["Zoning Compliance Graph", "Title Deed Due Diligence", "Regulatory Risk Matrix", "Private Architecture"],
+      image: "./Asset/img/initiatives/prakara-os.svg"
+    },
+    {
+      id: "rewired-map",
+      name: "REWIRED DEVELOPER MAP",
+      category: "REAL ESTATE METHODOLOGY",
+      status: "OPERATIONAL BLUEPRINT",
+      badge: "6-STAGE FRAMEWORK",
+      summary: "Peta jalan operasional developer properti mandiri: FILTER → LOCK → BLUEPRINT → TEAM → REVENUE → DELIVERY.",
+      highlights: ["Lahan & Feasibility Logic", "Capital Structure Lock", "Contractor Governance", "Delivery Checklist"],
+      image: "./Asset/img/initiatives/rewired.svg"
+    },
+    {
+      id: "proj-control",
+      name: "PROJECT CONTROL DISCIPLINE",
+      category: "CONSTRUCTION GOVERNANCE",
+      status: "FIELD AUDIT SYSTEM",
+      badge: "ARKAVENA ENGINE",
+      summary: "Framework pengendalian variasi pekerjaan (VO), transparansi progres fisik lapangan, dan pencegahan deviasi anggaran.",
+      highlights: ["Scope Variation Audit", "Weekly Cashflow Milestones", "Quality Threshold Control", "Owner Transparency"],
+      image: "./Asset/img/initiatives/arkavena.svg"
+    }
+  ],
 
   // Operating Framework (5 Steps)
   process: [

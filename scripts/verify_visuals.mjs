@@ -12,22 +12,25 @@ const viewports = [
   { name: 'small-mobile-320', width: 320, height: 700 }
 ];
 
+async function scrollFullPage(page) {
+  const total = await page.evaluate(() => document.documentElement.scrollHeight);
+  for (let y = 0; y <= total; y += 350) {
+    await page.evaluate(top => window.scrollTo(0, top), y);
+    await page.waitForTimeout(50);
+  }
+  await page.waitForTimeout(600);
+}
+
 async function runQA() {
-  console.log('[QA] Starting visual verification across viewports...');
+  console.log('[QA] Starting comprehensive visual verification across viewports...');
   const browser = await chromium.launch({ headless: true });
 
   for (const vp of viewports) {
     const page = await browser.newPage({ viewport: { width: vp.width, height: vp.height } });
     await page.goto('http://localhost:4173', { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1500); // let motion settle
+    await page.waitForTimeout(600);
 
-    // Check horizontal scroll
-    const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
-    const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
-    const overflow = scrollWidth > clientWidth;
-    console.log(`[Viewport ${vp.name}] Width: ${clientWidth}px, ScrollWidth: ${scrollWidth}px -> Overflow: ${overflow ? 'FAIL' : 'PASS'}`);
-
-    // Capture hero screenshot
+    // Capture hero screenshot first
     const heroShotPath = path.join(ARTIFACT_DIR, `qa_hero_${vp.name}.png`);
     const heroEl = await page.$('#home');
     if (heroEl) {
@@ -35,30 +38,36 @@ async function runQA() {
       console.log(`  Saved hero screenshot: ${heroShotPath}`);
     }
 
-    // Capture work section
-    if (vp.name === 'desktop-1440' || vp.name === 'mobile-390') {
-      const workEl = await page.$('#work');
-      if (workEl) {
-        const workShotPath = path.join(ARTIFACT_DIR, `qa_work_${vp.name}.png`);
-        await workEl.screenshot({ path: workShotPath });
-        console.log(`  Saved work screenshot: ${workShotPath}`);
-      }
+    // Trigger full page scroll for all animations to settle
+    await scrollFullPage(page);
 
+    // Check horizontal scroll
+    const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+    const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
+    const overflow = scrollWidth > clientWidth;
+    console.log(`[Viewport ${vp.name}] Width: ${clientWidth}px, ScrollWidth: ${scrollWidth}px -> Overflow: ${overflow ? 'FAIL' : 'PASS'}`);
+
+    if (vp.name === 'desktop-1440') {
       const fullShotPath = path.join(ARTIFACT_DIR, `qa_fullpage_${vp.name}.png`);
       await page.screenshot({ path: fullShotPath, fullPage: true });
       console.log(`  Saved fullpage screenshot: ${fullShotPath}`);
     }
 
+    if (vp.name === 'mobile-390') {
+      const fullShotPath = path.join(ARTIFACT_DIR, `qa_fullpage_${vp.name}.png`);
+      await page.screenshot({ path: fullShotPath, fullPage: true });
+      console.log(`  Saved mobile fullpage screenshot: ${fullShotPath}`);
+    }
+
     await page.close();
   }
 
-  // Also test interactive dialog opening
+  // Interactive dialog verification
   const testPage = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await testPage.goto('http://localhost:4173', { waitUntil: 'networkidle' });
-  await testPage.waitForTimeout(1000);
+  await testPage.waitForTimeout(800);
 
-  // Click first project card
-  const firstCard = await testPage.$('.project-card button.project-open');
+  const firstCard = await testPage.locator('.project-card button.project-open').first();
   if (firstCard) {
     await firstCard.click();
     await testPage.waitForTimeout(600);
@@ -68,7 +77,7 @@ async function runQA() {
   }
 
   await browser.close();
-  console.log('[QA] All visual tests completed!');
+  console.log('[QA] All visual tests completed successfully!');
 }
 
 runQA().catch(err => {

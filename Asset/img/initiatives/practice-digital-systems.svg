@@ -47,6 +47,6 @@
     
 
     <!-- Watermark Brand Title -->
-    <text x="50" y="545" font-family="'Anton', Impact, sans-serif" font-size="28" letter-spacing="2" fill="#ffffff" opacity="0.9">KNOWLEDGE & DIGITAL SYSTEMS</text>
+    <text x="50" y="545" font-family="'Anton', Impact, sans-serif" font-size="28" letter-spacing="2" fill="#ffffff" opacity="0.9">KNOWLEDGE &amp; DIGITAL SYSTEMS</text>
     <text x="50" y="565" font-family="'Manrope', sans-serif" font-size="9" font-weight="600" letter-spacing="3" fill="#888">TRANSLATING DOMAIN EXPERTISE INTO PRODUCTS</text>
   </svg>

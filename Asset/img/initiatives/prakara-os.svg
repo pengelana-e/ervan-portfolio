@@ -27,7 +27,7 @@
     <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
     <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
 
-    <!-- Technical Grid & Architectural Lines -->
+    <!-- Technical Grid &amp; Architectural Lines -->
     <line x1="80" y1="120" x2="880" y2="120" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
     <line x1="80" y1="240" x2="880" y2="240" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
     <line x1="80" y1="360" x2="880" y2="360" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
@@ -35,7 +35,7 @@
 
     <!-- Main Artwork -->
     
-  <!-- AI Neural Graph & Legal Document Matrix -->
+  <!-- AI Neural Graph &amp; Legal Document Matrix -->
   <g transform="translate(480, 240)">
     <circle cx="0" cy="0" r="110" fill="none" stroke="#251b1e" stroke-width="1"/>
     <circle cx="0" cy="0" r="75" fill="none" stroke="#87212b" stroke-width="1.5" stroke-dasharray="4,4"/>
@@ -54,8 +54,8 @@
   </g>
 
 
-    <!-- Labels & Accents -->
+    <!-- Labels &amp; Accents -->
     <text x="50" y="525" font-family="'Anton', Impact, sans-serif" font-size="34" letter-spacing="1" fill="#f2efeb">PRAKARA OS</text>
-    <text x="50" y="550" font-family="'Manrope', sans-serif" font-size="12" font-weight="600" letter-spacing="1" fill="#a09c9a">AI-Powered Legal Intelligence Product for Property & Land Diligence</text>
-    <text x="910" y="550" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="2" fill="#e32b3c" text-anchor="end">PRIVATE R&D · INTERNAL PLATFORM</text>
+    <text x="50" y="550" font-family="'Manrope', sans-serif" font-size="12" font-weight="600" letter-spacing="1" fill="#a09c9a">AI-Powered Legal Intelligence Product for Property &amp; Land Diligence</text>
+    <text x="910" y="550" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="2" fill="#e32b3c" text-anchor="end">PRIVATE R&amp;D · INTERNAL PLATFORM</text>
 </svg>

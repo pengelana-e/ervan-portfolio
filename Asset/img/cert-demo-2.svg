@@ -51,7 +51,7 @@
       <tspan x="600" dy="28">tailing, and cinematic atmosphere creation.</tspan>
     </text>
     
-    <!-- Seal & Signatures -->
+    <!-- Seal &amp; Signatures -->
     <g transform="translate(600, 670)">
       <!-- Golden Seal -->
       <circle r="46" fill="#141314" stroke="url(#goldBorder)" stroke-width="3"/>

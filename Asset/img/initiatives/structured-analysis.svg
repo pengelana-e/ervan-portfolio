@@ -33,7 +33,7 @@
         <text x="26" y="336" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#48cae4">DEMAND VERIFIED</text>
       </g>
 
-      <!-- Box 2: Cost & Scope -->
+      <!-- Box 2: Cost &amp; Scope -->
       <g transform="translate(215, 0)">
         <rect width="195" height="380" rx="6" fill="#101c24" stroke="#1d3f52"/>
         <text x="16" y="32" font-family="'Anton', sans-serif" font-size="22" fill="#48cae4">02 · COST</text>
@@ -49,7 +49,7 @@
         <text x="26" y="336" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#48cae4">BUDGET LOCKED</text>
       </g>
 
-      <!-- Box 3: Risk & Stress Test -->
+      <!-- Box 3: Risk &amp; Stress Test -->
       <g transform="translate(430, 0)">
         <rect width="195" height="380" rx="6" fill="#101c24" stroke="#1d3f52"/>
         <text x="16" y="32" font-family="'Anton', sans-serif" font-size="22" fill="#48cae4">03 · RISK</text>
@@ -65,7 +65,7 @@
         <text x="26" y="336" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" fill="#48cae4">STRESS TESTED</text>
       </g>
 
-      <!-- Box 4: Action & Decision -->
+      <!-- Box 4: Action &amp; Decision -->
       <g transform="translate(645, 0)">
         <rect width="195" height="380" rx="6" fill="#122530" stroke="#00b4d8"/>
         <text x="16" y="32" font-family="'Anton', sans-serif" font-size="22" fill="#90e0ef">04 · DECISION</text>
