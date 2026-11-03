@@ -1,5 +1,5 @@
 /**
- * Ervan Erianto — Personal Brand & Portfolio Profile (Final Refinement)
+ * Ervan Erianto — Personal Brand & Portfolio Profile (V3 Phase 1)
  * Strictly public, verified editorial content.
  */
 
@@ -9,30 +9,34 @@ export const profile = {
   shortName: "Ervan",
   wordmark: "ERVAN.",
   roles: [
-    "REAL ESTATE DEVELOPER.",
-    "BUSINESS BUILDER.",
-    "SYSTEMS THINKER."
+    "REAL ESTATE DEVELOPER SINCE 2016.",
+    "FOUNDER.",
+    "AUTHOR.",
+    "APPLIED AI."
   ],
-  roleDisplay: "Real Estate Developer · Business Builder · Systems Thinker",
+  roleDisplay: "Real Estate Developer since 2016 · Founder · Author · Applied AI",
+  heroRoleBadge: "REAL ESTATE DEVELOPER SINCE 2016 · FOUNDER · AUTHOR · APPLIED AI",
   supportingExpertise: "Property Development · Construction · Asset Strategy · Education · Applied AI",
   topline: ["PROPERTY / BUSINESS / SYSTEMS", "BUILDING ACROSS DISCIPLINES"],
-  tagline: "Building assets, businesses, and systems that last.",
-  taglineId: "Saya membangun properti, bisnis, dan sistem. Bentuknya berbeda, prinsipnya sama: keputusan harus jelas, risiko dipahami, dan eksekusi bisa dipertanggungjawabkan.",
+  tagline: "Building properties, businesses, knowledge, and intelligent systems.",
+  taglineId: "Membangun properti, bisnis, pengetahuan, dan sistem cerdas.",
 
   // Hero Section
   heroEyebrow: "PROPERTY / BUSINESS / SYSTEMS",
-  heroDisplayWord: "BUILDER",
+  heroDisplayWord: "BUILDER.",
   headline: "Membangun yang bertahan.",
   subheadline: "Dari aset fisik hingga sistem digital, saya tertarik pada satu hal: menciptakan struktur yang membuat ide bisa dijalankan dan bisnis bisa bertumbuh.",
   manifesto: [
-    "Ideas need structure.",
-    "Structure needs execution."
+    "Building properties, businesses,",
+    "knowledge, and intelligent systems."
   ],
+  manifestoFull: "Building properties, businesses, knowledge, and intelligent systems.",
   location: "Surabaya, Indonesia",
-  timelineLabel: "2017 → NOW",
+  timelineLabel: "2016 → NOW",
+  timelineExperience: "10+ TAHUN PRAKTIK",
 
   portrait: "./Asset/img/ervan-portrait.png",
-  portraitAlt: "Ervan Erianto — Real Estate Developer, Business Builder & Systems Thinker",
+  portraitAlt: "Ervan Erianto — Real Estate Developer since 2016, Founder, Author, Applied AI",
 
   // 3 Strategic Portfolio Groups
   groups: [
@@ -41,21 +45,21 @@ export const profile = {
       code: "THE PRACTICE",
       tag: "REAL ASSETS & GOVERNANCE",
       label: "Pengembangan Aset & Kendali Proyek",
-      desc: "Pengalaman developer properti fisik (Dirham Land), kendali proyek konstruksi (Arkavena), dan inisiatif aset kawasan (PT Patra Sarana Indonesia)."
+      desc: "Pengalaman developer properti fisik sejak 2016 (Dirham Land), kendali proyek konstruksi (Arkavena), dan inisiatif aset kawasan (PT Patra Sarana Indonesia)."
     },
     {
       id: "knowledge",
       code: "THE KNOWLEDGE",
       tag: "BOOKS & ECOSYSTEM",
       label: "Buku & Edukasi Praktisi",
-      desc: "Buku 'Real Estate Rewired' yang resmi diluncurkan secara mandiri dan ekosistem pembelajaran REWIRED bagi pelaku industri properti."
+      desc: "Buku 'Real Estate Rewired' yang resmi diluncurkan berdasarkan pengalaman praktik dan ekosistem pembelajaran REWIRED bagi pelaku industri properti."
     },
     {
       id: "technology",
       code: "THE TECHNOLOGY",
       tag: "APPLIED AI & SYSTEMS",
-      label: "Intelijen Hukum & Sistem AI",
-      desc: "Platform kecerdasan buatan privat PRAKARA OS, engine edukasi REWIRED Intelligence, dan eksplorasi personal AI E.C.H.O."
+      label: "Sistem AI & Otomatisasi Bisnis",
+      desc: "Produk bertenaga AI dan alur kerja cerdas: platform regulasi PRAKARA OS, personal assistant E.C.H.O, dan engine edukasi REWIRED Intelligence."
     }
   ],
 
@@ -66,7 +70,7 @@ export const profile = {
   portfolioHeading: {
     eyebrow: "01 / SELECTED WORK & VENTURES",
     headline: "THE PRACTICE. THE KNOWLEDGE. THE TECHNOLOGY.",
-    subtitle: "Tiga pilar inisiatif yang lahir dari persoalan nyata: pengembangan aset fisik, karya intelektual terbitan mandiri, dan teknologi kecerdasan buatan."
+    subtitle: "Tiga pilar inisiatif yang lahir dari persoalan nyata: pengembangan aset fisik sejak 2016, karya intelektual terbitan resmi, dan kapabilitas teknologi kecerdasan buatan terapan."
   },
 
   // Writing Section Details
@@ -75,7 +79,7 @@ export const profile = {
     title: "REAL ESTATE REWIRED",
     subtitle: "Buku panduan resmi yang membedah logika keputusan developer properti dari sudut pandang praktisi lapangan.",
     statusBadge: "OFFICIALLY PUBLISHED · 2024",
-    lead: "Pendidikan dan edukasi yang bernilai selalu berakar dari pembuktian di lapangan. Buku 'Real Estate Rewired' hadir bukan dari teori akademis atau spekulasi pasar, melainkan kristalisasi pengalaman nyata menangani perizinan, pembebasan lahan, negosiasi kepemilikan, dan manajemen proyek sejak 2017.",
+    lead: "Pendidikan dan edukasi yang bernilai selalu berakar dari pembuktian di lapangan. Buku 'Real Estate Rewired' hadir bukan dari teori akademis atau spekulasi pasar, melainkan kristalisasi pengalaman nyata menangani perizinan, pembebasan lahan, negosiasi kepemilikan, dan manajemen proyek sejak 2016.",
     highlights: [
       {
         num: "01",
@@ -102,16 +106,16 @@ export const profile = {
     coverImage: "./Asset/img/initiatives/real-estate-rewired-book.svg"
   },
 
-  // Selected Milestones (Replacing Awards)
+  // Selected Milestones
   milestonesHeading: {
     eyebrow: "03 / CAREER & VENTURE MILESTONES",
     title: "SELECTED MILESTONES",
-    subtitle: "Rekam jejak pembuktian dari lapangan sejak 2017 hingga ekosistem saat ini. Tanpa gelar fiktif, berakar pada realitas eksekusi.",
+    subtitle: "Rekam jejak pembuktian dari lapangan sejak 2016 hingga ekosistem saat ini. Tanpa gelar fiktif, berakar pada realitas eksekusi.",
     displayWord: "MILESTONES"
   },
   milestones: [
     {
-      year: "2017",
+      year: "2016",
       title: "GROUND PRACTICE & LAND CONDITIONING",
       category: "Real Estate Foundation",
       desc: "Mengawali praktik pengembangan lahan di Trenggalek dan kawasan Jawa Timur. Mempelajari langsung perizinan dasar, topografi lahan, serta dinamika sosial-legal pertanahan."
@@ -138,13 +142,13 @@ export const profile = {
       year: "2024",
       title: "OFFICIAL LAUNCH: 'REAL ESTATE REWIRED' BOOK",
       category: "Published Author",
-      desc: "Menulis dan menerbitkan secara mandiri buku panduan komprehensif 'Real Estate Rewired' sebagai manifestasi cara berpikir developer berbasis disiplin keputusan rasional."
+      desc: "Menulis dan menerbitkan buku panduan komprehensif 'Real Estate Rewired' sebagai manifestasi cara berpikir developer berbasis disiplin keputusan rasional."
     },
     {
       year: "2025–2026",
-      title: "REWIRED ECOSYSTEM & APPLIED AI R&D",
+      title: "APPLIED AI & BUSINESS SYSTEMS",
       category: "Ecosystem & Technology",
-      desc: "Membangun ekosistem edukasi REWIRED dan memimpin riset privat kecerdasan buatan: sistem mitigasi regulasi properti PRAKARA OS serta personal AI workflow E.C.H.O."
+      desc: "Mengembangkan produk bertenaga AI dan alur kerja cerdas terapan: sistem intelijen hukum privat PRAKARA OS, personal assistant E.C.H.O, serta arsitektur belajar REWIRED Intelligence."
     }
   ],
 
@@ -188,11 +192,11 @@ export const profile = {
       }
     ],
     paragraphs: [
-      "Saya memulai perjalanan dari pengembangan properti dan konstruksi sejak 2017. Pengalaman di lapangan membuktikan bahwa sebuah proyek tidak cukup hanya memiliki desain yang memikat. Proyek membutuhkan keputusan yang tepat tentang legalitas lahan, daya serap pasar, batasan biaya, kesiapan tim, dan disiplin waktu.",
+      "Saya memulai perjalanan dari pengembangan properti dan konstruksi sejak 2016. Pengalaman di lapangan membuktikan bahwa sebuah proyek tidak cukup hanya memiliki desain yang memikat. Proyek membutuhkan keputusan yang tepat tentang legalitas lahan, daya serap pasar, batasan biaya, kesiapan tim, dan disiplin waktu.",
       "Dari situ perhatian saya berkembang ke pembangunan sistem bisnis: bagaimana sebuah unit usaha berjalan dengan struktur yang jelas tanpa bergantung pada spekulasi atau improvisasi sesaat. Bagi saya, sistem adalah kejelasan hubungan antara data, tanggung jawab, dan tindakan nyata."
     ],
     quoteSign: "Ervan Erianto",
-    quoteBottom: "SURABAYA, INDONESIA · PROPERTY · FOUNDER · AUTHOR"
+    quoteBottom: "SURABAYA, INDONESIA · PROPERTY · FOUNDER · AUTHOR · APPLIED AI"
   },
 
   // Products & Frameworks Section
@@ -247,7 +251,7 @@ export const profile = {
   journey: [
     {
       index: "01",
-      area: "THE EARLY GROUND (2017–2018)",
+      area: "THE EARLY GROUND (2016–2018)",
       tagline: "Trenggalek & East Java · Land Practice",
       text: "Memulai pengalaman langsung dalam pengondisian lahan, verifikasi status kepemilikan tanah, dan memahami dinamika perizinan tingkat daerah di Jawa Timur."
     },
@@ -267,13 +271,13 @@ export const profile = {
       index: "04",
       area: "INTELLECTUAL WORKS & ECOSYSTEM (2023–2024)",
       tagline: "Real Estate Rewired & REWIRED Ecosystem",
-      text: "Menerbitkan secara mandiri buku 'Real Estate Rewired' dan membangun platform edukasi REWIRED untuk mencetak praktisi properti berbasis logika keputusan rasional."
+      text: "Menerbitkan buku 'Real Estate Rewired' dan membangun platform edukasi REWIRED untuk mencetak praktisi properti berbasis logika keputusan rasional."
     },
     {
       index: "05",
       area: "APPLIED AI & DECISION SYSTEMS (2025–2026)",
-      tagline: "PRAKARA OS & E.C.H.O · Systems R&D",
-      text: "Mengarahkan riset teknologi terapan: sistem AI penalaran regulasi hukum pertanahan PRAKARA OS dan personal intelligence architecture E.C.H.O."
+      tagline: "PRAKARA OS, E.C.H.O & REWIRED Intelligence",
+      text: "Mengarahkan riset teknologi terapan: sistem AI penalaran regulasi pertanahan PRAKARA OS, personal intelligence architecture E.C.H.O, serta infrastruktur pembelajaran REWIRED Intelligence."
     }
   ],
 
@@ -290,7 +294,7 @@ export const profile = {
   // Footer & Metadata
   footer: {
     wordmark: "ERVAN ERIANTO",
-    tagline: "REAL ESTATE DEVELOPER · FOUNDER · AUTHOR",
+    tagline: "REAL ESTATE DEVELOPER SINCE 2016 · FOUNDER · AUTHOR · APPLIED AI",
     signOff: "BUILD WHAT MATTERS. MAKE IT WORK.",
     copyrightYear: "2026",
     domain: "ervan.rewired.id"

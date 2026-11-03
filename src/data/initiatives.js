@@ -1,19 +1,17 @@
 /**
- * Ervan Erianto — Selected Work & Ventures
- * Structured into 3 Strategic Pillars:
- * 1. THE PRACTICE: Real Estate Development (Dirham Land), Arkavena, Asset Strategy (PT Patra Sarana Indonesia)
- * 2. THE KNOWLEDGE: Real Estate Rewired (Book), REWIRED (Ecosystem)
- * 3. THE TECHNOLOGY: PRAKARA OS (Private R&D), REWIRED Intelligence, E.C.H.O (In Development)
- *
- * Strictly compliant with Master Directive:
- * - PRAKARA OS is marked as Private R&D / Internal Platform (not commercially launched).
- * - Rest Area KM 626 / Asset Strategy is marked as Strategic Initiative / Feasibility Study (not operated).
- * - Zero fictitious awards, zero fake statistics, zero private data leaks.
+ * Ervan Erianto — Selected Work & Ventures (V3 Phase 1)
+ * Exactly Six Primary Cards in Strict Order:
+ * 01. REAL ESTATE DEVELOPMENT
+ * 02. ARKAVENA
+ * 03. ASSET STRATEGY
+ * 04. REAL ESTATE REWIRED
+ * 05. REWIRED
+ * 06. APPLIED AI & BUSINESS SYSTEMS
  */
 
 export const initiatives = [
   // ==========================================
-  // GROUP 1: THE PRACTICE
+  // 01. REAL ESTATE DEVELOPMENT
   // ==========================================
   {
     id: "real-estate-development",
@@ -21,159 +19,133 @@ export const initiatives = [
     shortTitle: "Dirham Land",
     group: "THE PRACTICE",
     category: "The Practice",
-    status: "Active Practice · 2019 → Present",
+    status: "Active Practice · 2016 → Present",
     publicExposure: "PUBLIC",
-    summary: "Praktik pengembangan hunian yang menghubungkan kelayakan lahan, perizinan, konstruksi, dan penyerahan unit.",
-    description: "Konteks kerja pengembangan properti nyata Ervan Erianto mencakup perumahan tapak dan pembebasan lahan, termasuk portofolio Dirham Land dan Dirham Residence. Pendekatannya berakar pada disiplin kelayakan pasar, uji legalitas tanah, penataan masterplan, pengendalian biaya pelaksanaan, serta strategi komersialisasi terukur.",
+    summary: "Praktik pengembangan properti profesional sejak 2016: kemitraan lahan, kelayakan finansial, perumahan tapak, dan eksekusi proyek.",
+    description: "Konteks pengembangan properti nyata Ervan Erianto sejak 2016 mencakup penataan perumahan tapak dan pengondisian lahan, termasuk portofolio Dirham Land dan Dirham Residence. Berfokus pada disiplin kelayakan pasar, uji legalitas tanah, masterplanning efisien, pengendalian biaya pembangunan, serta strategi komersialisasi terpadu.",
     role: "Property Developer / Equity & Execution Partner",
-    evidenceLabel: "Active Practice · Residential Assets",
+    evidenceLabel: "Professional Real Estate Development Since 2016",
     image: "./Asset/img/initiatives/dirham-land.svg",
     mediaType: "image",
     externalUrl: null,
-    tags: ["Real Estate", "Dirham Land", "Land Feasibility", "Housing Development", "Project Delivery"],
-    year: "2019 → NOW",
+    tags: ["Real Estate Development", "Dirham Land", "Land Partnerships", "Feasibility", "Residential Projects", "Project Execution"],
+    year: "2016 → NOW",
     featured: true
   },
+
+  // ==========================================
+  // 02. ARKAVENA
+  // ==========================================
   {
     id: "arkavena",
     title: "Arkavena",
-    shortTitle: "Arkavena",
+    shortTitle: "Construction & Control",
     group: "THE PRACTICE",
     category: "The Practice",
     status: "Active Practice · 2021 → Present",
     publicExposure: "PUBLIC",
-    summary: "Project Control Partner bagi pemilik proyek dan renovasi: menjamin transparansi lingkup, mutu, dan anggaran.",
-    description: "Arkavena adalah unit usaha konstruksi dan manajemen kendali proyek yang diposisikan sebagai Project Control Partner bagi pemilik aset. Fokus utamanya bukan sekadar fisik bangunan, melainkan mendokumentasikan setiap perubahan lingkup (variation orders), memitigasi deviasi anggaran, serta mengawal standar kualitas pelaksanaan secara akuntabel.",
+    summary: "Bisnis konstruksi dan project control yang berfokus pada manajemen biaya, progres fisik, ruang lingkup, dan standar mutu.",
+    description: "Arkavena adalah unit bisnis konstruksi dan kendali proyek yang mengedepankan transparansi tata kelola bagi pemilik proyek. Mengawal disiplin manajemen biaya (cost management), pengawasan deviasi progres (schedule control), pengetatan variasi pekerjaan (scope management), dan audit mutu fisik lapangan secara akuntabel.",
     role: "Co-founder / Project Control Partner",
-    evidenceLabel: "Active Practice · Construction Governance",
+    evidenceLabel: "Construction & Project Control",
     image: "./Asset/img/initiatives/arkavena.svg",
     mediaType: "website",
     externalUrl: "https://arkavena.com",
-    tags: ["Construction", "Project Control", "Cost Governance", "Scope Discipline", "Field Audit"],
+    tags: ["Construction", "Project Control", "Cost Management", "Scope Governance", "Quality Control"],
     year: "2021 → NOW",
     featured: true
   },
+
+  // ==========================================
+  // 03. ASSET STRATEGY
+  // ==========================================
   {
     id: "asset-strategy",
-    title: "Asset Strategy & Feasibility",
-    shortTitle: "PT Patra Sarana Indonesia",
+    title: "Asset Strategy",
+    shortTitle: "Commercial Development",
     group: "THE PRACTICE",
     category: "The Practice",
-    status: "Strategic Initiative · Feasibility Study",
+    status: "Strategic Initiative · Commercial Planning",
     publicExposure: "PUBLIC",
-    summary: "Pengembangan komersial dan inisiatif pengelolaan kawasan melalui kolaborasi strategis PT Patra Sarana Indonesia.",
-    description: "Inisiatif evaluasi kelayakan aset komersial, kajian tata guna lahan, serta studi kelayakan pengembangan kawasan terpadu (termasuk inisiatif rest area komersial). Mengintegrasikan kalkulasi sensitivitas finansial, simulasi trafik, analisis daya dukung lingkungan, dan struktur kemitraan strategis.",
-    role: "Strategic Advisor / Asset Planning & Feasibility",
-    evidenceLabel: "Strategic Initiative · Regional Planning",
+    summary: "Strategi pengembangan komersial, optimalisasi aset, model pendapatan, dan perencanaan operasional kawasan.",
+    description: "Pengembangan strategi untuk properti komersial, utilisasi aset, perancangan model pendapatan (revenue models), dan perencanaan operasional kawasan terpadu. Termasuk kolaborasi inisiatif koridor strategis melalui PT Patra Sarana Indonesia untuk kajian kelayakan tata guna kawasan (feasibility study).",
+    role: "Strategic Advisor / Commercial Asset Strategy",
+    evidenceLabel: "Commercial Asset Strategy & Planning",
     image: "./Asset/img/initiatives/asset-strategy.svg",
     mediaType: "image",
     externalUrl: null,
-    tags: ["Asset Strategy", "PT Patra Sarana Indonesia", "Commercial Feasibility", "Regional Planning"],
+    tags: ["Asset Strategy", "Commercial Development", "PT Patra Sarana Indonesia", "Revenue Models", "Feasibility Study"],
     year: "2023 → NOW",
     featured: true
   },
 
   // ==========================================
-  // GROUP 2: THE KNOWLEDGE
+  // 04. REAL ESTATE REWIRED
   // ==========================================
   {
     id: "real-estate-rewired-book",
-    title: "Real Estate Rewired (Book)",
-    shortTitle: "Real Estate Rewired",
+    title: "Real Estate Rewired",
+    shortTitle: "Published Book",
     group: "THE KNOWLEDGE",
     category: "The Knowledge",
-    status: "Published Book · Terbit Mandiri",
+    status: "Published Book · Official Release",
     publicExposure: "PUBLIC",
-    summary: "Buku panduan resmi yang membedah logika keputusan bisnis properti dari perspektif praktisi lapangan.",
-    description: "Buku 'Real Estate Rewired' telah resmi diluncurkan dan diterbitkan secara mandiri oleh Ervan Erianto. Ditulis berdasarkan refleksi praktisi sejak 2017, buku ini merombak mitos spekulatif properti dan menyajikan kerangka berpikir sistematis: dari navigasi perizinan, kalkulasi risiko lahan, hingga tata kelola arus kas developer.",
-    role: "Author / Independent Publisher",
-    evidenceLabel: "Officially Published · 2024",
+    summary: "Buku karya Ervan Erianto yang membedah logika keputusan developer properti dari sudut pandang pengalaman praktik lapangan.",
+    description: "Buku panduan resmi yang ditulis dan diterbitkan oleh Ervan Erianto berdasarkan pengalaman nyata mengelola proyek properti. Buku ini membongkar mitos spekulasi dan menghadirkan kerangka berpikir rasional: mulai dari evaluasi kelayakan lahan, mitigasi risiko regulasi, hingga tata kelola alokasi modal developer.",
+    role: "Published Author",
+    evidenceLabel: "Published Book · Official Release",
     image: "./Asset/img/initiatives/real-estate-rewired-book.svg",
     mediaType: "image",
     externalUrl: null,
-    tags: ["Author", "Real Estate Rewired", "Published Book", "Developer Mindset", "Decision Framework"],
+    tags: ["Published Author", "Real Estate Rewired", "Developer Mindset", "Decision Framework", "Property Logic"],
     year: "2024",
     featured: true
   },
+
+  // ==========================================
+  // 05. REWIRED
+  // ==========================================
   {
     id: "rewired-ecosystem",
-    title: "REWIRED Ecosystem",
-    shortTitle: "REWIRED",
+    title: "REWIRED",
+    shortTitle: "Education & Community",
     group: "THE KNOWLEDGE",
     category: "The Knowledge",
     status: "Active Ecosystem · Founder & Educator",
     publicExposure: "PUBLIC",
-    summary: "Ekosistem edukasi dan pendampingan developer: mentransformasi praktik lapangan menjadi framework terstruktur.",
-    description: "REWIRED adalah ekosistem pembelajaran properti yang didirikan Ervan Erianto untuk melatih pola pikir developer berbasis logika keputusan, bukan spekulasi. Menerapkan metodologi teruji: FILTER → LOCK → BLUEPRINT → TEAM → REVENUE → DELIVERY untuk membimbing praktisi menavigasi kompleksitas proyek.",
-    role: "Founder & Educator / System Architect",
-    evidenceLabel: "Active Ecosystem · Education",
+    summary: "Inisiatif ekosistem yang menghubungkan pengetahuan praktis properti, edukasi, developer frameworks, komunitas, dan kolaborasi.",
+    description: "REWIRED adalah inisiatif pendidikan dan komunitas pengembang properti yang didirikan oleh Ervan Erianto. Wadah ini menjembatani realitas praktik lapangan dengan kerangka kerja (framework) terstruktur, melatih para praktisi mengambil keputusan rasional, serta membuka ruang kolaborasi pengembangan proyek antar-anggota.",
+    role: "Founder · Real Estate Education & Community",
+    evidenceLabel: "Education & Developer Community",
     image: "./Asset/img/initiatives/rewired.svg",
     mediaType: "website",
     externalUrl: "https://rewired.id",
-    tags: ["Education", "REWIRED", "Developer Ecosystem", "Frameworks", "Curriculum"],
+    tags: ["Founder", "REWIRED", "Real Estate Education", "Developer Community", "Frameworks", "Collaboration"],
     year: "2024 → NOW",
     featured: true
   },
 
   // ==========================================
-  // GROUP 3: THE TECHNOLOGY
+  // 06. APPLIED AI & BUSINESS SYSTEMS
   // ==========================================
   {
-    id: "prakara-os",
-    title: "PRAKARA OS",
-    shortTitle: "PRAKARA OS",
+    id: "applied-ai-systems",
+    title: "Applied AI & Business Systems",
+    shortTitle: "AI & Business Systems",
     group: "THE TECHNOLOGY",
     category: "The Technology",
-    status: "Private R&D · Internal Platform",
+    status: "Active Systems & Products · Applied AI",
     publicExposure: "PUBLIC",
-    summary: "Featured AI-powered legal intelligence product yang dikembangkan secara privat untuk mitigasi regulasi properti.",
-    description: "PRAKARA OS adalah sistem kecerdasan buatan (AI) terfokus untuk membantu praktisi menelaah regulasi pertanahan, analisis kepatuhan izin, serta uji tuntas (due diligence) dokumen legalitas properti. Dikembangkan secara mandiri sebagai platform privat internal untuk mempercepat verifikasi data hukum.",
-    role: "Product Architect / Systems R&D",
-    evidenceLabel: "Private R&D · Internal Platform",
-    image: "./Asset/img/initiatives/prakara-os.svg",
+    summary: "Perancangan dan pembangunan produk bertenaga AI, intelligent workflows, dan otomatisasi sistem bisnis terapan.",
+    description: "Penerapan kecerdasan buatan sebagai kapabilitas profesional nyata untuk memecahkan persoalan bisnis kompleks. Menghadirkan tiga portofolio pembuktian: (1) PRAKARA OS — sistem intelijen hukum privat untuk due diligence regulasi pertanahan kompleks; (2) E.C.H.O — personal AI assistant dan eksperimentasi alur kerja strategis; (3) REWIRED Intelligence — sistem pembelajaran dan kurasi pengetahuan properti berbasis AI.",
+    role: "Systems Architect / Applied AI Builder",
+    evidenceLabel: "Applied AI Products & Workflows",
+    image: "./Asset/img/initiatives/applied-ai-systems.svg",
     mediaType: "image",
     externalUrl: null,
-    tags: ["AI Legal Tech", "PRAKARA OS", "Due Diligence", "Private R&D", "Decision Intelligence"],
+    tags: ["Applied AI", "PRAKARA OS", "E.C.H.O", "REWIRED Intelligence", "Business Automation", "Intelligent Workflows"],
     year: "2025 → NOW",
     featured: true
-  },
-  {
-    id: "rewired-intelligence",
-    title: "REWIRED Intelligence",
-    shortTitle: "REWIRED Intelligence",
-    group: "THE TECHNOLOGY",
-    category: "The Technology",
-    status: "Active Tooling · EdTech System",
-    publicExposure: "PUBLIC",
-    summary: "Teknologi pendukung pembelajaran: engine kurasi data, simulasi kelayakan, dan modul edukasi cerdas.",
-    description: "Infrastruktur teknologi yang memperkuat proses belajar di ekosistem REWIRED. Menggabungkan kalkulator sensitivitas biaya interaktif, generator skenario kelayakan proyek, dan kurasi pengetahuan berbasis data untuk membantu developer mengevaluasi peluang lahan secara objektif.",
-    role: "System Architect",
-    evidenceLabel: "Educational Tooling · Systems",
-    image: "./Asset/img/initiatives/rewired-intelligence.svg",
-    mediaType: "image",
-    externalUrl: null,
-    tags: ["Applied AI", "EdTech", "Feasibility Tooling", "Interactive Models"],
-    year: "2025 → NOW",
-    featured: false
-  },
-  {
-    id: "echo-system",
-    title: "E.C.H.O",
-    shortTitle: "E.C.H.O",
-    group: "THE TECHNOLOGY",
-    category: "The Technology",
-    status: "In Development · Personal AI System",
-    publicExposure: "PUBLIC",
-    summary: "Personal AI system dalam pengembangan: second brain dan arsitektur alur kerja strategis personal.",
-    description: "E.C.H.O (Executive Context & Heuristic Operations) adalah eksplorasi sistem AI personal Ervan Erianto yang berfungsi mengkonsolidasikan catatan lapangan, sintesis riset regulasi, dan otomatisasi alur kerja strategis agar pengambilan keputusan lintas unit usaha tetap tajam dan terdokumentasi.",
-    role: "Architect & Developer",
-    evidenceLabel: "In Development · Personal AI",
-    image: "./Asset/img/initiatives/echo-system.svg",
-    mediaType: "image",
-    externalUrl: null,
-    tags: ["Personal AI", "Second Brain", "In Development", "Knowledge Synthesis"],
-    year: "2026",
-    featured: false
   }
 ];
 

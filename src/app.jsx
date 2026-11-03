@@ -198,7 +198,7 @@ function Hero({ onProject }) {
       </h1>
       
       <div className="hero-role-pill">
-        <span>REAL ESTATE DEVELOPER · FOUNDER · AUTHOR</span>
+        <span>{profile.heroRoleBadge}</span>
       </div>
 
       <p className="hero-description">
@@ -245,7 +245,7 @@ function Hero({ onProject }) {
           </motion.div>
         ))}
         <a href="#milestones" className="hero-timeline-link">
-          <span>{profile.timelineLabel}</span> · 9+ TAHUN PRAKTIK <ArrowDown size={13}/>
+          <span>{profile.timelineLabel}</span> · {profile.timelineExperience} <ArrowDown size={13}/>
         </a>
       </div>
     </motion.div>
