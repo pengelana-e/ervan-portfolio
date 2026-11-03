@@ -6,13 +6,13 @@
         <stop offset="100%" stop-color="#080708"/>
       </radialGradient>
       <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#e32b3c"/>
+        <stop offset="0%" stop-color="#38BDF8"/>
         <stop offset="50%" stop-color="#f0b429"/>
-        <stop offset="100%" stop-color="#a6081c"/>
+        <stop offset="100%" stop-color="#0284c7"/>
       </linearGradient>
       <linearGradient id="redAccent" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#ff3b50"/>
-        <stop offset="100%" stop-color="#a6081c"/>
+        <stop offset="0%" stop-color="#7DD3FC"/>
+        <stop offset="100%" stop-color="#0284c7"/>
       </linearGradient>
     </defs>
     
@@ -21,11 +21,11 @@
     
     <!-- Outer Ornamental Border -->
     <rect x="36" y="36" width="1128" height="778" fill="none" stroke="url(#goldBorder)" stroke-width="2" opacity="0.85"/>
-    <rect x="46" y="46" width="1108" height="758" fill="none" stroke="#e32b3c" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+    <rect x="46" y="46" width="1108" height="758" fill="none" stroke="#38BDF8" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
     <rect x="56" y="56" width="1088" height="738" fill="none" stroke="#333" stroke-width="1"/>
     
     <!-- Corner Ornaments -->
-    <g fill="#e32b3c">
+    <g fill="#38BDF8">
       <polygon points="36,36 76,36 36,76"/>
       <polygon points="1164,36 1124,36 1164,76"/>
       <polygon points="36,814 76,814 36,774"/>
@@ -33,15 +33,15 @@
     </g>
     
     <!-- Demo Watermark Banner -->
-    <text x="600" y="115" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" letter-spacing="6" fill="#e32b3c" text-anchor="middle">OFFICIAL ARCHIVE DEMONSTRATION · SAMPLE RECORD</text>
-    <line x1="400" y1="130" x2="800" y2="130" stroke="#e32b3c" stroke-width="1" opacity="0.4"/>
+    <text x="600" y="115" font-family="'Manrope', sans-serif" font-size="12" font-weight="700" letter-spacing="6" fill="#38BDF8" text-anchor="middle">OFFICIAL ARCHIVE DEMONSTRATION · SAMPLE RECORD</text>
+    <line x1="400" y1="130" x2="800" y2="130" stroke="#38BDF8" stroke-width="1" opacity="0.4"/>
     
     <!-- Main Header -->
     <text x="600" y="210" font-family="'Anton', sans-serif" font-size="44" letter-spacing="3" fill="#f2efeb" text-anchor="middle">STUDIO COMPOSITING CERTIFICATE</text>
     <text x="600" y="250" font-family="'Manrope', sans-serif" font-size="15" font-weight="600" letter-spacing="4" fill="#a09c9a" text-anchor="middle">ADVANCED POST-PRODUCTION LAB · 2022</text>
     
     <!-- Presented to -->
-    <text x="600" y="340" font-family="'Caveat', cursive" font-size="28" fill="#e32b3c" text-anchor="middle">Presented with distinction to</text>
+    <text x="600" y="340" font-family="'Caveat', cursive" font-size="28" fill="#38BDF8" text-anchor="middle">Presented with distinction to</text>
     <text x="600" y="415" font-family="'Anton', sans-serif" font-size="58" letter-spacing="4" fill="url(#redAccent)" text-anchor="middle">ALEX VANCE</text>
     <line x1="300" y1="445" x2="900" y2="445" stroke="#443b3b" stroke-width="1"/>
     
@@ -55,9 +55,9 @@
     <g transform="translate(600, 670)">
       <!-- Golden Seal -->
       <circle r="46" fill="#141314" stroke="url(#goldBorder)" stroke-width="3"/>
-      <circle r="38" fill="none" stroke="#e32b3c" stroke-width="1" stroke-dasharray="4,3"/>
+      <circle r="38" fill="none" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4,3"/>
       <text y="5" font-family="'Anton', sans-serif" font-size="16" letter-spacing="1" fill="#f2efeb" text-anchor="middle">VERIFIED</text>
-      <text y="22" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#e32b3c" text-anchor="middle">DEMO</text>
+      <text y="22" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#38BDF8" text-anchor="middle">DEMO</text>
     </g>
     
     <!-- Left Signature -->

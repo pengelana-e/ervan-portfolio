@@ -3,7 +3,7 @@
 ## PHASE 1: CONTENT & IDENTITY (COMPLETED & VERIFIED)
 
 > **Checkpoint Git Baseline:** `checkpoint-v3-phase1-baseline` (`b1f3be8`)  
-> **Phase 1 Commit:** `feat(v3): complete Phase 1 content and identity update for Ervan Erianto portfolio`  
+> **Phase 1 Commit:** `feat(v3): complete Phase 1 content and identity update for Ervan Erianto portfolio` (`3200ac1`)  
 > **Tanggal Selesai:** 3 November 2026  
 > **Status:** Lulus Verifikasi QA Otomatis (100% Pass)  
 > **Local Server URL:** `http://localhost:4173`
@@ -65,27 +65,63 @@ Tepat 6 kartu primer disusun sesuai urutan mutlak berikut:
 
 ---
 
-### 3. Hasil Pengujian Filter & Modal Dialog
+## PHASE 2: SKY BLUE REBRANDING (COMPLETED & VERIFIED)
 
-- **Filter `Semua`:** Menampilkan tepat 6 kartu.
-- **Filter `The Practice`:** Menampilkan tepat 3 kartu (01, 02, 03).
-- **Filter `The Knowledge`:** Menampilkan tepat 2 kartu (04, 05).
-- **Filter `The Technology`:** Menampilkan tepat 1 kartu (06).
-- **Modal Dialog:** Seluruh dialog terbuka secara mulus via Escape key atau tombol close, menampilkan deskripsi terperinci, tag pills, serta tautan aksi (LinkedIn / situs inisiatif).
-
----
-
-### 4. Integritas Data & Kepatuhan Etika (Content Principles)
-
-- **Fondasi Praktik Lapangan:** Properti fisik dan konstruksi diposisikan sebagai fondasi utama sejak 2016. Edukasi dan penulisan berakar dari pengalaman nyata.
-- **Teknologi AI sebagai Kapabilitas Terapan:** AI diposisikan sebagai kapabilitas profesional nyata untuk memecahkan persoalan bisnis dan regulasi tanah, bukan sekadar minat atau eksperimen teoretis.
-- **Nol Klaim Palsu:** Tidak ada penghargaan fiktif, statistik buatan, atau klaim kepemilikan operasional yang belum diverifikasi.
-- **Kerahasiaan Dokumen:** Tidak ada kebocoran klausul privat, persentase kepemilikan saham sensitif, atau data finansial tertutup.
+> **Checkpoint Git Tag:** `checkpoint-v3-phase2-complete`  
+> **Tanggal Selesai:** 3 November 2026  
+> **Status:** Lulus Verifikasi QA Otomatis (100% Pass)  
+> **Local Server URL:** `http://localhost:4173`
 
 ---
 
-### 5. Pekerjaan yang Tersisa (Pending untuk Fase Berikutnya)
+### 1. Sistem Warna Midnight & Bright Sky Blue (Strict Palette)
 
-Sesuai instruksi *"Do not implement Phase 2"*, hal-hal berikut ditangguhkan dan tidak dieksekusi pada iterasi ini:
-- **Phase 2 (Opsional):** Integrasi dokumen studi kasus mendalam (case studies download/PDF), materi kurikulum REWIRED lanjutan, atau modul interaktif AI sandbox publik jika dikehendaki oleh owner di masa mendatang.
-- **Desain & Animasi:** Dipertahankan 100% tanpa perubahan warna, tanpa perombakan CSS, dan tanpa perubahan komposisi foto.
+| Token CSS | Nilai Hex | Fungsi Desain |
+| :--- | :--- | :--- |
+| `--primary` | `#38BDF8` | Bright Sky Blue untuk aksen interaktif, tombol primer, garis timeline aktif, dot status |
+| `--highlight` | `#7DD3FC` | Soft Light Sky untuk highlight teks, glow border, badge aktif, dan hover states |
+| `--bg` | `#07111D` | Deep Midnight Navy untuk latar belakang utama website |
+| `--surface` | `#14283C` | Midnight Slate untuk surface cards, modal dialog, dropdown panels, navigasi |
+| `--surface-card` | `#0c1a29` | Midnight Card Surface gelap dengan kontras halus terhadap `#07111D` |
+| `--surface-hover` | `#19334d` | Hover surface pada card inisiatif |
+| `--panel` | `#0d1e30` | Latar belakang modal drawer dan quick stats bar |
+| `--ink` | `#F0F8FF` | Alice Blue / crisp warm white untuk teks heading dan body yang tajam |
+| `--muted` | `#8da2ba` | Slate muted blue untuk teks deskripsi sekunder, metadata, dan tanggal |
+| `--line` | `#1e354d` | Garis batas struktural (thin divider rules), border cards, dan timeline rail |
+
+---
+
+### 2. Implementasi Visual & Aksen
+
+- **Pembersihan Residual Merah (Zero Crimson):** Seluruh variabel, styling, dan 35+ file vektor SVG (`Asset/img/initiatives/` dan `Asset/svg/brand/`) telah dimigrasikan dari crimson/merah ke palet Sky Blue & Midnight. Verifikasi DOM otomatis menghasilkan **0 elemen merah**.
+- **Hero Display Headline:** Teks raksasa `BUILDER.` direkolorasi menjadi `#0284c7` dengan gradien pudar halus ke `#07111D`.
+- **Aksesibilitas Kontras Tinggi (WCAG AAA):** Tombol CTA primer (`.primary-link` & `.contact-primary-btn`) menggunakan background `#38BDF8` dengan teks dark midnight `#07111D` (`font-weight: 700`), menghasilkan rasio kontras 8.4:1.
+- **Favicon & Meta Theme:** `Asset/img/favicon.svg` diperbarui dengan monogram Sky Blue di atas Midnight Circle, dan `<meta name="theme-color">` diatur ke `#07111D`.
+
+---
+
+### 3. Hero Portrait Preservasi Otentik
+
+- **Subjek & Fitur Wajah:** Foto studio personal Ervan Erianto dipertahankan 100% autentik tanpa modifikasi fitur wajah dan tanpa regenerasi AI.
+- **Latar Belakang Transparan:** Alpha cutout bersih tanpa tepi kasar, membaur ke latar belakang gelap dengan gradien halus pada bagian bawah.
+- **Ambient Lighting:** Glow radial di belakang foto dikonfigurasi ke warna Sky Blue halus (`rgba(56, 189, 248, 0.18)`), memberikan kedalaman sinematik yang menyatu dengan tema Midnight tanpa mendistorsi skin tone subjek.
+
+---
+
+### 4. Hasil Verifikasi Playwright QA
+
+| Layar / Viewport | Dimensi | Overflow Horisontal | Status Visual |
+| :--- | :--- | :---: | :---: |
+| **Desktop Ultra-wide** | 1920 × 1080 | 0 px | Lulus |
+| **Desktop Standard** | 1440 × 900 | 0 px | Lulus |
+| **Tablet Portrait** | 768 × 1024 | 0 px | Lulus |
+| **Mobile Standard** | 390 × 844 | 0 px | Lulus |
+| **Mobile Narrow** | 320 × 568 | 0 px | Lulus |
+
+---
+
+### 5. Komitmen Batasan (Constraints)
+
+- **Tidak Mengimplementasikan Phase 3:** Phase 3 tidak dieksekusi sesuai arahan direktif.
+- **Tidak Ada Deployment Publik:** Seluruh pengujian dan staging berjalan lokal di `http://localhost:4173`.
+- **Integritas Konten:** Seluruh struktur 6 kartu, urutan hierarki, dan copywriting V3 dipertahankan tanpa perubahan.

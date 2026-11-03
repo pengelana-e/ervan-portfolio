@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600">
     <defs>
       <radialGradient id="cardGrad" cx="50%" cy="40%" r="65%">
-        <stop offset="0%" stop-color="#191617"/>
-        <stop offset="60%" stop-color="#0f0d0e"/>
-        <stop offset="100%" stop-color="#080708"/>
+        <stop offset="0%" stop-color="#0c1a29"/>
+        <stop offset="60%" stop-color="#07111D"/>
+        <stop offset="100%" stop-color="#07111D"/>
       </radialGradient>
       <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#e32b3c"/>
-        <stop offset="100%" stop-color="#800615"/>
+        <stop offset="0%" stop-color="#38BDF8"/>
+        <stop offset="100%" stop-color="#0369a1"/>
       </linearGradient>
     </defs>
 
@@ -15,35 +15,35 @@
     <rect width="960" height="600" fill="url(#cardGrad)"/>
 
     <!-- Subtle Outer Border -->
-    <rect x="24" y="24" width="912" height="552" fill="none" stroke="#252122" stroke-width="1"/>
+    <rect x="24" y="24" width="912" height="552" fill="none" stroke="#1e354d" stroke-width="1"/>
 
     <!-- Header Badge -->
-    <rect x="50" y="46" width="130" height="24" rx="3" fill="#191617" stroke="#e32b3c" stroke-width="1"/>
-    <text x="115" y="62" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#e32b3c" text-anchor="middle">AREA OF PRACTICE</text>
+    <rect x="50" y="46" width="130" height="24" rx="3" fill="#0c1a29" stroke="#38BDF8" stroke-width="1"/>
+    <text x="115" y="62" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#38BDF8" text-anchor="middle">AREA OF PRACTICE</text>
 
     <!-- Corner Decorative Accents -->
-    <path d="M 24,44 L 24,24 L 44,24" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 936,44 L 936,24 L 916,24" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
+    <path d="M 24,44 L 24,24 L 44,24" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 936,44 L 936,24 L 916,24" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#38BDF8" stroke-width="2"/>
 
     <!-- Dynamic Artwork Content -->
     
       <!-- Code Meets Systems Graph -->
       <g transform="translate(160, 150)">
         <rect x="0" y="0" width="640" height="220" rx="8" fill="#100e0f" stroke="#2a2526" stroke-width="1.5"/>
-        <circle cx="25" cy="20" r="5" fill="#e32b3c"/>
+        <circle cx="25" cy="20" r="5" fill="#38BDF8"/>
         <circle cx="45" cy="20" r="5" fill="#444"/>
         <circle cx="65" cy="20" r="5" fill="#444"/>
 
-        <text x="25" y="70" font-family="'Courier New', monospace" font-size="13" fill="#e32b3c">&gt; initialize KnowledgeEngine(domain: "RealEstate")</text>
+        <text x="25" y="70" font-family="'Courier New', monospace" font-size="13" fill="#38BDF8">&gt; initialize KnowledgeEngine(domain: "RealEstate")</text>
         <text x="25" y="100" font-family="'Courier New', monospace" font-size="13" fill="#f2efeb">&gt; struct ProjectControlMatrix { cost, timeline, scope, quality }</text>
         <text x="25" y="130" font-family="'Courier New', monospace" font-size="13" fill="#888">&gt; resolveDecisionBottleneck(status: "OPTIMIZED")</text>
-        <text x="25" y="160" font-family="'Courier New', monospace" font-size="13" fill="#e32b3c">&gt; return SystemsThatLast.build()</text>
+        <text x="25" y="160" font-family="'Courier New', monospace" font-size="13" fill="#38BDF8">&gt; return SystemsThatLast.build()</text>
       </g>
 
       <text x="140" y="470" font-family="'Manrope', sans-serif" font-size="11" letter-spacing="2" fill="#888">DOMAIN LOGIC · KNOWLEDGE AUTOMATION · PRODUCT INTERFACES</text>
-      <text x="140" y="490" font-family="'Manrope', sans-serif" font-size="9" letter-spacing="3" fill="#e32b3c">SISTEM DIGITAL · PENGAMBILAN KEPUTUSAN TERSTRUKTUR</text>
+      <text x="140" y="490" font-family="'Manrope', sans-serif" font-size="9" letter-spacing="3" fill="#38BDF8">SISTEM DIGITAL · PENGAMBILAN KEPUTUSAN TERSTRUKTUR</text>
     
 
     <!-- Watermark Brand Title -->

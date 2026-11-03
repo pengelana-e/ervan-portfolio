@@ -451,16 +451,16 @@ function SelectedMilestones() {
         <h2 className="display">{m.title}<span className="accent">.</span></h2>
         
         <div className="milestone-hero-stat">
-          <span className="display stat-big">2017</span>
+          <span className="display stat-big">2016</span>
           <span className="stat-arrow">→</span>
           <span className="display stat-big">NOW</span>
-          <span className="stat-sublabel">9+ YEARS EMPIRICAL PRACTICE</span>
+          <span className="stat-sublabel">10+ YEARS EMPIRICAL PRACTICE</span>
         </div>
 
         <p className="milestone-desc">{m.subtitle}</p>
 
         <div className="milestone-principle-tag">
-          <CheckCircle2 size={15} color="#e32b3c"/>
+          <CheckCircle2 size={15} color="var(--primary)"/>
           <span>BERAKAR PADA REALITAS EKSEKUSI</span>
         </div>
       </Reveal>
@@ -518,13 +518,13 @@ function About() {
         </blockquote>
         <div className="quote-author">
           <span className="author-name">— {profile.name}</span>
-          <span className="author-creds">PROPERTY DEVELOPER · FOUNDER · AUTHOR</span>
+          <span className="author-creds">PROPERTY DEVELOPER SINCE 2016 · FOUNDER · AUTHOR · APPLIED AI</span>
         </div>
       </Reveal>
 
       <Reveal className="about-thesis-box" delay={0.1}>
         <div className="thesis-eyebrow">
-          <Activity size={14} color="#e32b3c"/>
+          <Activity size={14} color="var(--primary)"/>
           <span>TESIS KERJA</span>
         </div>
         <p className="thesis-text">{a.thesis}</p>

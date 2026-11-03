@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600">
     <defs>
       <radialGradient id="cardGrad" cx="50%" cy="40%" r="65%">
-        <stop offset="0%" stop-color="#191617"/>
-        <stop offset="60%" stop-color="#0f0d0e"/>
-        <stop offset="100%" stop-color="#080708"/>
+        <stop offset="0%" stop-color="#0c1a29"/>
+        <stop offset="60%" stop-color="#07111D"/>
+        <stop offset="100%" stop-color="#07111D"/>
       </radialGradient>
       <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#e32b3c"/>
-        <stop offset="100%" stop-color="#800615"/>
+        <stop offset="0%" stop-color="#38BDF8"/>
+        <stop offset="100%" stop-color="#0369a1"/>
       </linearGradient>
     </defs>
 
@@ -15,23 +15,23 @@
     <rect width="960" height="600" fill="url(#cardGrad)"/>
 
     <!-- Subtle Outer Border -->
-    <rect x="24" y="24" width="912" height="552" fill="none" stroke="#252122" stroke-width="1"/>
+    <rect x="24" y="24" width="912" height="552" fill="none" stroke="#1e354d" stroke-width="1"/>
 
     <!-- Header Badge -->
-    <rect x="50" y="46" width="130" height="24" rx="3" fill="#191617" stroke="#e32b3c" stroke-width="1"/>
-    <text x="115" y="62" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#e32b3c" text-anchor="middle">INITIATIVE</text>
+    <rect x="50" y="46" width="130" height="24" rx="3" fill="#0c1a29" stroke="#38BDF8" stroke-width="1"/>
+    <text x="115" y="62" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#38BDF8" text-anchor="middle">INITIATIVE</text>
 
     <!-- Corner Decorative Accents -->
-    <path d="M 24,44 L 24,24 L 44,24" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 936,44 L 936,24 L 916,24" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
+    <path d="M 24,44 L 24,24 L 44,24" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 936,44 L 936,24 L 916,24" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#38BDF8" stroke-width="2"/>
 
     <!-- Dynamic Artwork Content -->
     
       <!-- Concentric Learning Rings &amp; Knowledge Nodes -->
       <circle cx="480" cy="300" r="180" fill="none" stroke="#222" stroke-width="1.5"/>
-      <circle cx="480" cy="300" r="120" fill="none" stroke="#e32b3c" stroke-width="2" stroke-dasharray="6,4"/>
+      <circle cx="480" cy="300" r="120" fill="none" stroke="#38BDF8" stroke-width="2" stroke-dasharray="6,4"/>
       <circle cx="480" cy="300" r="60" fill="none" stroke="#fff" stroke-width="2"/>
 
       <!-- Radial Connections -->
@@ -41,15 +41,15 @@
       <line x1="608" y1="172" x2="352" y2="428" stroke="#333" stroke-width="1.5"/>
 
       <!-- Nodes -->
-      <circle cx="480" cy="180" r="6" fill="#e32b3c"/>
-      <circle cx="480" cy="420" r="6" fill="#e32b3c"/>
-      <circle cx="360" cy="300" r="6" fill="#e32b3c"/>
-      <circle cx="600" cy="300" r="6" fill="#e32b3c"/>
+      <circle cx="480" cy="180" r="6" fill="#38BDF8"/>
+      <circle cx="480" cy="420" r="6" fill="#38BDF8"/>
+      <circle cx="360" cy="300" r="6" fill="#38BDF8"/>
+      <circle cx="600" cy="300" r="6" fill="#38BDF8"/>
       <circle cx="480" cy="300" r="8" fill="#f2efeb"/>
 
       <text x="480" y="306" font-family="'Anton', sans-serif" font-size="14" letter-spacing="2" fill="#090909" text-anchor="middle">R</text>
       <text x="140" y="470" font-family="'Manrope', sans-serif" font-size="11" letter-spacing="2" fill="#888">ECOSYSTEM · DECISION MAKING · PRATIK LAPANGAN</text>
-      <text x="140" y="490" font-family="'Manrope', sans-serif" font-size="9" letter-spacing="3" fill="#e32b3c">LEARNING ARCHITECTURE · BUILT-IN PRACTICE</text>
+      <text x="140" y="490" font-family="'Manrope', sans-serif" font-size="9" letter-spacing="3" fill="#38BDF8">LEARNING ARCHITECTURE · BUILT-IN PRACTICE</text>
     
 
     <!-- Watermark Brand Title -->

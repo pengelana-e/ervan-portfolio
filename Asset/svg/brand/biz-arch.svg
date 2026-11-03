@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="180" height="50">
     <g transform="translate(0, 0)">
-      <rect x="12" y="12" width="11" height="11" fill="#fff"/><rect x="25" y="12" width="11" height="11" fill="#e32b3c"/><rect x="12" y="25" width="11" height="11" fill="#e32b3c"/><rect x="25" y="25" width="11" height="11" fill="#fff"/>
+      <rect x="12" y="12" width="11" height="11" fill="#fff"/><rect x="25" y="12" width="11" height="11" fill="#38BDF8"/><rect x="12" y="25" width="11" height="11" fill="#38BDF8"/><rect x="25" y="25" width="11" height="11" fill="#fff"/>
     </g>
     <text x="48" y="32" font-family="'Anton', Impact, sans-serif" font-size="16" letter-spacing="2" fill="#ffffff" opacity="0.9">BUSINESS ARCH</text>
   </svg>

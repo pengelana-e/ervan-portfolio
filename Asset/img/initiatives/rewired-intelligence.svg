@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600">
     <defs>
       <radialGradient id="cardGrad" cx="50%" cy="40%" r="65%">
-        <stop offset="0%" stop-color="#191617"/>
-        <stop offset="60%" stop-color="#0f0d0e"/>
-        <stop offset="100%" stop-color="#080708"/>
+        <stop offset="0%" stop-color="#0c1a29"/>
+        <stop offset="60%" stop-color="#07111D"/>
+        <stop offset="100%" stop-color="#07111D"/>
       </radialGradient>
       <linearGradient id="glowRed" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#e32b3c"/>
-        <stop offset="100%" stop-color="#800615"/>
+        <stop offset="0%" stop-color="#38BDF8"/>
+        <stop offset="100%" stop-color="#0369a1"/>
       </linearGradient>
     </defs>
 
@@ -15,36 +15,36 @@
     <rect width="960" height="600" fill="url(#cardGrad)"/>
 
     <!-- Subtle Outer Border -->
-    <rect x="24" y="24" width="912" height="552" fill="none" stroke="#252122" stroke-width="1"/>
+    <rect x="24" y="24" width="912" height="552" fill="none" stroke="#1e354d" stroke-width="1"/>
 
     <!-- Header Badge -->
-    <rect x="50" y="46" width="160" height="24" rx="3" fill="#191617" stroke="#e32b3c" stroke-width="1"/>
-    <text x="130" y="62" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#e32b3c" text-anchor="middle">THE TECHNOLOGY</text>
+    <rect x="50" y="46" width="160" height="24" rx="3" fill="#0c1a29" stroke="#38BDF8" stroke-width="1"/>
+    <text x="130" y="62" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#38BDF8" text-anchor="middle">THE TECHNOLOGY</text>
 
     <!-- Corner Decorative Accents -->
-    <path d="M 24,44 L 24,24 L 44,24" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 936,44 L 936,24 L 916,24" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
-    <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#e32b3c" stroke-width="2"/>
+    <path d="M 24,44 L 24,24 L 44,24" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 936,44 L 936,24 L 916,24" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 24,556 L 24,576 L 44,576" fill="none" stroke="#38BDF8" stroke-width="2"/>
+    <path d="M 936,556 L 936,576 L 916,576" fill="none" stroke="#38BDF8" stroke-width="2"/>
 
     <!-- Technical Grid &amp; Architectural Lines -->
-    <line x1="80" y1="120" x2="880" y2="120" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
-    <line x1="80" y1="240" x2="880" y2="240" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
-    <line x1="80" y1="360" x2="880" y2="360" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
-    <line x1="80" y1="480" x2="880" y2="480" stroke="#242021" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="80" y1="120" x2="880" y2="120" stroke="#1e354d" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="80" y1="240" x2="880" y2="240" stroke="#1e354d" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="80" y1="360" x2="880" y2="360" stroke="#1e354d" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="80" y1="480" x2="880" y2="480" stroke="#1e354d" stroke-width="1" stroke-dasharray="4,4"/>
 
     <!-- Main Artwork -->
     
   <!-- Educational Engine Architecture -->
   <g transform="translate(480, 240)">
     <rect x="-180" y="-80" width="360" height="160" rx="6" fill="#131011" stroke="#332427" stroke-width="1.5"/>
-    <rect x="-150" y="-50" width="90" height="100" fill="#1c1618" stroke="#e32b3c" stroke-width="1.5"/>
+    <rect x="-150" y="-50" width="90" height="100" fill="#1c1618" stroke="#38BDF8" stroke-width="1.5"/>
     <text x="-105" y="-2" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" fill="#f2efeb" text-anchor="middle">DOMAIN<br/>DATA</text>
-    <line x1="-50" y1="0" x2="-10" y2="0" stroke="#e32b3c" stroke-width="2"/>
-    <rect x="-10" y="-50" width="120" height="100" fill="#1e1315" stroke="#e32b3c" stroke-width="2"/>
-    <text x="50" y="-12" font-family="'Anton', sans-serif" font-size="14" fill="#e32b3c" text-anchor="middle">CURATION</text>
+    <line x1="-50" y1="0" x2="-10" y2="0" stroke="#38BDF8" stroke-width="2"/>
+    <rect x="-10" y="-50" width="120" height="100" fill="#1e1315" stroke="#38BDF8" stroke-width="2"/>
+    <text x="50" y="-12" font-family="'Anton', sans-serif" font-size="14" fill="#38BDF8" text-anchor="middle">CURATION</text>
     <text x="50" y="8" font-family="'Manrope', sans-serif" font-size="9" fill="#a09c9a" text-anchor="middle">ENGINE</text>
-    <line x1="120" y1="0" x2="150" y2="0" stroke="#e32b3c" stroke-width="2"/>
+    <line x1="120" y1="0" x2="150" y2="0" stroke="#38BDF8" stroke-width="2"/>
     <circle cx="150" cy="0" r="5" fill="#f2efeb"/>
     <text x="0" y="105" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="2" fill="#888" text-anchor="middle">DATA-DRIVEN DEVELOPER LEARNING WORKFLOWS</text>
   </g>
@@ -53,5 +53,5 @@
     <!-- Labels &amp; Accents -->
     <text x="50" y="525" font-family="'Anton', Impact, sans-serif" font-size="34" letter-spacing="1" fill="#f2efeb">REWIRED INTELLIGENCE</text>
     <text x="50" y="550" font-family="'Manrope', sans-serif" font-size="12" font-weight="600" letter-spacing="1" fill="#a09c9a">Educational Tooling &amp; Intelligent Knowledge Delivery System</text>
-    <text x="910" y="550" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="2" fill="#e32b3c" text-anchor="end">ACTIVE TOOLING · EDTECH</text>
+    <text x="910" y="550" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="2" fill="#38BDF8" text-anchor="end">ACTIVE TOOLING · EDTECH</text>
 </svg>
