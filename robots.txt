@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ervan.rewired.id/sitemap.xml
