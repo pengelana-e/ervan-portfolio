@@ -9,6 +9,7 @@ print(f"Creating production package: {dist_name}...")
 include_files = [
     "index.html",
     ".htaccess",
+    "_headers",
     "robots.txt",
     "sitemap.xml"
 ]
