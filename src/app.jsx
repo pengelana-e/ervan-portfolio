@@ -119,7 +119,7 @@ function Header({ showSelectedWork }) {
   </header>;
 }
 
-function Hero() {
+function Hero({ variant = 'a' }) {
   const ref = useRef(null);
   const enabled = useContext(MotionContext);
 
@@ -152,7 +152,7 @@ function Hero() {
     mouseY.set(0);
   };
 
-  return <section id="home" className="hero v4-clean-hero" ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+  return <section id="home" className={`hero v4-clean-hero ${variant === 'b' ? 'hero-variant-b' : ''}`} ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
     {/* Background display typography with subtle tilt */}
     <motion.div
       className="hero-title display"
@@ -758,6 +758,46 @@ function App() {
     });
   };
 
+  // Hero Composition Refinement (A/B Surgical Experiment)
+  // Default: Variant B (Balanced Composition)
+  // Optional: ?hero=a restores Baseline Control
+  const [heroVariant, setHeroVariant] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('hero') === 'a') return 'a';
+      return 'b';
+    } catch {
+      return 'b';
+    }
+  });
+
+  const toggleHeroVariant = () => {
+    setHeroVariant(prev => {
+      const next = prev === 'b' ? 'a' : 'b';
+      try {
+        const url = new URL(window.location.href);
+        if (next === 'b') {
+          url.searchParams.set('hero', 'b');
+        } else {
+          url.searchParams.delete('hero');
+        }
+        window.history.replaceState(null, '', url.pathname + (url.search ? url.search : '') + url.hash);
+      } catch {}
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        setHeroVariant(params.get('hero') === 'b' ? 'b' : 'a');
+      } catch {}
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   // Determine active case studies
   // Standard public mode: only verified approved records (currently [])
   // Development preview mode: includes 3 candidate draft slots
@@ -795,7 +835,7 @@ function App() {
 
       <main>
         {/* 1. Hero: Clean Editorial Dominance */}
-        <Hero />
+        <Hero variant={heroVariant} />
 
         {/* 2. Ventures & Fields of Work: Exactly Six Approved Fields */}
         <SelectedVentures onProject={p => setSelectedVenture(p)} />
@@ -853,18 +893,6 @@ function App() {
           />
         )}
       </AnimatePresence>
-
-      {/* Discreet Localhost Development Preview Controller */}
-      <div className="dev-preview-controller" aria-label="Development Preview Controller">
-        <button
-          onClick={togglePreview}
-          className={`dev-toggle-pill ${previewSelectedWork ? 'is-active' : ''}`}
-          title="Toggle preview of Selected Work candidate case studies (localhost only)"
-        >
-          {previewSelectedWork ? <Eye size={13} /> : <EyeOff size={13} />}
-          <span>DEV PREVIEW: SELECTED WORK {previewSelectedWork ? '[ON]' : '[OFF]'}</span>
-        </button>
-      </div>
     </MotionContext.Provider>
   </MotionConfig>;
 }

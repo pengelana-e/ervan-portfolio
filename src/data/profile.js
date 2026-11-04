@@ -6,8 +6,8 @@
 export const profile = {
   // 1. Locked Brand Identity
   name: "Ervan Erianto",
-  shortName: "Ervan",
-  wordmark: "ERVAN.",
+  shortName: "Ervan Erianto",
+  wordmark: "ERVAN ERIANTO.",
   heroHeadline: "BUILDER.",
   primaryProfession: "Real Estate Developer since 2016.",
   supportingIdentity: "Property Developer · Author · Business Systems",

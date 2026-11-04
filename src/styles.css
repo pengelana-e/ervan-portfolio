@@ -2657,6 +2657,10 @@ html, body {
   bottom: 18px;
   left: 18px;
   z-index: 150;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .dev-toggle-pill {
@@ -2780,5 +2784,21 @@ html, body {
   .about-v4-paragraph {
     font-size: 14.5px;
     line-height: 1.7;
+  }
+}
+
+/* ==========================================================================
+   HERO V2.1 — CINEMATIC COMPOSITION REFINEMENT (SURGICAL DESKTOP EXPERIMENT)
+   Strictly scoped to Variant B on Desktop (min-width: 1280px) only.
+   Mobile and tablet (<= 1024px) remain 100% identical to baseline Variant A.
+   ========================================================================== */
+@media (min-width: 1280px) {
+  .hero-variant-b .hero-portrait {
+    left: 32%;
+    width: 54%;
+  }
+  .hero-variant-b .hero-title {
+    font-size: min(27.5vw, 490px);
+    letter-spacing: -0.018em;
   }
 }
