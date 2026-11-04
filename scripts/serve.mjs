@@ -3,9 +3,9 @@ import fs from 'fs';
 import path from 'path';
 
 const mimeTypes = {
-  '.html': 'text/html',
-  '.js': 'text/javascript',
-  '.css': 'text/css',
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
   '.json': 'application/json',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
@@ -14,13 +14,17 @@ const mimeTypes = {
   '.svg': 'image/svg+xml',
   '.pdf': 'application/pdf',
   '.woff2': 'font/woff2',
-  '.map': 'application/json'
+  '.xml': 'application/xml',
+  '.txt': 'text/plain'
 };
+
+const distDir = path.join(process.cwd(), 'dist');
+const serveRoot = fs.existsSync(distDir) ? distDir : process.cwd();
 
 const server = http.createServer((req, res) => {
   let reqPath = decodeURI(req.url.split('?')[0]);
   if (reqPath === '/') reqPath = '/index.html';
-  const filePath = path.join(process.cwd(), reqPath.replace(/^\//, ''));
+  const filePath = path.join(serveRoot, reqPath.replace(/^\//, ''));
   
   if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
     const ext = path.extname(filePath).toLowerCase();
@@ -37,5 +41,5 @@ const server = http.createServer((req, res) => {
 
 const PORT = 4173;
 server.listen(PORT, () => {
-  console.log(`Cinematic Portfolio preview server listening at http://localhost:${PORT}`);
+  console.log(`Serving [${serveRoot}] at http://localhost:${PORT}`);
 });

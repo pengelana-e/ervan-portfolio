@@ -1,12 +1,34 @@
-# Temporary scratch files and QA screenshots
+# Dependencies
+node_modules/
+
+# Production build output (built on Cloudflare Pages during CI)
+dist/
+
+# Development, QA screenshots and scratch tools
 tools_scratch/
 qa_screenshots/
 qa_screenshots_ervan/
 qa_screenshots_final/
 qa_screenshots_v2/
 recovery_screenshots/
+assets-inbox/
+
+# Audit PDFs, archives and logs
 audit_export_*.pdf
 *.zip
 *.log
+*.pdf
+
+# Internal project briefs, progress logs and audit reports
+ERVAN_ERIANTO_*.md
+ERVAN_ERIANTO_*.docx
+CONTENT_*.md
+PROJECT_STATUS.md
+QA_REPORT.md
+qa_results.json
+V3_PROGRESS.md
+prompt.md
+
+# OS files
 .DS_Store
 Thumbs.db
