@@ -1,0 +1,12 @@
+# Temporary scratch files and QA screenshots
+tools_scratch/
+qa_screenshots/
+qa_screenshots_ervan/
+qa_screenshots_final/
+qa_screenshots_v2/
+recovery_screenshots/
+audit_export_*.pdf
+*.zip
+*.log
+.DS_Store
+Thumbs.db
