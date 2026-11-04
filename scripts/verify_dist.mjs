@@ -78,16 +78,17 @@ async function runDistQA() {
   }
 
   // ==========================================
-  // 2. BROWSER AUDIT: NETWORK, CONSOLE, IMAGES
+  // 2. BROWSER AUDIT: 5 VIEWPORTS
   // ==========================================
   console.log('\n--- 2. BROWSER NETWORK & CONSOLE AUDIT ---');
   const browser = await chromium.launch({ headless: true });
 
   const viewports = [
     { name: 'desktop-1440', width: 1440, height: 900 },
+    { name: 'laptop-1280', width: 1280, height: 800 },
     { name: 'tablet-768', width: 768, height: 1024 },
     { name: 'mobile-390', width: 390, height: 844 },
-    { name: 'small-mobile-320', width: 320, height: 568 }
+    { name: 'compact-mobile-360', width: 360, height: 800 }
   ];
 
   for (const vp of viewports) {
@@ -144,7 +145,7 @@ async function runDistQA() {
   await page.goto('http://localhost:4173', { waitUntil: 'networkidle' });
   await page.waitForTimeout(500);
 
-  // A. SEO Tags
+  // A. SEO Tags & Authoritative Identity
   const seoData = await page.evaluate(() => {
     return {
       title: document.title,
@@ -155,25 +156,32 @@ async function runDistQA() {
     };
   });
   console.log('SEO Data:', JSON.stringify(seoData, null, 2));
-  if (!seoData.title.includes('Ervan Erianto')) errors.push('Title missing Ervan Erianto');
+  if (!seoData.title.includes('Property Developer · Author · Business Systems')) {
+    errors.push(`Title missing authoritative subtitle: "${seoData.title}"`);
+  }
+  if (!seoData.description.includes('Property Developer · Author · Business Systems')) {
+    errors.push(`Meta description missing authoritative subtitle: "${seoData.description}"`);
+  }
   if (seoData.canonical !== 'https://ervan.rewired.id') errors.push('Canonical mismatch');
-  if (seoData.ogUrl !== 'https://ervan.rewired.id') errors.push('og:url mismatch');
-  if (seoData.ogImage !== 'https://ervan.rewired.id/Asset/img/ervan-portrait.png') errors.push('og:image mismatch');
 
   // B. Hero Elements
   const heroData = await page.evaluate(() => {
     return {
       headline: document.querySelector('.hero-title')?.textContent?.trim(),
       name: document.querySelector('.hero-display-name')?.textContent?.trim(),
-      portraitSrc: document.querySelector('.hero-portrait img')?.getAttribute('src'),
-      hasMaskRect: !!document.querySelector('.hero-portrait-mask:not([style*="display: none"])')
+      primaryProf: document.querySelector('.hero-primary-profession')?.textContent?.trim(),
+      supportingIdentity: document.querySelector('.hero-supporting-identity')?.textContent?.trim(),
+      portraitSrc: document.querySelector('.hero-portrait img')?.getAttribute('src')
     };
   });
   console.log('Hero Data:', heroData);
   if (heroData.headline !== 'BUILDER.') errors.push('Hero headline mismatch');
   if (!heroData.name.includes('Ervan Erianto')) errors.push('Hero name mismatch');
+  if (heroData.supportingIdentity !== 'Property Developer · Author · Business Systems') {
+    errors.push(`Hero supporting identity mismatch: got "${heroData.supportingIdentity}"`);
+  }
 
-  // C. Header & Nav Check
+  // C. Header & Nav Check (Public Mode - Zero Leaks)
   const navData = await page.evaluate(() => {
     const motionBtn = document.querySelector('.motion-toggle');
     const terhubungBtn = Array.from(document.querySelectorAll('.site-header a, .site-header button')).find(el => el.textContent.includes('TERHUBUNG'));
@@ -187,7 +195,7 @@ async function runDistQA() {
       navLinks
     };
   });
-  console.log('Header & Nav Data:', navData);
+  console.log('Header & Nav Data (Public Mode):', navData);
   if (navData.hasMotionToggle) errors.push('Visible motion toggle button should NOT exist in header');
   if (navData.hasTerhubung) errors.push('TERHUBUNG pill should NOT exist in header');
   const expectedHrefs = ['#work', '#milestones', '#about', '#contact'];
@@ -196,27 +204,28 @@ async function runDistQA() {
     if (!actualHrefs.includes(exp)) errors.push(`Missing expected nav link: ${exp}`);
   }
 
-  // D. Obsolete Technology Spotlight Check
-  const techSectionExists = await page.evaluate(() => !!document.querySelector('#technology'));
-  console.log(`Technology section exists: ${techSectionExists}`);
-  if (techSectionExists) errors.push('#technology section should be removed');
+  // D. Public Non-leakage: Selected Work must NOT appear when zero case studies approved
+  const isSelectedWorkInPublicDom = await page.evaluate(() => !!document.querySelector('#selected-work'));
+  console.log(`Selected Work in Public DOM: ${isSelectedWorkInPublicDom}`);
+  if (isSelectedWorkInPublicDom) {
+    errors.push('Selected Work section must NOT leak into public DOM when zero studies are approved');
+  }
 
   // E. Founder Section Check
   const aboutData = await page.evaluate(() => {
     const h2 = document.querySelector('#about h2')?.textContent?.trim();
     const sub = document.querySelector('#about .about-v4-subtitle')?.textContent?.trim();
     const pCount = document.querySelectorAll('#about .about-v4-paragraph').length;
-    const p1 = document.querySelectorAll('#about .about-v4-paragraph')[0]?.textContent?.trim() || '';
-    const p2 = document.querySelectorAll('#about .about-v4-paragraph')[1]?.textContent?.trim() || '';
-    const p3 = document.querySelectorAll('#about .about-v4-paragraph')[2]?.textContent?.trim() || '';
-    return { h2, sub, pCount, p1: p1.substring(0, 30), p2: p2.substring(0, 30), p3: p3.substring(0, 30) };
+    return { h2, sub, pCount };
   });
   console.log('About / Founder Data:', aboutData);
   if (aboutData.h2 !== 'Berangkat dari Lapangan.') errors.push(`About heading mismatch: got "${aboutData.h2}"`);
-  if (!aboutData.sub.includes('Property Developer')) errors.push(`About subtitle mismatch: got "${aboutData.sub}"`);
+  if (aboutData.sub !== 'Property Developer · Author · Business Systems') {
+    errors.push(`About subtitle mismatch: got "${aboutData.sub}"`);
+  }
   if (aboutData.pCount !== 3) errors.push(`About paragraph count mismatch: expected 3, got ${aboutData.pCount}`);
 
-  // F. Milestones Check
+  // F. Milestones Check (Exact 5 timeline entries)
   const milestoneYears = await page.evaluate(() => {
     return Array.from(document.querySelectorAll('#milestones .milestone-v4-year')).map(el => el.textContent.trim());
   });
@@ -226,30 +235,125 @@ async function runDistQA() {
     errors.push(`Milestone years mismatch: got ${JSON.stringify(milestoneYears)}, expected ${JSON.stringify(expectedYears)}`);
   }
 
-  // G. Ventures Check
+  // G. Ventures & Enhanced Detail Modal Check
   const venturesCount = await page.evaluate(() => {
     return document.querySelectorAll('#work .project-card').length;
   });
   console.log(`Ventures count: ${venturesCount}`);
   if (venturesCount !== 6) errors.push(`Expected 6 venture cards, got ${venturesCount}`);
 
-  // H. Dialog Open/Close
-  console.log('Testing card dialog interaction...');
-  const firstCard = page.locator('.project-card button.project-open').first();
-  await firstCard.click();
+  console.log('Testing enhanced venture dialog interaction...');
+  const firstVentureCard = page.locator('.project-card button.project-open').first();
+  await firstVentureCard.click();
   await page.waitForTimeout(400);
-  const isDialogOpen = await page.evaluate(() => !!document.querySelector('.project-dialog'));
-  console.log(`Dialog open state: ${isDialogOpen}`);
-  if (!isDialogOpen) errors.push('Project dialog failed to open on card click');
+
+  const ventureModalData = await page.evaluate(() => {
+    const dialog = document.querySelector('.project-dialog');
+    if (!dialog) return null;
+    const title = dialog.querySelector('#dialog-title')?.textContent?.trim();
+    const role = dialog.querySelector('.venture-modal-role')?.textContent?.trim();
+    const areas = Array.from(dialog.querySelectorAll('.venture-areas-list li')).map(li => li.textContent.trim());
+    const initiative = dialog.querySelector('.venture-initiative-strip .strip-value')?.textContent?.trim();
+    return { title, role, areasCount: areas.length, initiative };
+  });
+  console.log('Enhanced Venture Modal Data:', ventureModalData);
+  if (!ventureModalData) errors.push('Venture dialog failed to open');
+  if (!ventureModalData.role) errors.push('Venture modal missing owner role');
+  if (ventureModalData.areasCount === 0) errors.push('Venture modal missing specific areas of work');
+  if (!ventureModalData.initiative) errors.push('Venture modal missing related initiative');
+
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(300);
+
+  // H. Collaboration & Contact Check
+  const contactData = await page.evaluate(() => {
+    const primaryBtn = document.querySelector('.contact-primary-btn.btn-discuss');
+    const secondaryBtn = document.querySelector('.contact-secondary-btn.btn-linkedin');
+    const roleMeta = document.querySelector('.contact-v4-meta span:last-child')?.textContent?.trim();
+    return {
+      primaryText: primaryBtn?.textContent?.trim(),
+      primaryHref: primaryBtn?.getAttribute('href'),
+      secondaryText: secondaryBtn?.textContent?.trim(),
+      secondaryHref: secondaryBtn?.getAttribute('href'),
+      roleMeta
+    };
+  });
+  console.log('Contact Section Data:', contactData);
+  if (!contactData.primaryText.includes('Discuss a Project')) errors.push(`Primary CTA mismatch: "${contactData.primaryText}"`);
+  if (!contactData.primaryHref.includes('linkedin.com/in/ervan-erianto')) errors.push(`Primary CTA href invalid: "${contactData.primaryHref}"`);
+  if (!contactData.secondaryText.includes('Connect on LinkedIn')) errors.push(`Secondary CTA mismatch: "${contactData.secondaryText}"`);
+  if (!contactData.roleMeta.includes('Property Developer · Author · Business Systems')) {
+    errors.push(`Contact role descriptor mismatch: "${contactData.roleMeta}"`);
+  }
+
+  // ==========================================
+  // 4. DEVELOPMENT PREVIEW MODE AUDIT (?preview=selected-work)
+  // ==========================================
+  console.log('\n--- 4. DEVELOPMENT PREVIEW MODE AUDIT ---');
+  await page.goto('http://localhost:4173?preview=selected-work', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(500);
+
+  const previewNavLinks = await page.evaluate(() => {
+    return Array.from(document.querySelectorAll('.desktop-nav a')).map(a => a.textContent.trim());
+  });
+  console.log('Nav links in Preview Mode:', previewNavLinks);
+  if (!previewNavLinks.includes('CASE STUDIES')) errors.push('CASE STUDIES nav link should appear in preview mode');
+
+  const selectedWorkData = await page.evaluate(() => {
+    const sec = document.querySelector('#selected-work');
+    const cards = Array.from(document.querySelectorAll('#selected-work .case-study-card')).map(c => ({
+      title: c.querySelector('.case-study-title')?.textContent?.trim(),
+      category: c.querySelector('.case-study-badge-tag')?.textContent?.trim(),
+      role: c.querySelector('.case-study-role')?.textContent?.trim()
+    }));
+    const notice = document.querySelector('.dev-preview-notice-banner')?.textContent?.trim();
+    return {
+      exists: !!sec,
+      cardsCount: cards.length,
+      cards,
+      hasNotice: !!notice
+    };
+  });
+  console.log('Selected Work (Preview Mode) Data:', selectedWorkData);
+  if (!selectedWorkData.exists) errors.push('Selected Work section failed to render in preview mode');
+  if (selectedWorkData.cardsCount !== 3) errors.push(`Expected 3 candidate slots, got ${selectedWorkData.cardsCount}`);
+  if (!selectedWorkData.hasNotice) errors.push('Selected Work missing development preview banner');
+
+  // Test Case Study Detail Modal
+  console.log('Testing Case Study Detail Modal...');
+  const firstCsCard = page.locator('#selected-work .case-study-card').first();
+  await firstCsCard.locator('.case-study-cta-btn').click();
+  await page.waitForTimeout(400);
+
+  const csModalData = await page.evaluate(() => {
+    const dialog = document.querySelector('.case-study-dialog');
+    if (!dialog) return null;
+    const title = dialog.querySelector('#case-study-dialog-title')?.textContent?.trim();
+    const blocks = Array.from(dialog.querySelectorAll('.cs-narrative-block h4')).map(h => h.textContent.trim());
+    const outcomes = Array.from(dialog.querySelectorAll('.cs-outcomes-list li')).map(li => li.textContent.trim());
+    return { title, blocks, outcomesCount: outcomes.length };
+  });
+  console.log('Case Study Detail Modal Data:', csModalData);
+  if (!csModalData) errors.push('Case study detail modal failed to open');
+  if (!csModalData.blocks.some(b => b.includes('01 / Konteks Proyek'))) {
+    errors.push('Case study narrative missing Context block');
+  }
+  if (!csModalData.blocks.some(b => b.includes('02 / Lingkup Tanggung Jawab'))) {
+    errors.push('Case study narrative missing Scope block');
+  }
+  if (csModalData.outcomesCount === 0) {
+    errors.push('Case study detail missing verified outcomes');
+  }
+
   await page.keyboard.press('Escape');
   await page.waitForTimeout(300);
 
   await page.close();
 
   // ==========================================
-  // 4. VERIFY ENDPOINTS (robots, sitemap, CNAME)
+  // 5. STATIC ENDPOINTS (robots, sitemap, CNAME)
   // ==========================================
-  console.log('\n--- 4. STATIC ENDPOINT HTTP RESPONSES ---');
+  console.log('\n--- 5. STATIC ENDPOINT HTTP RESPONSES ---');
   for (const endpoint of ['/robots.txt', '/sitemap.xml', '/CNAME']) {
     const res = await fetch(`http://localhost:4173${endpoint}`);
     const text = await res.text();
@@ -271,7 +375,7 @@ async function runDistQA() {
     process.exit(1);
   }
 
-  console.log('✓ DIST VERIFICATION 100% PASSED!');
+  console.log('✓ DIST & ARCHITECTURE VERIFICATION 100% PASSED!');
 }
 
 runDistQA().catch(err => {

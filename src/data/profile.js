@@ -1,6 +1,6 @@
 /**
  * Ervan Erianto — Personal Brand & Portfolio Profile
- * Final Content & Editorial Implementation
+ * Authoritative Identity: Property Developer · Author · Business Systems
  */
 
 export const profile = {
@@ -10,12 +10,12 @@ export const profile = {
   wordmark: "ERVAN.",
   heroHeadline: "BUILDER.",
   primaryProfession: "Real Estate Developer since 2016.",
-  supportingIdentity: "Founder · Author · Applied AI.",
+  supportingIdentity: "Property Developer · Author · Business Systems",
   manifesto: "Building properties, businesses, knowledge, and intelligent systems.",
   location: "Surabaya, Indonesia",
 
   portrait: "./Asset/img/ervan-portrait.png",
-  portraitAlt: "Ervan Erianto — Real Estate Developer since 2016, Founder, Author, Applied AI",
+  portraitAlt: "Ervan Erianto — Property Developer · Author · Business Systems",
 
   // 2. Ventures & Fields of Work Section Heading
   portfolioHeading: {
@@ -24,7 +24,14 @@ export const profile = {
     subtitle: "Six areas of work across property, construction, commercial operations, publishing, education, and technology."
   },
 
-  // 3. Milestones Section Heading & Exact Timeline
+  // 3. Selected Work Section Heading (Case Studies Architecture)
+  selectedWorkHeading: {
+    eyebrow: "CASE STUDIES & INITIATIVES",
+    headline: "SELECTED WORK",
+    subtitle: "A selection of projects, products, and initiatives from my work across property, construction, and technology."
+  },
+
+  // 4. Milestones Section Heading & Exact Timeline
   milestonesHeading: {
     eyebrow: "PROFESSIONAL JOURNEY",
     headline: "Milestones",
@@ -53,7 +60,7 @@ export const profile = {
     }
   ],
 
-  // 4. Final Founder / Profile Section
+  // 5. Final Founder / Profile Section
   about: {
     eyebrow: "ABOUT / PROFESSIONAL BACKGROUND",
     heading: "Berangkat dari Lapangan.",
@@ -65,20 +72,22 @@ export const profile = {
     ]
   },
 
-  // 5. Contact & Closing Statement
+  // 6. Collaboration & Contact
   contact: {
     eyebrow: "CONNECT / GET IN TOUCH",
     headline: "GOOD IDEAS NEED GOOD EXECUTION.",
-    intro: "Terbuka untuk diskusi strategis seputar pengembangan proyek properti, project control konstruksi, program edukasi developer, dan penerapan teknologi AI.",
-    cta: "TERHUBUNG DI LINKEDIN",
+    intro: "Terbuka untuk diskusi strategis seputar pengembangan proyek properti, project control konstruksi, program edukasi developer, dan penerapan arsitektur sistem bisnis.",
+    primaryCta: "Discuss a Project",
+    secondaryCta: "Connect on LinkedIn",
     linkedinUrl: "https://www.linkedin.com/in/ervan-erianto/",
-    location: "Surabaya, Indonesia"
+    location: "Surabaya, Indonesia",
+    roleDescriptor: "Property Developer · Author · Business Systems"
   },
 
-  // 6. Footer
+  // 7. Footer
   footer: {
     wordmark: "ERVAN ERIANTO",
-    tagline: "Real Estate Developer since 2016 · Founder · Author · Applied AI",
+    tagline: "Property Developer · Author · Business Systems",
     signOff: "BUILD WHAT MATTERS. MAKE IT WORK.",
     copyrightYear: "2026",
     domain: "ervan.rewired.id"
