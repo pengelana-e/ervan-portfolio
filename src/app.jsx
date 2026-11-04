@@ -11,8 +11,7 @@ const EASE = [0.22, 1, 0.36, 1];
 const NAV_LINKS = [
   { href: '#work', label: 'WORK' },
   { href: '#milestones', label: 'MILESTONES' },
-  { href: '#about', label: 'THINKING' },
-  { href: '#technology', label: 'TECHNOLOGY' },
+  { href: '#about', label: 'ABOUT' },
   { href: '#contact', label: 'CONTACT' }
 ];
 
@@ -54,7 +53,7 @@ function MediaImage({ src, alt, className = '', priority = false, ...props }) {
       loading={priority ? 'eager' : 'lazy'}
       fetchPriority={priority ? 'high' : 'auto'}
       width="960"
-      height="600"
+      height="540"
       onLoad={() => setState('loaded')}
       onError={() => setState('error')}
       {...props}
@@ -83,7 +82,7 @@ function Magnetic({ children, className = '', ...props }) {
   </motion.a>;
 }
 
-function Header({ enabled, onToggle }) {
+function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
@@ -101,17 +100,9 @@ function Header({ enabled, onToggle }) {
         ))}
       </nav>
 
-      <div className="header-actions">
-        <button onClick={onToggle} className="motion-toggle" aria-pressed={enabled} aria-label="Toggle animasi">
-          <span className="motion-dot" />MOTION {enabled ? 'ON' : 'OFF'}
-        </button>
-        <Magnetic href="#contact" className="cv-pill" aria-label="Hubungi Ervan Erianto">
-          <span>TERHUBUNG</span>
-        </Magnetic>
-        <button className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? 'Tutup navigasi' : 'Buka navigasi'}>
-          {open ? <X /> : <Menu />}
-        </button>
-      </div>
+      <button className="menu-toggle" onClick={() => setOpen(!open)} aria-expanded={open} aria-label={open ? 'Tutup navigasi' : 'Buka navigasi'}>
+        {open ? <X /> : <Menu />}
+      </button>
     </div>
 
     <AnimatePresence>
@@ -121,14 +112,6 @@ function Header({ enabled, onToggle }) {
             {link.label} <ArrowUpRight size={18} />
           </a>
         ))}
-        <div className="mobile-menu-footer">
-          <button onClick={onToggle} className="motion-toggle" aria-pressed={enabled}>
-            <span className="motion-dot" />MOTION {enabled ? 'ON' : 'OFF'}
-          </button>
-          <a href="#contact" onClick={() => setOpen(false)} className="cv-pill">
-            <span>HUBUNGI VIA LINKEDIN</span>
-          </a>
-        </div>
       </motion.nav>}
     </AnimatePresence>
   </header>;
@@ -193,7 +176,7 @@ function Hero() {
       <div className="hero-portrait-mask" aria-hidden="true" />
     </motion.div>
 
-    {/* Left Editorial Typography (Uncluttered & High Impact) */}
+    {/* Left Editorial Typography */}
     <motion.div
       className="hero-intro v4-editorial-intro"
       style={enabled ? { y: copyY } : {}}
@@ -259,7 +242,7 @@ function ProjectCard({ project, index, onOpen }) {
     viewport={{ once: true, amount: 0.1 }}
     transition={{ duration: 0.5, delay: (index % 3) * 0.08, ease: EASE }}
   >
-    <button className="project-open" onClick={() => onOpen(project)} aria-label={`Buka inisiatif ${project.title}`}>
+    <button className="project-open" onClick={() => onOpen(project)} aria-label={`Buka ${project.title}`}>
       <div className="project-picture">
         <MediaImage src={project.image} alt={project.title} priority={true} />
       </div>
@@ -271,7 +254,6 @@ function ProjectCard({ project, index, onOpen }) {
     <button className="project-caption v4-caption" onClick={() => onOpen(project)}>
       <span className="project-number display">{project.number}</span>
       <div className="project-text-block">
-        <span className="project-category">{project.category}</span>
         <h3>{project.title}</h3>
         <p className="project-snippet">{project.summary}</p>
       </div>
@@ -284,7 +266,7 @@ function SelectedVentures({ onProject }) {
   return <section id="work" className="portfolio section-wrap">
     <Reveal className="section-heading v4-heading">
       <div>
-        <span className="eyebrow">01 / SELECTED WORK</span>
+        <span className="eyebrow">{profile.portfolioHeading.eyebrow}</span>
         <h2 className="display">{profile.portfolioHeading.headline}<span className="accent">.</span></h2>
       </div>
       <p className="section-lead v4-lead">
@@ -308,7 +290,7 @@ function SelectedMilestones() {
   return <section id="milestones" className="milestones-section section-wrap" ref={milestonesRef}>
     <Reveal className="section-heading v4-heading">
       <div>
-        <span className="eyebrow">02 / CAREER &amp; VENTURES</span>
+        <span className="eyebrow">{profile.milestonesHeading.eyebrow}</span>
         <h2 className="display">{profile.milestonesHeading.headline}<span className="accent">.</span></h2>
       </div>
       <p className="section-lead v4-lead">
@@ -326,8 +308,7 @@ function SelectedMilestones() {
           <Reveal key={ms.year} className="milestone-v4-item" delay={i * 0.08}>
             <div className="milestone-v4-year display">{ms.year}</div>
             <div className="milestone-v4-content">
-              <h3>{ms.title}</h3>
-              <p>{ms.desc}</p>
+              <p dangerouslySetInnerHTML={{ __html: ms.text }} />
             </div>
           </Reveal>
         ))}
@@ -342,60 +323,27 @@ function About() {
   return <section id="about" className="about-section section-wrap">
     <Reveal className="section-heading v4-heading">
       <div>
-        <span className="eyebrow">03 / HOW I THINK</span>
-        <h2 className="display">{a.headline}</h2>
+        <span className="eyebrow">{a.eyebrow}</span>
+        <h2 className="display">{a.heading}</h2>
+        <p className="about-v4-subtitle">{a.subtitle}</p>
       </div>
     </Reveal>
 
-    <Reveal className="about-v4-statement-box">
-      <p className="about-v4-main-statement">
-        “{a.statement}”
-      </p>
-    </Reveal>
-
-    <div className="principles-v4-grid">
-      {a.principles.map((pr, idx) => (
-        <Reveal key={pr.num} className="principle-v4-card" delay={idx * 0.1}>
-          <div className="principle-v4-top">
-            <span className="display principle-v4-num">{pr.num}</span>
-            <h4>{pr.title}</h4>
-          </div>
-          <p>{pr.desc}</p>
+    <div className="about-v4-narrative">
+      {a.paragraphs.map((p, idx) => (
+        <Reveal key={idx} delay={idx * 0.08}>
+          <p className="about-v4-paragraph" dangerouslySetInnerHTML={{ __html: p }} />
         </Reveal>
       ))}
-    </div>
-  </section>;
-}
 
-function TechnologySpotlight({ onProject }) {
-  const t = profile.technology;
-  const techProject = initiatives.find(i => i.id === 'applied-ai-systems') || initiatives[5];
-
-  return <section id="technology" className="technology-section section-wrap">
-    <Reveal className="section-heading v4-heading">
-      <div>
-        <span className="eyebrow">04 / {t.eyebrow}</span>
-        <h2 className="display">{t.title} <span className="accent">· {t.subtitle}.</span></h2>
-      </div>
-    </Reveal>
-
-    <Reveal className="tech-spotlight-card">
-      <div className="tech-spotlight-visual">
-        <MediaImage src={t.image} alt={t.title} priority={true} />
-      </div>
-
-      <div className="tech-spotlight-content">
-        <span className="tech-badge">PRIVATE ARCHITECTURE</span>
-        <h3>{t.title}</h3>
-        <p className="tech-spotlight-desc">{t.description}</p>
-        <p className="tech-spotlight-supporting">{t.supportingLine}</p>
-
-        <button className="primary-link tech-spotlight-btn" onClick={() => onProject(techProject)}>
-          <span>LIHAT DETAIL INISIATIF</span>
+      <Reveal delay={0.25} className="about-v4-connect">
+        <a href={profile.contact.linkedinUrl} target="_blank" rel="noopener noreferrer" className="about-v4-linkedin-link">
+          <Linkedin size={18} />
+          <span>Terhubung di LinkedIn</span>
           <ArrowUpRight size={16} />
-        </button>
-      </div>
-    </Reveal>
+        </a>
+      </Reveal>
+    </div>
   </section>;
 }
 
@@ -406,7 +354,7 @@ function JourneyAndContact({ onProject }) {
   return <section id="contact" className="contact-section section-wrap">
     <div className="contact-v4-grid">
       <Reveal className="contact-v4-text-col">
-        <span className="eyebrow">05 / GET IN TOUCH</span>
+        <span className="eyebrow">{c.eyebrow}</span>
         <h2 className="display contact-v4-title">
           {c.headline}
         </h2>
@@ -427,14 +375,14 @@ function JourneyAndContact({ onProject }) {
       </Reveal>
 
       <Reveal className="contact-v4-card-col" delay={0.15}>
-        <button className="contact-v4-preview-card" onClick={() => onProject(practiceProject)} aria-label="Lihat portofolio Dirham Land">
+        <button className="contact-v4-preview-card" onClick={() => onProject(practiceProject)} aria-label="Lihat detail Real Estate Development">
           <div className="preview-v4-screen">
-            <span className="preview-v4-top">THE PRACTICE <span>DIRHAM LAND</span></span>
-            <MediaImage src="./Asset/img/initiatives/dirham-land.svg" alt="Dirham Land Residential Practice" priority={true} />
+            <span className="preview-v4-top">THE PRACTICE <span>REAL ESTATE DEVELOPMENT</span></span>
+            <MediaImage src="./Asset/img/ventures/01_Real_Estate_Development.jpg" alt="Real Estate Development Practice" priority={true} />
           </div>
           <div className="preview-v4-caption">
             <span className="preview-v4-title">Real Estate Development</span>
-            <span className="preview-v4-sub">Praktik perumahan tapak &amp; kemitraan lahan sejak 2016</span>
+            <span className="preview-v4-sub">Residential development, land partnerships, investment planning, and property ventures</span>
           </div>
         </button>
       </Reveal>
@@ -450,12 +398,11 @@ function ProjectDialog({ project, onClose }) {
   }, [onClose]);
 
   if (!project) return null;
-  const sourceUrl = project.externalUrl || profile.contact.linkedinUrl;
 
   return <motion.div className="dialog-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="dialog-title">
     <motion.div className="dialog-window project-dialog" initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }} onClick={e => e.stopPropagation()} transition={{ duration: 0.3, ease: EASE }}>
       <div className="dialog-heading">
-        <span className="eyebrow">{project.number} · {project.category}</span>
+        <span className="eyebrow">{project.number} · VENTURE FIELD</span>
         <button onClick={onClose} className="icon-button" aria-label="Tutup"><X /></button>
       </div>
       <div className="dialog-media still">
@@ -471,12 +418,10 @@ function ProjectDialog({ project, onClose }) {
             ))}
           </div>
         </div>
-        {sourceUrl && (
-          <a className="outline-button" href={sourceUrl} target="_blank" rel="noopener noreferrer">
-            {project.externalUrl ? 'Kunjungi Situs Inisiatif' : 'Hubungi via LinkedIn'}
-            <ExternalLink size={15} />
-          </a>
-        )}
+        <a className="outline-button" href={profile.contact.linkedinUrl} target="_blank" rel="noopener noreferrer">
+          Diskusi Terkait Bidang Ini
+          <ExternalLink size={15} />
+        </a>
       </div>
     </motion.div>
   </motion.div>;
@@ -484,10 +429,7 @@ function ProjectDialog({ project, onClose }) {
 
 function App() {
   const reduced = useReducedMotion();
-  const [motionOn, setMotionOn] = useState(() => {
-    try { return localStorage.getItem('ervan-motion') !== 'off'; } catch { return true; }
-  });
-  const enabled = motionOn && !reduced;
+  const enabled = !reduced;
   const [project, setProject] = useState(null);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 100, damping: 28, restDelta: 0.001 });
@@ -496,36 +438,25 @@ function App() {
     document.documentElement.dataset.motion = enabled ? 'on' : 'off';
   }, [enabled]);
 
-  const toggle = () => {
-    setMotionOn(prev => {
-      const next = !prev;
-      try { localStorage.setItem('ervan-motion', next ? 'on' : 'off'); } catch {}
-      return next;
-    });
-  };
-
   return <MotionConfig reducedMotion="user">
     <MotionContext.Provider value={enabled}>
       <a className="skip-link" href="#work">Lewati ke konten utama</a>
       <motion.div className="reading-progress" style={{ scaleX: progress }} aria-hidden="true" />
-      <Header enabled={enabled} onToggle={toggle} />
+      <Header />
       <main>
         {/* 1. Hero: Clean Editorial Dominance */}
         <Hero />
 
-        {/* 2. Selected Work: Exactly Six Cards */}
+        {/* 2. Selected Work: Exactly Six Venture Fields */}
         <SelectedVentures onProject={p => setProject(p)} />
 
         {/* 3. Selected Milestones: Compact Editorial Timeline */}
         <SelectedMilestones />
 
-        {/* 4. About: How I Think */}
+        {/* 4. About: Founder Profile & Background Narrative */}
         <About />
 
-        {/* 5. Technology: Single Focused Spotlight */}
-        <TechnologySpotlight onProject={p => setProject(p)} />
-
-        {/* 6. Contact: Clean Grand Closing */}
+        {/* 5. Contact: Clean Grand Closing */}
         <JourneyAndContact onProject={p => setProject(p)} />
       </main>
 

@@ -59,7 +59,13 @@ async function runDistQA() {
     'Asset/dist/app.js',
     'Asset/dist/app.css',
     'Asset/img/ervan-portrait.png',
-    'Asset/img/favicon.svg'
+    'Asset/img/favicon.svg',
+    'Asset/img/ventures/01_Real_Estate_Development.jpg',
+    'Asset/img/ventures/02_Construction_Project_Management.jpg',
+    'Asset/img/ventures/03_Commercial_Property_Management.jpg',
+    'Asset/img/ventures/04_Writing_Publishing.jpg',
+    'Asset/img/ventures/05_Education_Consulting.jpg',
+    'Asset/img/ventures/06_AI_Software_Development.jpg'
   ];
 
   for (const req of requiredFiles) {
@@ -131,9 +137,9 @@ async function runDistQA() {
   }
 
   // ==========================================
-  // 3. JAVASCRIPT, INTERACTION & SEO AUDIT (1440)
+  // 3. JAVASCRIPT, CONTENT & SEO AUDIT (1440)
   // ==========================================
-  console.log('\n--- 3. JAVASCRIPT, INTERACTION & SEO AUDIT ---');
+  console.log('\n--- 3. JAVASCRIPT, CONTENT & SEO AUDIT ---');
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   await page.goto('http://localhost:4173', { waitUntil: 'networkidle' });
   await page.waitForTimeout(500);
@@ -167,7 +173,67 @@ async function runDistQA() {
   if (heroData.headline !== 'BUILDER.') errors.push('Hero headline mismatch');
   if (!heroData.name.includes('Ervan Erianto')) errors.push('Hero name mismatch');
 
-  // C. Dialog Open/Close
+  // C. Header & Nav Check
+  const navData = await page.evaluate(() => {
+    const motionBtn = document.querySelector('.motion-toggle');
+    const terhubungBtn = Array.from(document.querySelectorAll('.site-header a, .site-header button')).find(el => el.textContent.includes('TERHUBUNG'));
+    const navLinks = Array.from(document.querySelectorAll('.desktop-nav a')).map(a => ({
+      href: a.getAttribute('href'),
+      label: a.textContent.trim()
+    }));
+    return {
+      hasMotionToggle: !!motionBtn,
+      hasTerhubung: !!terhubungBtn,
+      navLinks
+    };
+  });
+  console.log('Header & Nav Data:', navData);
+  if (navData.hasMotionToggle) errors.push('Visible motion toggle button should NOT exist in header');
+  if (navData.hasTerhubung) errors.push('TERHUBUNG pill should NOT exist in header');
+  const expectedHrefs = ['#work', '#milestones', '#about', '#contact'];
+  const actualHrefs = navData.navLinks.map(n => n.href);
+  for (const exp of expectedHrefs) {
+    if (!actualHrefs.includes(exp)) errors.push(`Missing expected nav link: ${exp}`);
+  }
+
+  // D. Obsolete Technology Spotlight Check
+  const techSectionExists = await page.evaluate(() => !!document.querySelector('#technology'));
+  console.log(`Technology section exists: ${techSectionExists}`);
+  if (techSectionExists) errors.push('#technology section should be removed');
+
+  // E. Founder Section Check
+  const aboutData = await page.evaluate(() => {
+    const h2 = document.querySelector('#about h2')?.textContent?.trim();
+    const sub = document.querySelector('#about .about-v4-subtitle')?.textContent?.trim();
+    const pCount = document.querySelectorAll('#about .about-v4-paragraph').length;
+    const p1 = document.querySelectorAll('#about .about-v4-paragraph')[0]?.textContent?.trim() || '';
+    const p2 = document.querySelectorAll('#about .about-v4-paragraph')[1]?.textContent?.trim() || '';
+    const p3 = document.querySelectorAll('#about .about-v4-paragraph')[2]?.textContent?.trim() || '';
+    return { h2, sub, pCount, p1: p1.substring(0, 30), p2: p2.substring(0, 30), p3: p3.substring(0, 30) };
+  });
+  console.log('About / Founder Data:', aboutData);
+  if (aboutData.h2 !== 'Berangkat dari Lapangan.') errors.push(`About heading mismatch: got "${aboutData.h2}"`);
+  if (!aboutData.sub.includes('Property Developer')) errors.push(`About subtitle mismatch: got "${aboutData.sub}"`);
+  if (aboutData.pCount !== 3) errors.push(`About paragraph count mismatch: expected 3, got ${aboutData.pCount}`);
+
+  // F. Milestones Check
+  const milestoneYears = await page.evaluate(() => {
+    return Array.from(document.querySelectorAll('#milestones .milestone-v4-year')).map(el => el.textContent.trim());
+  });
+  console.log('Milestone Years:', milestoneYears);
+  const expectedYears = ['2016', '2019', '2022', '2025', '2026'];
+  if (JSON.stringify(milestoneYears) !== JSON.stringify(expectedYears)) {
+    errors.push(`Milestone years mismatch: got ${JSON.stringify(milestoneYears)}, expected ${JSON.stringify(expectedYears)}`);
+  }
+
+  // G. Ventures Check
+  const venturesCount = await page.evaluate(() => {
+    return document.querySelectorAll('#work .project-card').length;
+  });
+  console.log(`Ventures count: ${venturesCount}`);
+  if (venturesCount !== 6) errors.push(`Expected 6 venture cards, got ${venturesCount}`);
+
+  // H. Dialog Open/Close
   console.log('Testing card dialog interaction...');
   const firstCard = page.locator('.project-card button.project-open').first();
   await firstCard.click();
@@ -177,16 +243,6 @@ async function runDistQA() {
   if (!isDialogOpen) errors.push('Project dialog failed to open on card click');
   await page.keyboard.press('Escape');
   await page.waitForTimeout(300);
-
-  // D. Motion Toggle
-  console.log('Testing motion toggle...');
-  const motionBtn = page.locator('.motion-toggle').first();
-  await motionBtn.click();
-  await page.waitForTimeout(200);
-  const motionVal = await page.evaluate(() => document.documentElement.dataset.motion);
-  console.log(`Motion toggle state: data-motion="${motionVal}"`);
-  if (motionVal !== 'off') errors.push('Motion toggle failed to switch to off');
-  await motionBtn.click(); // toggle back
 
   await page.close();
 

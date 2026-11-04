@@ -72,6 +72,9 @@ copyDirToDist('Asset/img/initiatives', path.join(distDir, 'Asset/img/initiatives
 // C. Active brand SVGs
 copyDirToDist('Asset/svg/brand', path.join(distDir, 'Asset/svg/brand'));
 
+// D. Active venture HD maquette images
+copyDirToDist('Asset/img/ventures', path.join(distDir, 'Asset/img/ventures'));
+
 // 6. Copy root configuration files for Cloudflare Pages, SEO, and domain
 copyFileToDist('_headers', '_headers');
 copyFileToDist('robots.txt', 'robots.txt');

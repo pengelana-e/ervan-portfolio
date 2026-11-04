@@ -1,6 +1,6 @@
 /**
  * Ervan Erianto — Personal Brand & Portfolio Profile
- * V4 Clean Editorial Refinement
+ * Final Content & Editorial Implementation
  */
 
 export const profile = {
@@ -17,80 +17,57 @@ export const profile = {
   portrait: "./Asset/img/ervan-portrait.png",
   portraitAlt: "Ervan Erianto — Real Estate Developer since 2016, Founder, Author, Applied AI",
 
-  // 2. Selected Work Section Heading
+  // 2. Ventures & Fields of Work Section Heading
   portfolioHeading: {
-    headline: "SELECTED WORK & VENTURES",
-    subtitle: "Six core initiatives across property development, construction, intellectual works, and applied AI."
+    eyebrow: "PROFESSIONAL PORTFOLIO",
+    headline: "VENTURES & FIELDS OF WORK",
+    subtitle: "Six areas of work across property, construction, commercial operations, publishing, education, and technology."
   },
 
-  // 3. Compact Editorial Milestones (Verified Dates Only)
+  // 3. Milestones Section Heading & Exact Timeline
   milestonesHeading: {
-    headline: "SELECTED MILESTONES",
-    subtitle: "A decade of empirical practice and building."
+    eyebrow: "PROFESSIONAL JOURNEY",
+    headline: "Milestones",
+    subtitle: "Perjalanan profesional saya berkembang mengikuti proyek yang dikerjakan, pengalaman yang diperoleh, dan kebutuhan baru yang muncul di sepanjang jalan."
   },
   milestones: [
     {
       year: "2016",
-      title: "Professional Real Estate Practice",
-      desc: "Mengawali praktik pengembangan lahan dan perizinan properti di Jawa Timur."
+      text: "Memulai perjalanan sebagai developer properti melalui penjualan kavling."
     },
     {
       year: "2019",
-      title: "Residential Development & Dirham Land",
-      desc: "Ekspansi perumahan tapak terencana dan kemitraan lahan mandiri."
+      text: "Mulai mengembangkan proyek perumahan di beberapa kota."
     },
     {
-      year: "2021",
-      title: "Arkavena Project Control",
-      desc: "Mendirikan bisnis konstruksi dengan tata kelola biaya, mutu, dan pengawasan progres."
+      year: "2022",
+      text: "Membangun perusahaan konstruksi untuk memperkuat pelaksanaan proyek di lapangan."
     },
     {
-      year: "2024",
-      title: "Real Estate Rewired & Ecosystem",
-      desc: "Peluncuran resmi buku 'Real Estate Rewired' dan inisiatif edukasi praktisi."
+      year: "2025",
+      text: "Menerbitkan <em>Real Estate Rewired</em>, buku yang lahir dari pengalaman jatuh bangun di dunia pengembangan properti."
     },
     {
-      year: "2025–2026",
-      title: "Applied AI Systems",
-      desc: "Pengembangan sistem intelijen regulasi pertanahan PRAKARA OS dan intelligent workflows."
+      year: "2026",
+      text: "Mulai berfokus pada penerapan AI untuk membangun sistem kerja yang lebih terstruktur dan mendukung kebutuhan bisnis."
     }
   ],
 
-  // 4. About / How I Think (Editorial Statement)
+  // 4. Final Founder / Profile Section
   about: {
-    headline: "NOT JUST WHAT I BUILD. HOW I THINK.",
-    statement: "Pengalaman lapangan mengajarkan saya untuk menguji asumsi, mengelola risiko, dan membangun proses yang bisa dijalankan.",
-    principles: [
-      {
-        num: "01",
-        title: "VALIDATE FIRST",
-        desc: "Keputusan dimulai dari fakta dan kelayakan."
-      },
-      {
-        num: "02",
-        title: "CONTROL EXECUTION",
-        desc: "Biaya, progres, risiko, dan mutu harus terkendali."
-      },
-      {
-        num: "03",
-        title: "MAKE IT REPEATABLE",
-        desc: "Pengalaman terbaik diubah menjadi sistem."
-      }
+    eyebrow: "ABOUT / PROFESSIONAL BACKGROUND",
+    heading: "Berangkat dari Lapangan.",
+    subtitle: "Property Developer · Author · Business Systems",
+    paragraphs: [
+      "Saya memulai perjalanan sebagai developer properti pada 2016 melalui penjualan kavling. Seiring waktu, pekerjaan saya berkembang ke proyek perumahan di beberapa kota. Dari pengalaman tersebut, saya belajar bahwa keberhasilan proyek sangat bergantung pada keputusan yang dibuat sejak awal, mulai dari memilih lahan, menghitung biaya, hingga mengelola pelaksanaannya.",
+      "Pada 2022, saya membangun perusahaan konstruksi untuk memperkuat eksekusi di lapangan. Berbagai pengalaman, termasuk kesalahan dan tantangan yang pernah saya hadapi, kemudian menjadi bahan penulisan buku <em>Real Estate Rewired</em> yang terbit pada 2025.",
+      "Saat ini saya juga berfokus pada penerapan AI dan pengembangan sistem kerja untuk kebutuhan bisnis. Saya tertarik pada teknologi yang benar-benar membantu pekerjaan sehari-hari, membuat informasi lebih tertata, proses lebih efisien, dan keputusan lebih jelas."
     ]
   },
 
-  // 5. Technology Spotlight (Single Focused Feature)
-  technology: {
-    eyebrow: "TECHNOLOGY SPOTLIGHT",
-    title: "PRAKARA OS",
-    subtitle: "Private Legal Intelligence",
-    description: "Sistem privat untuk membantu pengorganisasian dokumen, fakta, bukti, dan analisis perkara kompleks.",
-    supportingLine: "Other explorations: E.C.H.O · REWIRED Intelligence · AI-powered workflows.",
-    image: "./Asset/img/initiatives/prakara-os.svg"
-  },
-
-  // 6. Contact & Closing Statement
+  // 5. Contact & Closing Statement
   contact: {
+    eyebrow: "CONNECT / GET IN TOUCH",
     headline: "GOOD IDEAS NEED GOOD EXECUTION.",
     intro: "Terbuka untuk diskusi strategis seputar pengembangan proyek properti, project control konstruksi, program edukasi developer, dan penerapan teknologi AI.",
     cta: "TERHUBUNG DI LINKEDIN",
@@ -98,7 +75,7 @@ export const profile = {
     location: "Surabaya, Indonesia"
   },
 
-  // 7. Footer
+  // 6. Footer
   footer: {
     wordmark: "ERVAN ERIANTO",
     tagline: "Real Estate Developer since 2016 · Founder · Author · Applied AI",
